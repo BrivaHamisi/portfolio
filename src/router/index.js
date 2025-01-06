@@ -24,7 +24,7 @@ const routes = [
     name: 'home',
     component: HomeView,
     meta: generateMetadata('home')
-  },
+  },``
 ]
 
 const router = createRouter({
