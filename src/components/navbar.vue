@@ -59,7 +59,7 @@ const isOpen = ref(false)
 
 // Create refs for each section in the HomeView component
 const menuItems = ref([
-  { name: 'My Resume', ref: 'home' },
+  { name: 'Home', ref: 'home' },
   { name: 'About', ref: 'about' },
   { name: 'Skills', ref: 'skills' },
   { name: 'Latest Work', ref: 'latestWork' },
