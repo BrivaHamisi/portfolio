@@ -57,7 +57,7 @@ import { ref } from 'vue'
 
 const isOpen = ref(false)
 
-// Create refs for each section in the HomeView component yree
+// Create refs for each section in the HomeView component 
 const menuItems = ref([
   { name: 'Home', ref: 'home' },
   { name: 'About', ref: 'about' },
