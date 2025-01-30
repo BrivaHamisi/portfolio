@@ -59,7 +59,7 @@ const skills = ref([
   { name: 'Node.js', percentage: 80 },
   { name: 'PHP', percentage: 75 },
   { name: 'Kotlin', percentage: 75 },
-  { name: 'Fluuter', percentage: 80 },
+  { name: 'Flutter', percentage: 80 },
   { name: 'Adobe Photoshop', percentage: 94 },
   { name: 'Adobe Illustrator', percentage: 90 },
   { name: 'Adobe InDesign', percentage: 80 },
