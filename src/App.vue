@@ -1,11 +1,3 @@
-<!-- <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <Navbar />
-    <div class="pt-16">
-      <router-view/>
-    </div>
-  </div>
-</template> -->
 <template>
   <div class="min-h-screen bg-gray-900 text-white">
     <navbar />

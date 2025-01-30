@@ -29,8 +29,8 @@
   
   const stats = ref([
     { value: '5+', label: 'Design Experience' },
-    { value: '60+', label: 'Clients Served' },
-    { value: '34+', label: 'Completed Projects' },
+    { value: '70+', label: 'Clients Served' },
+    { value: '40+', label: 'Completed Projects' },
     { value: '7', label: 'Achievements' },
   ]);
   </script>
