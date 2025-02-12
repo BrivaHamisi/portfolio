@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <!-- Faded horizontal line -->
     <div class="max-w-6xl mx-auto px-4">
       <hr class="border-t border-gray-700 my-8 opacity-90" />
