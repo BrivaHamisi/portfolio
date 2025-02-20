@@ -91,9 +91,9 @@ const experiences = ref([
 const education = ref([
   {
     period: "2024 - Now",
-    degree: "Certificate in Software Development - Scholarship",
-    institution: "Power Learn project",
-    description: "This course is meant to train young people from Africa, starting at a point of little experience to fairly skilled software developers ready to get into the market place and jump on the next phase of their learning at an advanced levels."
+    degree: "Certificate in Apologetics",
+    institution: "St. Paul's University & Apologetics Kenya",
+    description: "The Certificate in Apologetics is a groundbreaking 4-month curriculum that seeks to raise 21st century Christian apologists for the African continent and the world."
   },
   {
     period: "2022 - 2022",
