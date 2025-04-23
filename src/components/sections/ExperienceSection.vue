@@ -81,12 +81,6 @@ const experiences = ref([
     description: "Responsible for managing and improving an organization’s internal and external communication. Their role involves crafting messages, maintaining the organization's brand, and ensuring effective engagement with various audience"
   },
   {
-    period: "2024 - Now",
-    title: "Software Developer",
-    company: "SiteCliq LLC - Nigeria",
-    description: "Responsible for designing, building, testing, and maintaining software applications."
-  },
-  {
     period: "2022 - 2024",
     title: "STEM IT",
     company: "FOCUS Kenya",
