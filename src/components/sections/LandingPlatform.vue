@@ -21,7 +21,7 @@
           <span ref="typewriter"></span>
         </div>
         <p class="text-base text-gray-300 max-w-2xl mb-8">
-          I am a Software Engineer, Fullstack Developer, Mobile Apps Developer, Graphic Designer, Video Editor, and Photographer. My passion lies in creating impactful digital experiences across various platforms, combining technical expertise and creativity. Whether it’s building scalable web solutions, designing intuitive mobile apps, or crafting stunning visuals, I bring a comprehensive approach to every project. Let's collaborate and bring your ideas to life! ✨
+          I am a Software Engineer, Fullstack Developer, Mobile Apps Developer, Creative Graphic Designer, UI/UX Designer, Video Editor, and Photographer. My passion lies in creating impactful digital experiences across various platforms, combining technical expertise and creativity. Whether it’s building scalable web solutions, designing intuitive mobile apps, or crafting stunning visuals, I bring a comprehensive approach to every project. Let's collaborate and bring your ideas to life! ✨
         </p>
         <button 
           class="px-6 py-3 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition duration-300"
