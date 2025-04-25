@@ -3,17 +3,20 @@
     <navbar />
     <div class="pt-32">
       <router-view></router-view>
+        <Analytics />
     </div>
   </div>
 </template>
 
 <script>
 import navbar from './components/navbar.vue';
+import { Analytics } from "@vercel/analytics/react"
 
 export default {
   name: 'App',
   components: {
-    navbar
+    navbar,
+    Analytics
   }
 }
 </script>
