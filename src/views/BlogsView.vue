@@ -12,7 +12,7 @@
                          class="relative overflow-hidden rounded-lg cursor-pointer block shadow-xl flex flex-col h-[32rem] sm:h-[36rem]">
               <img :src="featuredBlog.image" :alt="featuredBlog.title"
                    class="w-full h-56 sm:h-64 object-cover">
-              <div class="flex-1 bg-black bg-opacity-70 flex flex-col justify-between p-6 sm:p-8">
+              <div class="flex-1 flex flex-col justify-between p-6 sm:p-8">
                 <div>
                   <h3 class="text-2xl sm:text-3xl font-semibold text-white mb-3 line-clamp-2">{{ featuredBlog.title }}</h3>
                   <p class="text-sm sm:text-base text-gray-300 mb-3 line-clamp-3">{{ featuredBlog.excerpt }}</p>
@@ -37,7 +37,7 @@
                            class="relative overflow-hidden rounded-lg cursor-pointer block shadow-lg flex flex-col h-[28rem] sm:h-[30rem]">
                 <img :src="blog.image" :alt="blog.title"
                      class="w-full h-48 sm:h-56 object-cover">
-                <div class="flex-1 bg-black bg-opacity-70 flex flex-col justify-between p-4 sm:p-6">
+                <div class=" flex flex-col justify-between p-4 sm:p-6">
                   <div>
                     <h3 class="text-lg sm:text-xl font-semibold text-white mb-2 line-clamp-2">{{ blog.title }}</h3>
                     <p class="text-xs sm:text-sm text-gray-300 mb-2 line-clamp-3">{{ blog.excerpt }}</p>
