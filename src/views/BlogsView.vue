@@ -58,6 +58,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import { Analytics } from "@vercel/analytics/react"
 import { blogs } from '../data/blogs'
 import Footer from '../components/Footer.vue'
 

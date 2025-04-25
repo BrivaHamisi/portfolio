@@ -30,6 +30,7 @@ import ContactUs from '../components/sections/ContactUs.vue'
 import ExperienceStats from '@/components/sections/ExperienceStats.vue';
 import Footer from '../components/Footer.vue';
 import Testimonial from '@/components/sections/Testimonial.vue';
+import { Analytics } from "@vercel/analytics/react"
 
 export default {
   name: 'HomeView',
