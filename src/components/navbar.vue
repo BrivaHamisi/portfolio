@@ -11,7 +11,7 @@
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-4">
             <a v-for="item in menuItems" :key="item.name"
-               @click="scrollToSection(item.ref)"
+               @click="navigateTo(item)"
                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                :class="{ 'bg-gray-700 text-white': item.current }"
             >
@@ -41,7 +41,7 @@
     <div v-show="isOpen" class="md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <a v-for="item in menuItems" :key="item.name"
-           @click="scrollToSection(item.ref)"
+           @click="navigateTo(item)"
            class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
            :class="{ 'bg-gray-700 text-white': item.current }"
         >
@@ -54,33 +54,38 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const isOpen = ref(false)
 
-// Create refs for each section in the HomeView component 
+// Create refs for each section in the HomeView component, including Blogs
 const menuItems = ref([
-  { name: 'Home', ref: 'home' },
-  { name: 'About', ref: 'about' },
-  { name: 'Skills', ref: 'skills' },
-  { name: 'Latest Work', ref: 'latestWork' },
-  { name: 'Contact', ref: 'contact' }
+  { name: 'Home', ref: 'home', route: '/' },
+  { name: 'About', ref: 'about', route: '/#about' },
+  { name: 'Skills', ref: 'skills', route: '/#skills' },
+  { name: 'Latest Work', ref: 'latestWork', route: '/#latestWork' },
+  { name: 'Blogs', ref: 'blogs', route: '/blogs' }, // Added Blogs item
+  { name: 'Contact', ref: 'contact', route: '/#contact' }
 ])
 
-const scrollToSection = (sectionRef) => {
-  const sectionElement = document.getElementById(sectionRef)
-  const marginTop = 32;  // 32px margin
+const navigateTo = (item) => {
+  // Navigate using Vue Router
+  router.push(item.route).then(() => {
+    // If not Blogs, scroll to the section
+    if (item.ref !== 'blogs') {
+      const sectionElement = document.getElementById(item.ref)
+      const marginTop = 32 // 32px margin
 
-  if (sectionElement) {
-    // Get the section's position and subtract the marginTop
-    const sectionPosition = sectionElement.getBoundingClientRect().top + window.pageYOffset - marginTop;
-
-    // Smoothly scroll to the adjusted position
-    window.scrollTo({
-      top: sectionPosition,
-      behavior: 'smooth'
-    })
-
-    isOpen.value = false;
-  }
+      if (sectionElement) {
+        const sectionPosition = sectionElement.getBoundingClientRect().top + window.pageYOffset - marginTop
+        window.scrollTo({
+          top: sectionPosition,
+          behavior: 'smooth'
+        })
+      }
+    }
+    isOpen.value = false
+  })
 }
 </script>
