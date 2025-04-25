@@ -3,20 +3,36 @@
     <navbar />
     <div class="pt-32">
       <router-view></router-view>
-        <Analytics />
     </div>
   </div>
 </template>
 
-<script>
+<!-- <script>
 import navbar from './components/navbar.vue';
-import { Analytics } from "@vercel/analytics/react"
 
 export default {
   name: 'App',
   components: {
-    navbar,
-    Analytics
+    navbar
+  }
+}
+
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments) };
+
+</script> -->
+
+<script>
+import navbar from './components/navbar.vue';
+
+export default {
+  name: 'App',
+  components: {
+    navbar
+  },
+  mounted() {
+    window.va = window.va || function () {
+      (window.vaq = window.vaq || []).push(arguments);
+    };
   }
 }
 </script>
