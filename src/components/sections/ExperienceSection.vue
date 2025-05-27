@@ -69,16 +69,22 @@ const experiences = ref([
     description: "A digital agency focused on Web, Creative Graphic Design, Android App Development, Branding and UI/UX Design. Succesfully Designs various creatives and Supports wide range of Customers"
   },
   {
-    period: "2024 - Now",
+    period: "May 2025 - Now",
+    title: "Webmaster",
+    company: "Daystar University",
+    description: "Responsible for managing and maintaining the university's website to ensure it functions effectively, aligns with the institution's goals, and provides a good user experience"
+  },
+  {
+    period: "Nov 2024 - Now",
+    title: "Communications Officer",
+    company: "Resilient Woman of Africa",
+    description: "Responsible for managing and improving an organization’s internal and external communication. My role involves crafting messages, maintaining the organization's brand, and ensuring effective engagement with various audience"
+  },
+  {
+    period: "Aug 2024 - May 2025",
     title: "Backend Software Engineer",
     company: "Stanbest Group (EA) Limited",
     description: "Integrating POS (Point of Sale) systems with eTIMS(Electronic Tax Invoice Management Systems) Creating RESTFUL APIs"
-  },
-  {
-    period: "2024 - Now",
-    title: "Communications Officer",
-    company: "Resilient Woman of Africa",
-    description: "Responsible for managing and improving an organization’s internal and external communication. Their role involves crafting messages, maintaining the organization's brand, and ensuring effective engagement with various audience"
   },
   {
     period: "2022 - 2024",
