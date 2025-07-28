@@ -141,7 +141,7 @@ const displayedEducation = computed(() =>
 const toggleLoadMore = () => {
   isShowingAll.value = !isShowingAll.value
   if (!isShowingAll.value) {
-    itemsToShow.value = 3 // Reset to initial value when loading less
+    itemsToShow.value = 3 
   }
 }
 </script>
