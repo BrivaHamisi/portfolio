@@ -5,7 +5,7 @@
           <!-- Years of Experience Section -->
           <div class="md:w-1/3 flex items-center justify-center h-full">
             <div class="text-center">
-              <p class="text-5xl md:text-6xl font-bold text-orange-500">4+</p>
+              <p class="text-5xl md:text-6xl font-bold text-orange-500">5+</p>
               <p class="text-xl text-gray-300 mt-2">Years Experience</p>
             </div>
           </div>
@@ -28,7 +28,7 @@
   import { ref } from 'vue';
   
   const stats = ref([
-    { value: '5+', label: 'Design Experience' },
+    { value: '6+', label: 'Design Experience' },
     { value: '70+', label: 'Clients Served' },
     { value: '40+', label: 'Completed Projects' },
     { value: '7', label: 'Achievements' },
