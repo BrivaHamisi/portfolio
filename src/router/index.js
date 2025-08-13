@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import BlogsView from '../views/BlogsView.vue'
-import BlogDetail from '../views/BlogDetail.vue'
 
 const routes = [
   {
@@ -10,13 +8,6 @@ const routes = [
     component: HomeView,
     meta: generateMetadata('home')
   },
-  {
-    path: '/blogs',
-    name: 'blogs',
-    component: BlogsView,
-    meta: generateMetadata('blogs')
-  },
-  { path: '/blogs/:slug', name: 'BlogDetail', component: BlogDetail }
 ]
 
 const router = createRouter({

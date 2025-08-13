@@ -65,27 +65,7 @@ const menuItems = ref([
   { name: 'About', ref: 'about', route: '/#about' },
   { name: 'Skills', ref: 'skills', route: '/#skills' },
   { name: 'Latest Work', ref: 'latestWork', route: '/#latestWork' },
-  { name: 'Blogs', ref: 'blogs', route: '/blogs' }, // Added Blogs item
   { name: 'Contact', ref: 'contact', route: '/#contact' }
 ])
 
-const navigateTo = (item) => {
-  // Navigate using Vue Router
-  router.push(item.route).then(() => {
-    // If not Blogs, scroll to the section
-    if (item.ref !== 'blogs') {
-      const sectionElement = document.getElementById(item.ref)
-      const marginTop = 32 // 32px margin
-
-      if (sectionElement) {
-        const sectionPosition = sectionElement.getBoundingClientRect().top + window.pageYOffset - marginTop
-        window.scrollTo({
-          top: sectionPosition,
-          behavior: 'smooth'
-        })
-      }
-    }
-    isOpen.value = false
-  })
-}
 </script>
