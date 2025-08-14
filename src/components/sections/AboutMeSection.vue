@@ -68,8 +68,8 @@ const skills = ref([
   { name: 'Python', percentage: 70 },
   { name: 'SQL', percentage: 85 },
   { name: 'Bootstrap', percentage: 80 },
-  { name: 'Tailwind Css', percentage: 75 },
-  { name: 'WordPress', percentage: 70 },
+  { name: 'Tailwind Css', percentage: 90 },
+  { name: 'WordPress', percentage: 90 },
   { name: 'Java', percentage: 65 },
 ])
 
