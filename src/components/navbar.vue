@@ -59,7 +59,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const isOpen = ref(false)
 
-// Create refs for each section in the HomeView component, including Blogs
+// Menu items
 const menuItems = ref([
   { name: 'Home', ref: 'home', route: '/' },
   { name: 'About', ref: 'about', route: '/#about' },
@@ -68,4 +68,33 @@ const menuItems = ref([
   { name: 'Contact', ref: 'contact', route: '/#contact' }
 ])
 
+// Navigation function
+const navigateTo = (item) => {
+  // Close mobile menu if open
+  isOpen.value = false
+
+  // Check if the route contains a hash (e.g., '/#about')
+  if (item.route.includes('#')) {
+    const [path, hash] = item.route.split('#')
+    
+    // If already on the correct page, scroll to the section
+    if (router.currentRoute.value.path === path || (path === '/' && router.currentRoute.value.path === '/')) {
+      const element = document.getElementById(hash)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // Navigate to the route and then scroll to the section
+      router.push(item.route).then(() => {
+        const element = document.getElementById(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      })
+    }
+  } else {
+    // Direct route navigation without hash
+    router.push(item.route)
+  }
+}
 </script>

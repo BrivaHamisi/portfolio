@@ -102,25 +102,25 @@ const experiences = ref([
 
 const education = ref([
   {
-    period: "2024 - Now",
+    period: "Feb 2025 - June 2025",
     degree: "Certificate in Apologetics",
     institution: "St. Paul's University & Apologetics Kenya",
     description: "The Certificate in Apologetics is a groundbreaking 4-month curriculum that seeks to raise 21st century Christian apologists for the African continent and the world."
   },
   {
-    period: "2022 - 2022",
+    period: "June 2022 - November 2022",
     degree: "Android Development",
     institution: "Google Africa Developers Programme",
     description: "It is an initiative by Google aimed at supporting and empowering developers in Africa. It focuses on providing resources, training, and opportunities to developers to help them build high-quality applications, grow their careers, and contribute to the African tech ecosystem."
   },
   {
-    period: "2018 - 2022",
+    period: "September 2018 - December 2022",
     degree: "Bachelor of Science in Computer Science",
     institution: "Kenyatta University, Nairobi",
     description: "Comprehensive study of computer science fundamentals, including data structures, algorithms, software engineering principles, and database management systems."
   },
   {
-    period: "2018 - 2018",
+    period: "Jan 2018 - April 2018",
     degree: "Certificate of Computer Fundamentals",
     institution: "P.C.E.A College, Molo",
     description: "The Certificate of Computer Fundamentals Programme is a full-time course that requires learners to commit to atleast 3 hours of learning per week to successfully complete the coursework. The Programme prepares learner with the sought after professional skills for today's digital workforce."
