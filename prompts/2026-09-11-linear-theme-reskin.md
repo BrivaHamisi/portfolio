@@ -28,3 +28,12 @@ Every component file in `src/` is touched by this reskin. That's expected for a 
 - `src/components/sections/AboutMeSection.vue`
 - `src/components/sections/whatIdo.vue`
 - `src/components/sections/ExperienceStats.vue`
+- `src/components/sections/ExperienceSection.vue`
+- `src/components/sections/latestWork.vue`
+- `src/components/sections/Testimonial.vue`
+- `src/components/sections/ContactUs.vue`
+
+## Approach
+
+### 1. Foundation (`tailwind.config.js`, `index.html`, `App.vue`)
+
