@@ -56,3 +56,13 @@ import { ref, computed } from 'vue'
 
 const skills = ref([
   { name: 'Laravel', percentage: 90 },
+  { name: 'Adobe Illustrator', percentage: 90 },
+  { name: 'Adobe Photoshop', percentage: 94 },
+  { name: 'Adobe InDesign', percentage: 90 },
+  { name: 'Adobe Premiere Pro', percentage: 80 },
+  { name: 'Tailwind Css', percentage: 90 },
+  { name: 'JavaScript', percentage: 70 },
+  { name: 'Vue.js', percentage: 85 },
+  { name: 'Node.js', percentage: 80 },
+  { name: 'Python', percentage: 70 },
+  { name: 'PHP', percentage: 80 },
