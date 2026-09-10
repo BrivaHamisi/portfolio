@@ -83,3 +83,13 @@ body {
   pointer-events: none;
 }
 .btn-flashlight:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible,
+  .hero-in,
+  .hero-in.is-visible {
+    opacity: 1;
+    transform: none;
