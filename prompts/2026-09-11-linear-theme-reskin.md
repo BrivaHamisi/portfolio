@@ -18,3 +18,13 @@ The three token dumps you pasted (Markdown style guide, CSS custom properties, D
 Every component file in `src/` is touched by this reskin. That's expected for a full re-theme.
 
 ## Files touched
+
+- `tailwind.config.js` — add all Linear tokens
+- `public/index.html` — swap in Inter Variable font link, update `theme-color` to `#08090a`
+- `src/App.vue` — global font-family, body background
+- `src/components/navbar.vue`
+- `src/components/Footer.vue`
+- `src/components/sections/LandingPlatform.vue`
+- `src/components/sections/AboutMeSection.vue`
+- `src/components/sections/whatIdo.vue`
+- `src/components/sections/ExperienceStats.vue`
