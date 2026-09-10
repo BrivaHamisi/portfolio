@@ -125,3 +125,21 @@ All available as Tailwind color classes (`bg-void`, `text-fog`, `border-graphite
   - `rounded-md` (6px) — buttons, inputs
   - `rounded-xl` (12px) — cards, modal panels, image frames
   - `rounded-full` — pills, circular icon buttons
+  - Never use `rounded-lg` (8px) or `rounded-2xl`+ — they're outside this system's vocabulary.
+
+## Shadows
+
+Custom `boxShadow` tokens in `tailwind.config.js`: `shadow-sm` (soft drop shadow), `shadow-card` (the hairline inset-border trick — this is how cards get their edge, *not* a drop shadow), `shadow-cta` (subtle inset stack, available for a primary button if it needs more presence), `shadow-xl` (rare, large soft shadow). Prefer a plain `border border-graphite` for most card/panel separation — that's what most components already do, and it's more true to the "hairline over shadow" spirit of this system than reaching for `shadow-card` by default.
+
+## Component patterns already established — copy these, don't reinvent
+
+- **Primary action button** (the one lime element per section): `bg-acid-lime text-void font-[510] text-caption rounded-md px-4 py-2.5 hover:brightness-95 transition`. Examples: "Download CV" (`ExperienceSection.vue`), "Chat me" (`ContactUs.vue`), "My Resume" (`LandingPlatform.vue`).
+- **Ghost/outline button** (secondary action): `border border-graphite text-mist text-caption rounded-md px-3 py-2 hover:border-smoke transition`. Example: "Load More" (`AboutMeSection.vue`, `ExperienceSection.vue`).
+- **Nav text link**: `text-mist hover:underline text-caption`, active state `text-acid-lime`. See `navbar.vue`.
+- **Nav pill CTA** (white, high-contrast): `bg-paper text-void rounded-full px-4 py-2 text-caption font-[510] hover:brightness-95`. See `navbar.vue`'s "Let's Talk" link.
+- **Card / panel**: `bg-carbon border border-graphite rounded-xl` (+ padding as needed). Used for the About card, work grid thumbnails, modal panel, testimonial cards, contact card.
+- **Subtle inline card** (lighter weight, e.g. a service tile or stat tile): `bg-white/[0.02] border border-graphite rounded-md p-4`.
+- **Icon-only circular button** (modal close/prev/next): `bg-white/5 border border-graphite rounded-full p-3 hover:bg-white/10 transition-colors` — the `p-3` is load-bearing for the 44px touch-target minimum, don't shrink it back to `p-2`.
+
+## Do's and Don'ts (carried from the source system)
+
