@@ -145,3 +145,18 @@ const shouldLoadImage = (index) => {
   return index === currentImageIndex.value || index === next || index === prev
 }
 
+const handleKeydown = (event) => {
+  if (event.key === 'Escape') {
+    emit('close')
+  }
+}
+
+const trapFocus = (event) => {
+  if (!modalPanel.value) return
+  const focusable = modalPanel.value.querySelectorAll(
+    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )
+  if (focusable.length === 0) return
+  const first = focusable[0]
+  const last = focusable[focusable.length - 1]
+
