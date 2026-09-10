@@ -55,3 +55,13 @@ export default {
         window.scrollTo({
           top: sectionPosition,
           behavior: 'smooth',
+        });
+      }
+    };
+
+    onMounted(() => {
+      new Typewriter(typewriter.value, {
+        strings: ['a Software Engineer', 'a UI/UX Designer', 'a Creative Graphics Designer', 'a Video Editor', 'a Photographer'],
+        autoStart: true,
+        loop: true,
+      });
