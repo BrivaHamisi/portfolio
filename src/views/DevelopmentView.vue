@@ -57,3 +57,13 @@ const openProject = (project) => {
 const closeModal = () => {
   showModal.value = false
 }
+
+const goBackToPortfolio = () => {
+  router.push('/').then(() => {
+    const el = document.getElementById('latestWork')
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
+  })
+}
+</script>
