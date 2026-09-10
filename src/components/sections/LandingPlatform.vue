@@ -27,3 +27,12 @@
             Get in Touch
           </button>
         </div>
+      </div>
+      <div class="hero-in [transition-delay:80ms] hidden lg:flex w-1/2 justify-center relative" :class="{ 'is-visible': heroVisible }">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(208,214,224,0.08),_transparent_65%)] pointer-events-none"></div>
+        <img src="/images/Banner_Image.png" alt="Briva Hamisi" class="relative w-full h-auto object-contain" />
+      </div>
+    </div>
+  </div>
+</template>
+
