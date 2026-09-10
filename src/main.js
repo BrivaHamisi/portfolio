@@ -3,4 +3,8 @@ import App from './App.vue'
 import router from './router'
 import './index.css'
 
-createApp(App).use(router).mount('#app')
+const prefersReducedMotion = () =>
+  window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
