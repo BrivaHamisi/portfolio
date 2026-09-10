@@ -74,3 +74,13 @@ const flashlightDirective = {
     const handleMove = (event) => {
       const rect = el.getBoundingClientRect()
       const x = ((event.clientX - rect.left) / rect.width) * 100
+      const y = ((event.clientY - rect.top) / rect.height) * 100
+      el.style.setProperty('--mx', `${x}%`)
+      el.style.setProperty('--my', `${y}%`)
+    }
+    el.addEventListener('mousemove', handleMove)
+    el._flashlightHandler = handleMove
+  },
+  unmounted(el) {
+    if (el._flashlightHandler) {
+      el.removeEventListener('mousemove', el._flashlightHandler)
