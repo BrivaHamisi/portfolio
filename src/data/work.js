@@ -64,3 +64,12 @@ export const uiuxProject = {
   title: 'UI/UX Design',
   description: 'Seamlessly blending aesthetics with functionality, our UI/UX design transforms user interactions into intuitive, delightful experiences. From sleek interfaces to effortless navigation, we craft digital journeys that captivate and engage, ensuring every click feels natural and meaningful.',
   images: ['/images/UI_Mockup4.jpg', '/images/UI_Mockup3.jpg', '/images/UI_Mockup2.jpg', '/images/UI_Mockup1.jpg', '/images/bg_main.jpg', '/images/UI_1.png', '/images/UIDesign.jpg', '/images/UIDesign_2.jpg', '/images/UI_Design3.jpg', '/images/MobileUI.jpg'],
+  videoUrl: null,
+  fullDescription: 'I design with a deep understanding that great user experiences go beyond just looks. My UI/UX design blends creative flair with strategic thinking, creating interfaces that are visually striking and easy to navigate. Every detail, from color harmony and typography to layout and micro-interactions, is thoughtfully crafted to enhance user engagement. With a strong focus on user behavior and accessibility, I aim to build digital experiences that feel intuitive, foster connection, and deliver value. Whether its for mobile or web, my designs ensure that each interaction is purposeful and fluid, making technology feel human',
+  client: 'Stanbest Group (EA) Limited, FOCUS Kenya',
+  type: 'User Interface/User Experience Design',
+  year: '2023 – 2024',
+  previewUrl: 'https://www.figma.com/design/CALoyJqgn3oYv2ryML7BFv/Stanbest?node-id=0-1&t=pMobcroRoDNRfkT5-1',
+  quote: "We tend to forget that behind every product, there's a person – a human with dreams, struggles, and emotions. UX design is about connecting the heart of the designer to the heart of the user",
+  quoteAuthor: 'Aarron Walter',
+}
