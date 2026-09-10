@@ -23,3 +23,12 @@
   import { PaintBrushIcon, WrenchScrewdriverIcon, CameraIcon } from '@heroicons/vue/24/outline'
 
   const services = ref([
+    {
+      icon: PaintBrushIcon,
+      title: "Graphic & UI/UX Design",
+      description: "I have done Graphic Design for more than 6 years — creating posters, logos, business cards, brochures, magazines, and flyers — alongside UI/UX design for web and mobile apps, crafting interfaces that are as functional as they are visually compelling."
+    },
+    {
+      icon: WrenchScrewdriverIcon,
+      title: "Development",
+      description: "I am a Full Stack Developer, I develop both web and mobile apps. Check the skills section to find out more on my strengths and abilities."
