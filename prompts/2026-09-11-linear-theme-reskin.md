@@ -57,3 +57,13 @@ Every component file in `src/` is touched by this reskin. That's expected for a 
 ### 3. Hero (`LandingPlatform.vue`)
 
 - Canvas: drop the `bg_main.jpg` parallax photo background and gradient overlay — Linear's hero pattern is a plain void canvas (optionally the "Hero Gradient Floor" dark-to-light wash), not a photographic background. **Decision needed, see below**: keep your portrait/banner image beside the headline (as today, `Banner_Image.png` on the right) or go fully text-only like Linear's actual marketing hero?
+- Headline: "Hi, I'm Briva Hamisi" → `text-heading-lg md:text-display text-paper font-[510]` (already promoted to the page's `<h1>` in the last pass — keeping that).
+- Kicker ("Welcome to my website"): `text-body-sm text-fog`.
+- Typewriter role text: `text-acid-lime` (small, sparing, single accent burst — matches the "active nav indicator" style use case for lime).
+- Body paragraph: `text-body-sm text-fog` (currently `text-gray-300`).
+- "My Resume" button → Primary Action Button spec exactly: `bg-acid-lime text-void rounded-md px-4 py-2.5 font-[510] text-sm` (no more `hover:bg-orange-600`; Linear buttons don't really do color-shift hovers, more of a subtle brightness/opacity change — I'll use `hover:brightness-95`).
+
+### 4. About Me (`AboutMeSection.vue`)
+
+- Section background stays void; wrap the content in a Card (Product Screenshot Frame) style: `bg-carbon rounded-xl shadow-card p-6` replacing the plain `bg-gray-900`.
+- Heading → `text-heading-sm font-[510] text-paper` (drop `font-bold`).
