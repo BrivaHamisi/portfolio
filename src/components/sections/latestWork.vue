@@ -88,3 +88,18 @@
             <router-link to="/work/designs" class="border border-graphite text-mist rounded-md px-4 py-2 text-caption font-[510] hover:border-smoke transition-colors duration-150">
               View More Designs →
             </router-link>
+            <a
+              v-for="link in designLinks"
+              :key="link.label"
+              :href="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 border border-graphite text-mist rounded-md px-4 py-2 text-caption font-[510] hover:border-smoke hover:text-paper transition-colors duration-150"
+            >
+              {{ link.label }}
+              <ArrowTopRightOnSquareIcon class="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Photography -->
