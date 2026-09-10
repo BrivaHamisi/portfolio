@@ -193,3 +193,18 @@ const visibleDesigns = computed(() => designProjects.slice(0, 6))
 const visiblePhotography = computed(() => photographyProjects.slice(0, 6))
 
 const goToProject = (categoryKey, projectId) => {
+  router.push({ path: `/work/${categoryKey}`, query: { project: projectId } })
+}
+
+const showModal = ref(false)
+const selectedProject = ref(null)
+
+const openProject = (project) => {
+  selectedProject.value = project
+  showModal.value = true
+}
+
+const closeModal = () => {
+  showModal.value = false
+}
+</script>
