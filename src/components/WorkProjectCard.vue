@@ -44,3 +44,12 @@
 </template>
 
 <script setup>
+defineProps({
+  image: { type: String, required: true },
+  title: { type: String, required: true },
+  description: { type: String, default: '' },
+  liveUrl: { type: String, default: '' },
+  githubUrl: { type: String, default: '' },
+})
+defineEmits(['click'])
+</script>
