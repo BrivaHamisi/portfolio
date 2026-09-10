@@ -46,3 +46,12 @@ const fillObserver = new IntersectionObserver(
     })
   },
   { threshold: 0.3 }
+)
+
+const fillDirective = {
+  mounted(el, binding) {
+    const targetPercent = binding.value
+    el.dataset.fillTarget = targetPercent
+    if (prefersReducedMotion()) {
+      el.style.width = `${targetPercent}%`
+      return
