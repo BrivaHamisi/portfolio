@@ -17,3 +17,12 @@
                 <p class="text-heading-sm font-[510] text-paper">{{ stat.value }}</p>
                 <p class="text-body-sm text-fog mt-1">{{ stat.label }}</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  <script setup>
+  import { ref } from 'vue';
