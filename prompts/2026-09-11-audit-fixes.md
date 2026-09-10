@@ -7,3 +7,12 @@ Address the code-level findings from the pasted audit report (P1/P2/P3): broken/
 ## Files touched
 
 - `src/components/navbar.vue`
+- `src/components/Footer.vue`
+- `src/components/sections/latestWork.vue`
+- `src/components/sections/LandingPlatform.vue`
+- `src/components/sections/AboutMeSection.vue`
+- `src/components/sections/whatIdo.vue`
+- `src/components/sections/ExperienceSection.vue`
+- `src/components/sections/ExperienceStats.vue`
+- `src/components/sections/Testimonial.vue`
+- `src/components/sections/ContactUs.vue`
