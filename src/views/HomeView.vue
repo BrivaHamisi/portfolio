@@ -32,3 +32,11 @@ import ExperienceStats from '@/components/sections/ExperienceStats.vue';
 import Footer from '../components/Footer.vue';
 import Testimonial from '@/components/sections/Testimonial.vue';
 import QuoteSection from '@/components/sections/QuoteSection.vue';
+
+export default {
+  name: 'HomeView',
+  components: {
+    whatIdo,
+    AboutMeSection,
+    ExperienceSection,
+    latestWork,
