@@ -58,3 +58,13 @@ export const categories = [
   { key: 'photography', label: 'Photography' },
   { key: 'uiux', label: 'UI/UX Design' },
 ]
+
+export const softwareProjects = [ /* today's one Stanbest entry, restructured: title, description, image (sw_1.jpg), liveUrl, client, type, year */ ]
+
+export const designProjects = [
+  {
+    id: 'stancap-branding',
+    title: 'Graphics Design', // today's existing project title/description, unchanged
+    description: '...',
+    coverImage: '/images/mockup_1.jpg',
+    images: ['/images/mockup_1.jpg', '/images/mockup_2.jpg', /* ...mockup_3..7.jpg */],
