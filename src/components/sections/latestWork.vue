@@ -133,3 +133,18 @@
             >
               {{ link.label }}
               <ArrowTopRightOnSquareIcon class="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+
+        <!-- UI/UX Design -->
+        <div v-else-if="activeTab === 'uiux'" role="tabpanel" id="panel-uiux" aria-labelledby="tab-uiux" tabindex="0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <WorkProjectCard
+            v-reveal
+            :image="uiuxProject.images[0]"
+            :title="uiuxProject.title"
+            :description="uiuxProject.description"
+            @click="openProject(uiuxProject)"
+          />
+        </div>
+      </div>
