@@ -108,3 +108,13 @@ Rendered inside the normal `App.vue` chrome (navbar/footer stay, since `router-v
 ## Verification
 
 - `npm run serve`: switch between all 4 tabs, confirm each renders its correct treatment (Software links work and open in new tab; Designs/Photography cards route correctly; UI/UX opens its existing modal).
+- From the homepage Designs tab, click a project card — should land directly in that project's masonry, not the project-card grid.
+- Visit `/work/designs` directly by URL with no query — see the project-card grid; click a card, confirm the URL gains `?project=...` and the masonry shows; click "← Back to Designs", confirm it returns to the grid and the query param clears.
+- Confirm browser back/forward moves correctly between the project grid and a project's masonry.
+- Confirm masonry grid lazy-loads (Network tab: images below the fold shouldn't fetch until scrolled near).
+- `npm run build` to confirm the new routes/components compile clean.
+- Run the `impeccable` detector once over the new/changed files after implementation, same as the last two passes.
+
+## Open item for you, not blocking implementation
+
+Whenever you have an actual photography project (a cover image, title/description, and its own set of photos), send them over and I'll add a `photographyProjects` entry — that's a small data-only follow-up, not another structural change.
