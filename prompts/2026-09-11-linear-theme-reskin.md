@@ -37,3 +37,13 @@ Every component file in `src/` is touched by this reskin. That's expected for a 
 
 ### 1. Foundation (`tailwind.config.js`, `index.html`, `App.vue`)
 
+- `tailwind.config.js` → `theme.extend`:
+  - `colors`: all 16 tokens (`void`, `carbon`, `obsidian`, `graphite`, `smoke`, `ash`, `fog`, `mist`, `bone`, `paper`, `acid-lime` (Tailwind-safe key `'acid-lime'` or `acidlime`), `pulse-green`, `coral-red`, `signal-teal`, `iris-violet`, `lavender`) — one-to-one from the doc.
+  - `fontFamily.sans`: `['Inter Variable', 'Inter', 'ui-sans-serif', 'system-ui', ...]` (Berkeley Mono isn't needed — nothing in this portfolio is code-adjacent UI like issue IDs or shortcuts, so I'm skipping that font entirely rather than importing something unused).
+  - `fontSize`: add named tokens matching the type scale table (`caption`, `body-sm`, `body-lg`, `subheading`, `heading-sm`, `heading`, `heading-lg`, `display`) as `[size, { lineHeight, letterSpacing }]` tuples, so classes like `text-heading-lg` carry the correct tracking automatically instead of hand-writing arbitrary values everywhere.
+  - `boxShadow`: add `card` (Linear's `shadow-subtle`, the hairline inset border trick), `cta` (the acid-lime button's inset shadow stack), and `sm` (Linear's `shadow-sm`) — reused across cards/buttons instead of repeating raw values.
+  - Leave `borderRadius` alone — Tailwind's defaults already match Linear's radius vocabulary (2/4/6/12/9999px).
+- `index.html`: replace the two inert `preconnect` tags' unused purpose by adding the actual stylesheet: `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap">` (variable-range request gets us any weight 300–700, covering Linear's 300/400/510/590 via arbitrary `font-[510]`/`font-[590]` utility classes). Change `theme-color` from the `#111827` I set in the last pass to `#08090a` (void).
+- `App.vue`: `#app` font-family → the new Inter stack; add `bg-void text-mist` as the base canvas/text so every section doesn't need to repeat it.
+
+### 2. Navigation (`navbar.vue`)
