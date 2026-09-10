@@ -34,3 +34,13 @@
 </template>
 
 <script>
+import { defineComponent, computed } from 'vue';
+
+export default defineComponent({
+  name: 'Footer',
+  setup() {
+    const currentYear = computed(() => new Date().getFullYear());
+
+    const socialLinks = [
+      {
+        href: 'https://www.facebook.com/HamisiEsq',
