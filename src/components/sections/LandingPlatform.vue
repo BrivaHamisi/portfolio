@@ -17,3 +17,13 @@
             v-flashlight
             class="px-6 py-3 bg-acid-lime text-void font-[510] text-body-sm rounded-md hover:brightness-95 transition"
             @click="scrollToSection('experience')"
+          >
+            My Resume
+          </button>
+          <button
+            class="px-6 py-3 border border-graphite text-mist font-[510] text-body-sm rounded-md hover:border-smoke transition-colors duration-150"
+            @click="scrollToSection('contact')"
+          >
+            Get in Touch
+          </button>
+        </div>
