@@ -64,3 +64,13 @@ const fillDirective = {
   },
 }
 
+// The design system describes the acid-lime accent as "a functional
+// flashlight — small, high-contrast, used sparingly to signal action."
+// This makes that literal on the primary action buttons: a soft highlight
+// that tracks the cursor across the button surface, like light on a surface.
+const flashlightDirective = {
+  mounted(el) {
+    el.classList.add('btn-flashlight')
+    const handleMove = (event) => {
+      const rect = el.getBoundingClientRect()
+      const x = ((event.clientX - rect.left) / rect.width) * 100
