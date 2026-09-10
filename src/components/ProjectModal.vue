@@ -130,3 +130,18 @@ const props = defineProps({
   show: { type: Boolean, default: false },
   project: { type: Object, default: null },
 })
+const emit = defineEmits(['close'])
+
+const currentImageIndex = ref(0)
+const modalPanel = ref(null)
+const closeButton = ref(null)
+let lastFocusedElement = null
+
+const shouldLoadImage = (index) => {
+  if (!props.project) return false
+  const total = props.project.images.length
+  const next = (currentImageIndex.value + 1) % total
+  const prev = (currentImageIndex.value - 1 + total) % total
+  return index === currentImageIndex.value || index === next || index === prev
+}
+
