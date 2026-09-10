@@ -81,3 +81,12 @@ Everything else below I confirmed by reading the actual line the finding cites.
 3. **C4 experience-years mismatch** — update the About bio's "3 years" to "6+ years" to match `ExperienceStats.vue`, or leave the bio number as-is and just flag the mismatch to you? **Default: update to "6+ years."**
 4. **D2 blue labels in the work modal** — recolor to `text-orange-500`, or a neutral `text-gray-200`? **Default: `text-gray-200`** — orange is already used for the heading right above it, and repeating it on every label reads louder than the current design intends.
 5. **D4 Tailwind color token** — add `brand`/`accent` tokens to `tailwind.config.js`, or leave literal `orange-500` classes as-is? **Default: skip this** (it's a refactor, not a bug fix — only D1–D3's three concrete off-palette values get touched).
+6. **Batch F (images)** — run it now with everything else, or hold it for a separate follow-up prompt after you see the rest land? **Default: run it now**, since it's the single highest-impact item on the whole list (8MB+6.3MB+4.6MB+... of avoidable first-load weight) and is reversible via git.
+
+## Verification
+
+- `npm run serve` and manually check: keyboard-only navigation through the navbar (Tab, Enter) and the work modal (Tab cycles inside it, Escape closes, focus returns to the thumbnail); nav highlight follows scroll position; tel:/mailto: links on mobile width; all touch targets visually ≥44px; heading outline via browser dev tools (one `<h1>`, sensible `<h2>`s).
+- `npm run build` to confirm production build still compiles clean.
+- Visual check of every color change against the dark/orange palette (no visual regressions).
+- If batch F runs: compare `du -sh public/images/*` before/after and spot-check a couple of resized images at 100% zoom for visible quality loss.
+- Review the final git diff (including deleted `graphicsDesign.vue` and the `App.vue` style cleanup) before calling this done.
