@@ -38,3 +38,13 @@ The current grid cards use a dark gradient overlay that fades in on hover to rev
 
 This replaces `latestWork.vue`'s current `bg-black bg-opacity-60 ... opacity-0 md:group-hover:opacity-100` overlay pattern everywhere a project card appears (homepage grid, the two new view-more pages, and their masonry detail view).
 
+## Files touched
+
+- `src/data/work.js` — **new.** Categorized data: `softwareProjects`, `designProjects`, `photographyProjects`, `uiuxProject`.
+- `src/components/sections/latestWork.vue` — rewritten: tab bar + per-tab rendering. Keeps the existing accessible modal (focus trap, Escape, scroll lock from the earlier audit pass) for Software and UI/UX detail views.
+- `src/components/MasonryGrid.vue` — **new**, shared presentational component (CSS column-based masonry, no library) used by both new view-more pages' detail view.
+- `src/views/DesignsView.vue` — **new**, project-card grid + per-project masonry at `/work/designs`.
+- `src/views/PhotographyView.vue` — **new**, same pattern (or empty state) at `/work/photography`.
+- `src/router/index.js` — add the two new routes.
+
+## Approach
