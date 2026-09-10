@@ -160,3 +160,18 @@ const trapFocus = (event) => {
   const first = focusable[0]
   const last = focusable[focusable.length - 1]
 
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault()
+    last.focus()
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault()
+    first.focus()
+  }
+}
+
+const nextImage = () => {
+  if (props.project && !props.project.videoUrl) {
+    currentImageIndex.value = (currentImageIndex.value + 1) % props.project.images.length
+  }
+}
+
