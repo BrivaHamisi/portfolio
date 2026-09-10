@@ -42,3 +42,14 @@
               <div class="font-[510] text-fog relative z-10" style="text-align: left;">{{ edu.period }}</div>
             </div>
             <h4 class="text-body-lg font-[510] text-paper mb-1 text-left mt-2">{{ edu.degree }}</h4>
+            <p class="text-mist mb-1 text-left">{{ edu.institution }}</p>
+            <p class="text-body-sm text-fog text-left">{{ edu.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <button
+        @click="toggleLoadMore"
+        class="border border-graphite text-mist text-caption py-2 px-4 rounded-md mt-8 block mx-auto hover:border-smoke transition"
+      >
+        {{ isShowingAll ? 'Show less' : 'Load more' }}
