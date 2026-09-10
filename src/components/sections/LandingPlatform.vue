@@ -74,3 +74,13 @@ export default {
           heroVisible.value = true;
         });
       });
+    });
+
+    return {
+      typewriter,
+      heroVisible,
+      scrollToSection,
+    };
+  },
+};
+</script>
