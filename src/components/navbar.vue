@@ -99,3 +99,13 @@ const navigateTo = (item, event) => {
       }
     } else {
       // Navigate to the route and then scroll to the section
+      router.push(item.route).then(() => {
+        const element = document.getElementById(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      })
+    }
+  }
+  // No hash: let the real href navigate normally (or Vue Router's link behavior).
+}
