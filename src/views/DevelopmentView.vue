@@ -18,3 +18,13 @@
       </div>
       <div v-if="softwareProjects.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <WorkProjectCard
+          v-for="project in softwareProjects"
+          :key="project.id"
+          v-reveal
+          :image="project.image"
+          :title="project.title"
+          :description="project.description"
+          :live-url="project.liveUrl"
+          @click="openProject(project)"
+        />
+      </div>
