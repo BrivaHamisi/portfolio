@@ -88,3 +88,13 @@ export const uiuxProject = { /* today's UI/UX Design entry, unchanged: client, t
 
 Pure CSS masonry — no new dependency: `columns-2 md:columns-3 lg:columns-4 gap-4` on the container, each item `break-inside-avoid mb-4 rounded-xl overflow-hidden border border-graphite bg-carbon`, `<img loading="lazy" ...>` inside (native lazy loading, same pattern already used elsewhere in this codebase). `v-reveal` per item for a fade-in as the user scrolls the masonry, no stagger (not a fixed-count list).
 
+### 4. `DesignsView.vue` / `PhotographyView.vue`
+
+Two states on one page, driven by a `?project=<id>` query param (read via `useRoute`):
+
+- **No `project` query (or it doesn't match):** "← Back to portfolio" link to `/#latestWork`, a page heading, and a grid of *all* that category's project cards (same redesigned card component as the homepage tab, un-capped). Clicking a card sets the query param (`router.push({ query: { project: id } })`) rather than a fresh navigation, so back/forward works naturally.
+- **`project` query matches an entry:** "← Back to Designs" link (clears the query param), the project's title/description, and `<MasonryGrid :items="project.images" />`.
+- Photography renders the empty state in the no-query case since `photographyProjects` is `[]`.
+
+Rendered inside the normal `App.vue` chrome (navbar/footer stay, since `router-view` already sits inside that layout) — existing nav links to `/#about` etc. already work correctly from a non-home route, since `navigateTo()` in `navbar.vue` already checks `router.currentRoute.value.path` and pushes back to `/` before scrolling when needed. No navbar changes required.
+
