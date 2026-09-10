@@ -107,3 +107,21 @@ All available as Tailwind color classes (`bg-void`, `text-fog`, `border-graphite
 
 | Class | Size | Use |
 |---|---|---|
+| `text-caption` | 13px | Nav links, small buttons, badges |
+| `text-body-sm` | 15px | Default body copy, descriptions |
+| `text-body-lg` | 20px | Subheadings, card titles, emphasis text |
+| `text-subheading` | 24px | Rarely used yet — between body-lg and heading-sm |
+| `text-heading-sm` | 32px | Section headings (`<h2>` on every section) |
+| `text-heading` | 48px | Large stat numbers |
+| `text-heading-lg` | 64px | Hero `<h1>` (mobile/tablet) |
+| `text-display` | 72px | Hero `<h1>` (desktop, `md:` and up) |
+
+## Spacing & Radius
+
+- Spacing: plain Tailwind default scale (4px base unit) — no custom spacing tokens were added; Tailwind's defaults already line up with Linear's 4/8/12/16/24/96 ladder.
+- Radius: plain Tailwind defaults already match Linear's radius vocabulary exactly — don't add custom radius tokens.
+  - `rounded-sm` (2px) — small/tight elements
+  - `rounded` (4px) — badges
+  - `rounded-md` (6px) — buttons, inputs
+  - `rounded-xl` (12px) — cards, modal panels, image frames
+  - `rounded-full` — pills, circular icon buttons
