@@ -28,3 +28,18 @@
             :aria-selected="activeTab === cat.key"
             :tabindex="activeTab === cat.key ? 0 : -1"
             @click="activeTab = cat.key"
+            class="text-mist hover:text-paper transition-colors duration-150 text-caption font-[510] px-1 py-3 border-b-2"
+            :class="activeTab === cat.key ? 'text-acid-lime border-acid-lime' : 'border-transparent'"
+          >
+            {{ cat.label }}
+          </button>
+        </div>
+
+        <!-- Development -->
+        <div v-if="activeTab === 'software'" role="tabpanel" id="panel-software" aria-labelledby="tab-software" tabindex="0">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <WorkProjectCard
+              v-for="(project, index) in visibleSoftware"
+              :key="project.id"
+              v-reveal="Math.min(index, 6)"
+              :image="project.image"
