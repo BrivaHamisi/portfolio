@@ -17,3 +17,12 @@ export const softwareProjects = [
     videoUrl: null,
     fullDescription: 'This project features a sleek, minimalistic website built with Next.js and styled using Tailwind CSS, emphasizing clean aesthetics and user-friendly navigation. The site includes an integrated AI chatbot that enhances user interaction by providing real-time assistance and personalized responses. By leveraging Next.js for dynamic rendering and Tailwind CSS for a responsive layout, the website not only looks modern and inviting but also delivers a seamless and engaging user experience',
     client: 'Stanbest Group (EA) Limited',
+    type: 'Software Development',
+    year: '2024',
+    previewUrl: 'https://github.com/BrivaHamisi',
+    quote: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+    quoteAuthor: 'Martin Fowler',
+  },
+]
+
+export const designProjects = [
