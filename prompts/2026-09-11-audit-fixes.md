@@ -16,3 +16,13 @@ Address the code-level findings from the pasted audit report (P1/P2/P3): broken/
 - `src/components/sections/ExperienceStats.vue`
 - `src/components/sections/Testimonial.vue`
 - `src/components/sections/ContactUs.vue`
+- `src/components/modals/graphicsDesign.vue` (deleted)
+- `src/views/HomeView.vue`
+- `src/router/index.js`
+- `src/App.vue`
+- `public/index.html`
+- `public/apple-touch-icon.png` (new, generated)
+- `tailwind.config.js` (only if D4 below is approved)
+- Largest files in `public/images/*` (only if batch F below is approved)
+
+## Verified against source before writing this prompt
