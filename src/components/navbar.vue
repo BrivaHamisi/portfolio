@@ -79,3 +79,13 @@ const menuItems = ref([
   { name: 'Skills', ref: 'skills', route: '/#skills' },
   { name: 'Latest Work', ref: 'latestWork', route: '/#latestWork' },
   { name: 'Contact', ref: 'contact', route: '/#contact' }
+])
+
+// Navigation function
+const navigateTo = (item, event) => {
+  // Close mobile menu if open
+  isOpen.value = false
+
+  // Check if the route contains a hash (e.g., '/#about')
+  if (item.route.includes('#')) {
+    event.preventDefault()
