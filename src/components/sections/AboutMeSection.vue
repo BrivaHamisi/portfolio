@@ -46,3 +46,13 @@
             {{ showAllSkills ? 'Show Less' : 'Load More' }}
           </button>
         </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue'
+
+const skills = ref([
+  { name: 'Laravel', percentage: 90 },
