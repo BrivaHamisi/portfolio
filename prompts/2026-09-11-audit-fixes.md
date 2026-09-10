@@ -44,3 +44,12 @@ Everything else below I confirmed by reading the actual line the finding cites.
 8. Anchor scroll offset: add `scroll-mt-20` to each section wrapper carrying an id, so the fixed `h-16` navbar stops covering the section heading after a jump/scroll-spy click.
 
 ### B — Dead / broken code
+1. `HomeView.vue`: delete the unused `import { Analytics } from "@vercel/analytics/react"` line — analytics already runs via the `<script>` tag in `index.html` plus the `window.va` snippet in `App.vue`; this import is a no-op React import sitting in a Vue file.
+2. Delete `src/components/modals/graphicsDesign.vue` — confirmed via `grep -rn "graphicsDesign"` that nothing imports or renders it. It also points at a broken placeholder image (`/path-to-your-image.jpg`) and uses an unrelated off-brand green/red palette for a project ("Hesabika") that isn't in Latest Work.
+3. `router/index.js`: remove the `generateMetadata()` helper and its usage — **decision needed, see below.**
+4. `App.vue`: remove the leftover Vue-CLI scaffold CSS (`#app`, `nav`, `nav a`, `.router-link-exact-active`) — confirmed dead, since nothing in the app uses `<router-link>` and the real nav is styled entirely by Tailwind classes in `navbar.vue`.
+5. `Testimonial.vue`: remove the inert "View More" button — **decision needed, see below.**
+
+### C — Copy fixes
+1. `latestWork.vue`: "Sofwatware Development" → "Software Development".
+2. `ExperienceSection.vue`: "Kabarak Universty" → "Kabarak University".
