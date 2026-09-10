@@ -108,3 +108,14 @@ const education = ref([
     institution: "Kabarak University",
     description: "is a two-year postgraduate program designed to build advanced skills in modern computing, systems development, data management, networking, and IT research. It blends theory with practical, industry-focused training and includes a research project or thesis. The program prepares graduates for senior roles in software development, systems administration, IT leadership, and academia, and also serves as a pathway to doctoral studies"
   },
+  {
+    period: "Feb 2025 - June 2025",
+    degree: "Certificate in Apologetics",
+    institution: "St. Paul's University & Apologetics Kenya",
+    description: "The Certificate in Apologetics is a groundbreaking 4-month curriculum that seeks to raise 21st century Christian apologists for the African continent and the world."
+  },
+  {
+    period: "June 2022 - November 2022",
+    degree: "Android Development",
+    institution: "Google Africa Developers Programme",
+    description: "It is an initiative by Google aimed at supporting and empowering developers in Africa. It focuses on providing resources, training, and opportunities to developers to help them build high-quality applications, grow their careers, and contribute to the African tech ecosystem."
