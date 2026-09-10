@@ -27,3 +27,13 @@
               <div v-for="(skill, index) in displayedSkills" :key="index">
                 <div class="flex justify-between items-center mb-1">
                   <span class="text-caption font-[510] text-mist">{{ skill.name }}</span>
+                  <span class="text-caption font-[510] text-mist">{{ skill.percentage }}%</span>
+                </div>
+                <div class="w-full bg-graphite rounded-full h-2">
+                  <div
+                    v-fill="skill.percentage"
+                    class="bg-acid-lime h-2 rounded-full relative overflow-hidden transition-[width] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  ></div>
+                </div>
+              </div>
+            </div>
