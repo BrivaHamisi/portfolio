@@ -74,3 +74,12 @@ body {
   overflow: hidden;
 }
 .btn-flashlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(90px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.35), transparent 70%);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+.btn-flashlight:hover::after {
