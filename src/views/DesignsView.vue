@@ -57,3 +57,13 @@ const route = useRoute()
 const router = useRouter()
 
 const activeProject = computed(() =>
+  designProjects.find((project) => project.id === route.query.project) || null
+)
+
+const selectProject = (id) => {
+  router.push({ query: { project: id } })
+}
+
+const clearProject = () => {
+  router.push({ query: {} })
+}
