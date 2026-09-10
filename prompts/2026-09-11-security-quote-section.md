@@ -17,3 +17,12 @@ Quote:
 
 I'd default to placing it **between "My Resume" (`ExperienceSection`) and "Professional Recommendations" (`Testimonial`)** — it works as a pacing breather between the dense resume block and the testimonials, and a security-themed quote reads naturally right after a section listing your engineering experience. Say the word if you want it somewhere else (e.g. right after the hero, or between Skills and Experience).
 
+## Approach
+
+A single full-width section, quiet canvas, one large typographic moment — no card, no border, no icon-heavy decoration:
+
+```html
+<div v-reveal class="bg-void w-full py-24">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <svg class="w-10 h-10 text-acid-lime opacity-80 mx-auto mb-6" viewBox="0 0 24 24" fill="currentColor">
+      <!-- same quote-mark glyph already used in Testimonial.vue, reused for visual consistency -->
