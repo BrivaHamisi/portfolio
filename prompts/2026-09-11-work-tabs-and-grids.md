@@ -28,3 +28,13 @@ There is still **no photography content anywhere in this repo** — every image 
 
 ## Card redesign (folded in per your follow-up)
 
+The current grid cards use a dark gradient overlay that fades in on hover to reveal the title/description — that's a pre-reskin pattern, not how Linear's own "Card (Product Screenshot Frame)" component actually works (hairline-bordered frame, `bg-carbon`, `radius-12`, content sits normally below/beside the image, no overlay trick). New card pattern, used for Software/Designs/Photography grid items alike:
+
+- Outer frame: `bg-carbon border border-graphite rounded-xl overflow-hidden transition-colors duration-150 hover:border-smoke` (matches the established card/hover-feedback pattern from the reskin).
+- Image: sits at the top of the card at full opacity, `w-full h-48 object-cover` (or similar fixed aspect) — no dark scrim over it.
+- Content below the image, inside `p-4`: title in `text-body-lg font-[510] text-paper`, description in `text-body-sm text-fog` (truncated to 1–2 lines with `line-clamp-2` so cards stay a consistent height in the grid).
+- Hover feedback moves from "reveal hidden text" to the existing subtle `hover:border-smoke` border-brighten already used elsewhere, plus the image keeping its current `group-hover:scale-110` zoom — the text is always visible, never hidden-then-revealed.
+- Software cards extend this with the visible "Visit Site →" link inside the content area, per the Software section above.
+
+This replaces `latestWork.vue`'s current `bg-black bg-opacity-60 ... opacity-0 md:group-hover:opacity-100` overlay pattern everywhere a project card appears (homepage grid, the two new view-more pages, and their masonry detail view).
+
