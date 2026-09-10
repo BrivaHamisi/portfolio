@@ -98,3 +98,13 @@ Two states on one page, driven by a `?project=<id>` query param (read via `useRo
 
 Rendered inside the normal `App.vue` chrome (navbar/footer stay, since `router-view` already sits inside that layout) — existing nav links to `/#about` etc. already work correctly from a non-home route, since `navigateTo()` in `navbar.vue` already checks `router.currentRoute.value.path` and pushes back to `/` before scrolling when needed. No navbar changes required.
 
+### 5. `router/index.js`
+
+```js
+{ path: '/work/designs', name: 'designs', component: DesignsView },
+{ path: '/work/photography', name: 'photography', component: PhotographyView },
+```
+
+## Verification
+
+- `npm run serve`: switch between all 4 tabs, confirm each renders its correct treatment (Software links work and open in new tab; Designs/Photography cards route correctly; UI/UX opens its existing modal).
