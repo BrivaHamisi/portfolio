@@ -18,3 +18,13 @@
             >
               {{ item.name }}
             </a>
+          </div>
+          <a href="/#contact" @click="navigateTo({ route: '/#contact' }, $event)"
+             class="ml-6 bg-paper text-void rounded-full px-4 py-2 text-caption font-[510] hover:brightness-95 transition">
+            Let's Talk
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button @click="isOpen = !isOpen" type="button" class="bg-transparent inline-flex items-center justify-center p-3 rounded-md text-fog hover:text-paper transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-void focus:ring-acid-lime">
