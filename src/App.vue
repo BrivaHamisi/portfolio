@@ -36,3 +36,13 @@ export default {
     window.va = window.va || function () {
       (window.vaq = window.vaq || []).push(arguments);
     };
+  }
+}
+</script>
+
+<style>
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>
