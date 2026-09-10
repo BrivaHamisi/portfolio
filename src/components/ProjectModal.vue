@@ -57,3 +57,18 @@
                   </button>
                   <button @click="nextImage" aria-label="Next image" class="bg-white/5 border border-graphite rounded-full p-3 hover:bg-white/10 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-paper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right side - Content -->
+              <div class="w-full lg:w-1/2 p-6 md:p-8 bg-carbon overflow-y-auto max-h-[calc(100vh-8rem)]">
+                <h2 id="project-modal-title" class="text-paper text-heading-sm font-[510] mb-4">{{ project.title }}</h2>
+                <p class="text-fog mb-6 text-body-sm">{{ project.fullDescription }}</p>
+                <div class="space-y-4 mb-6">
+                  <div class="flex items-center">
+                    <span class="text-fog">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
