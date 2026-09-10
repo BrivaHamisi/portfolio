@@ -45,3 +45,12 @@ Implemented as a small Vue custom directive (`v-reveal`), registered globally in
     transform: none;
     transition: none;
   }
+}
+```
+
+### 3. Apply `v-reveal` to section-level containers (single block, no stagger)
+
+`AboutMeSection.vue` (the card), `whatIdo.vue` (the heading + grid as one block, only the 3 tiles inside stagger), `ExperienceSection.vue` (heading/CV button block, Experiences column, Education column), `ContactUs.vue` (both cards), `Testimonial.vue` (the left copy column).
+
+### 4. Apply `v-reveal="index"` for the sanctioned list cases (staggered)
+
