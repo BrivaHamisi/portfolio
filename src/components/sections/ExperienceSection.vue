@@ -141,3 +141,14 @@ const isShowingAll = ref(false)
 const displayedExperiences = computed(() => 
   isShowingAll.value ? experiences.value : experiences.value.slice(0, itemsToShow.value)
 )
+const displayedEducation = computed(() => 
+  isShowingAll.value ? education.value : education.value.slice(0, itemsToShow.value)
+)
+
+const toggleLoadMore = () => {
+  isShowingAll.value = !isShowingAll.value
+  if (!isShowingAll.value) {
+    itemsToShow.value = 3 
+  }
+}
+</script>
