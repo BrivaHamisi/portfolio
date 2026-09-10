@@ -35,3 +35,12 @@ Everything else below I confirmed by reading the actual line the finding cites.
 
 ### A — Accessibility
 1. `navbar.vue`: give each menu `<a>` a real `:href="item.route"`, keep the existing smooth-scroll behavior via `@click` with `preventDefault()` only when handling it in-page (so keyboard/AT users, right-click "copy link," and no-JS all work; same-page clicks still smooth-scroll as today).
+2. `navbar.vue`: replace the never-set `item.current` with a real scroll-spy — an `IntersectionObserver` over the six section ids (`home,about,skills,latestWork,experience,contact`) drives an `activeSection` ref; nav highlight compares `item.ref === activeSection`.
+3. `Footer.vue`: add an accessible name per icon link (`aria-label="Facebook"`, `"Instagram"`, `"X (Twitter)"`, `"GitHub"`, `"LinkedIn"`).
+4. `latestWork.vue` modal: add `role="dialog"`, `aria-modal="true"`, `aria-labelledby` (pointing at an `id` added to the project-title `<h2>`), close on `Escape`, a basic `Tab`-cycle focus trap inside the modal, focus the close button on open, restore focus to the thumbnail that opened it on close, and lock body scroll (`document.body.style.overflow`) while open.
+5. Heading hierarchy: `LandingPlatform.vue` — promote "Hi, I'm Briva Hamisi" to the page's one `<h1>`, demote "Welcome to my website" to a `<p>` with the same classes. Demote the other section `<h1>`s to `<h2>`: `AboutMeSection.vue` ("About Briva Hamisi"), `whatIdo.vue` ("What I Do"), `ExperienceSection.vue` ("My Resume").
+6. `ContactUs.vue`: make phone/email tappable — `<a href="tel:+254702111468">` / `<a href="mailto:briva.digital@gmail.com">` around the existing text.
+7. Touch targets: bump `p-2` → `p-3` on the navbar hamburger and the modal's close/prev/next buttons (24px icon + 12px×2 padding = 48px, clears the 44px minimum).
+8. Anchor scroll offset: add `scroll-mt-20` to each section wrapper carrying an id, so the fixed `h-16` navbar stops covering the section heading after a jump/scroll-spy click.
+
+### B — Dead / broken code
