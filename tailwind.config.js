@@ -48,3 +48,13 @@ module.exports = {
         display: ['72px', { lineHeight: '1', letterSpacing: '-1.584px' }],
       },
       boxShadow: {
+        sm: 'rgba(0, 0, 0, 0.4) 0px 2px 4px 0px',
+        card: 'rgb(35, 37, 42) 0px 0px 0px 1px inset',
+        cta: 'rgba(0, 0, 0, 0.01) 0px 5px 2px 0px, rgba(0, 0, 0, 0.04) 0px 3px 2px 0px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 0px 1px 0px',
+        xl: 'rgba(8, 9, 10, 0.6) 0px 4px 32px 0px',
+      },
+    },
+  },
+  plugins: [],
+}
+
