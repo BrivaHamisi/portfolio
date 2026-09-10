@@ -116,3 +116,13 @@ Every component file in `src/` is touched by this reskin. That's expected for a 
 - Heading → `text-heading-sm font-[510]`.
 
 ### 11. Footer (`Footer.vue`)
+
+- Background `bg-void`, divider `border-graphite` instead of `border-gray-700`.
+- Social icons: `text-fog` hover `text-paper` instead of `hover:text-orange-300` (no chromatic hover on icon-only nav — Linear keeps footer/nav interactions neutral, reserving color for the one CTA per view).
+
+## Decisions needed before I start (I'll use the bolded default if you approve as-is)
+
+1. **Nav CTA pill** — link the new white "Sign-up Button"-style pill to Resume download, the Contact section, or WhatsApp chat? **Default: scroll to Contact** (`#contact`), keeping WhatsApp as the dedicated high-intent action lower on the page.
+2. **Hero visual** — keep your portrait (`Banner_Image.png`) beside the headline (adapted, more true to *your* site), or go fully text-only/void like Linear's actual marketing hero (more true to the *reference*)? **Default: keep the portrait** — this is a personal portfolio, not a SaaS product; a portrait is more appropriate content than an empty gradient floor, and Linear's own system doc doesn't forbid imagery, it just doesn't happen to use photos.
+3. **Skill bar fill color** — acid-lime (functional data-viz use) or neutral bone/paper? **Default: acid-lime** — it's the one place on the page that's genuinely showing a filled/active state rather than decoration, which fits the "functional flashlight" framing better than a chromatic decoration would.
+4. **Latest Work underline bar** — drop the small colored bar under section headings entirely, or replace with a hairline `border-b`? **Default: drop it** (cleanest reading of "no decorative bars" in the Do/Don't list).
