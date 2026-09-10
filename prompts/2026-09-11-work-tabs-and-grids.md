@@ -48,3 +48,13 @@ This replaces `latestWork.vue`'s current `bg-black bg-opacity-60 ... opacity-0 m
 - `src/router/index.js` — add the two new routes.
 
 ## Approach
+
+### 1. `src/data/work.js`
+
+```js
+export const categories = [
+  { key: 'software', label: 'Development' },
+  { key: 'designs', label: 'Graphic Design' },
+  { key: 'photography', label: 'Photography' },
+  { key: 'uiux', label: 'UI/UX Design' },
+]
