@@ -189,3 +189,18 @@ watch(() => props.show, (isOpen) => {
     window.addEventListener('keydown', handleKeydown)
     nextTick(() => {
       closeButton.value?.focus()
+    })
+  } else {
+    document.body.style.overflow = ''
+    window.removeEventListener('keydown', handleKeydown)
+    lastFocusedElement?.focus()
+  }
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', handleKeydown)
+  if (props.show) {
+    document.body.style.overflow = ''
+  }
+})
+</script>
