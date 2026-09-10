@@ -54,3 +54,13 @@ export const designLinks = [
   { label: 'Dribbble', url: 'https://dribbble.com/_HamisiBriva' },
   { label: 'Pinterest', url: 'https://www.pinterest.com/brivahamisi/' },
 ]
+
+export const photographyLinks = [
+  { label: 'Behance', url: 'https://www.behance.net/brivahamisi' },
+]
+
+export const uiuxProject = {
+  id: 'stanbest-uiux',
+  title: 'UI/UX Design',
+  description: 'Seamlessly blending aesthetics with functionality, our UI/UX design transforms user interactions into intuitive, delightful experiences. From sleek interfaces to effortless navigation, we craft digital journeys that captivate and engage, ensuring every click feels natural and meaningful.',
+  images: ['/images/UI_Mockup4.jpg', '/images/UI_Mockup3.jpg', '/images/UI_Mockup2.jpg', '/images/UI_Mockup1.jpg', '/images/bg_main.jpg', '/images/UI_1.png', '/images/UIDesign.jpg', '/images/UIDesign_2.jpg', '/images/UI_Design3.jpg', '/images/MobileUI.jpg'],
