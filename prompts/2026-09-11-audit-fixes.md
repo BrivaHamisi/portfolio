@@ -53,3 +53,12 @@ Everything else below I confirmed by reading the actual line the finding cites.
 ### C — Copy fixes
 1. `latestWork.vue`: "Sofwatware Development" → "Software Development".
 2. `ExperienceSection.vue`: "Kabarak Universty" → "Kabarak University".
+3. `latestWork.vue`: `year: '2024. 2023'` → `'2023 – 2024'`.
+4. `AboutMeSection.vue` bio "3 years of experience" vs. `ExperienceStats.vue`'s "6+ Years Experience" — **decision needed, see below.**
+
+### D — Color consistency
+1. `LandingPlatform.vue`: typewriter text `text-yellow-400` → `text-orange-500`.
+2. `latestWork.vue` modal: client/type `text-blue-400` labels → **decision needed, see below.**
+3. `ContactUs.vue`: arbitrary `bg-[#cd3700]` WhatsApp button → `bg-orange-500 hover:bg-orange-600`, matching every other button on the site.
+4. Add a real `brand`/`accent` Tailwind token instead of literal `orange-500` classes everywhere — **optional, decision needed, see below.**
+
