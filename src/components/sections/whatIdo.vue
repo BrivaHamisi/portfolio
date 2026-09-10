@@ -6,3 +6,12 @@
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div v-for="(service, index) in services" :key="index" v-reveal="index" class="bg-white/[0.02] border border-graphite rounded-md p-4">
+            <div class="flex items-center mb-4">
+              <component :is="service.icon" class="w-6 h-6 text-fog mr-3" />
+              <h3 class="text-body-lg font-[510] text-paper">{{ service.title }}</h3>
+            </div>
+            <p class="text-body-sm text-fog">{{ service.description }}</p>
+          </div>
+        </div>
+      </div>
