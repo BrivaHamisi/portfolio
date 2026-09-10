@@ -198,3 +198,21 @@ If you discover a rule, convention, or gotcha mid-task that isn't already writte
 
 You do not have a `designs/` folder of mockups to work from in this project. When the user gives specific copy, images, or layout direction, follow it exactly and note it in the implementation prompt. Otherwise, match the established "Linear" design system (see `tailwind/core rules` above for the full token/component reference) rather than introducing a new style. Since this is a single long page, always check how a change reflows at mobile width, not just desktop.
 
+## 4. Skills to lean on
+
+- `vue-best-practices`, for Composition API, `<script setup>`, and component structure.
+- `vue-router-best-practices`, if routing/metadata handling changes.
+- `web-design-guidelines`, for accessibility and responsive review of any UI change.
+
+There's no framework-specific skill for plain Tailwind class usage — just follow the patterns already in the file you're editing.
+
+## 5. How the app is structured
+
+- `src/main.js` boots the app, mounts `App.vue`, applies global `src/index.css` (Tailwind entry + the `.reveal`/`.hero-in`/modal-transition CSS from the motion pass), and registers two global directives: `v-reveal` (fade-up-once-on-scroll) and `v-fill` (animates a width from 0 to a target %, used by the About section's skill bars).
+- `src/App.vue` renders `ScrollProgress` (fixed top-of-viewport scroll indicator) + `navbar` + `router-view` + implicitly the footer through the view, and registers the Vercel Analytics snippet in `mounted()`.
+- `src/router/index.js` defines the 3 routes (`home`, `designs`, `photography`) and a `scrollBehavior` (see "How to work" above).
+- `src/views/HomeView.vue` assembles the homepage from section components; `DesignsView.vue`/`PhotographyView.vue` are the standalone `/work/*` pages.
+- `src/components/sections/*.vue` — one file per homepage section, mostly self-contained with their own hardcoded content and Tailwind classes.
+- `src/data/work.js` — categorized Latest Work data (`categories`, `softwareProjects`, `designProjects`, `photographyProjects`, `uiuxProject`). `photographyProjects` is intentionally `[]` — there's no real photography content in this repo yet (see "Things that will trip you up"). Add new work by editing this file, not by hardcoding entries back into `latestWork.vue`.
+- `src/data/blogs.js` — a small standalone data file for content that used to back a removed blogs feature; check with the user before deleting it or `public/images/blogs/*` outright, since it may be leftover rather than needed, but removing dead code isn't your call to make silently.
+- `public/images/` holds all static imagery referenced directly by path (no import/bundling of images from `src/assets` except the logo).
