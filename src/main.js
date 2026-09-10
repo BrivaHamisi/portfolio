@@ -84,3 +84,12 @@ const flashlightDirective = {
   unmounted(el) {
     if (el._flashlightHandler) {
       el.removeEventListener('mousemove', el._flashlightHandler)
+    }
+  },
+}
+
+const app = createApp(App)
+app.directive('reveal', revealDirective)
+app.directive('fill', fillDirective)
+app.directive('flashlight', flashlightDirective)
+app.use(router).mount('#app')
