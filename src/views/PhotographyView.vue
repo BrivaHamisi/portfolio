@@ -28,3 +28,13 @@
             :title="project.title"
             :description="project.description"
             @click="selectProject(project.id)"
+          />
+        </div>
+        <div v-else class="text-center py-16 border border-graphite rounded-xl bg-carbon">
+          <p class="text-fog text-body-sm">Photography portfolio coming soon.</p>
+        </div>
+      </template>
+
+      <template v-else>
+        <button type="button" @click="clearProject" class="text-mist hover:text-paper text-caption inline-block mb-8">← Back to Photography</button>
+        <h1 class="text-heading-sm font-[510] text-paper mb-2">{{ activeProject.title }}</h1>
