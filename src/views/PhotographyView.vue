@@ -18,3 +18,13 @@
               <ArrowTopRightOnSquareIcon class="w-3.5 h-3.5" />
             </a>
           </div>
+        </div>
+        <div v-if="photographyProjects.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <WorkProjectCard
+            v-for="project in photographyProjects"
+            :key="project.id"
+            v-reveal
+            :image="project.coverImage"
+            :title="project.title"
+            :description="project.description"
+            @click="selectProject(project.id)"
