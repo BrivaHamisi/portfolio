@@ -17,3 +17,12 @@ Add purposeful motion consistent with the Linear-inspired reskin: restrained, fa
 - Feedback (hover/color changes): 150–200ms, standard ease.
 - Section reveals: 400ms, `cubic-bezier(0.16, 1, 0.3, 1)` (confident deceleration, no bounce).
 - Modal open: 300ms in, faster (200ms) on close — exit faster than entrance per the skill.
+- Hero focal sequence: 500–600ms per element with ~80ms stagger step — this is the one place a longer, more deliberate duration is earned.
+
+## Approach — no new dependency
+
+Implemented as a small Vue custom directive (`v-reveal`), registered globally in `main.js`, plus a few lines of CSS in `src/index.css`. This is a Vue-idiomatic, framework-native approach — no GSAP/AOS/Framer Motion, matching the project's "no dependency without clear reason" rule.
+
+### 1. `src/main.js` — register the directive
+
+- A `v-reveal` directive: on `mounted`, add a `reveal` class (opacity 0, translateY 12px) unless `prefers-reduced-motion: reduce` is set; observe the element with a shared `IntersectionObserver` (threshold 0.15); on intersect, add `is-visible` and unobserve (one-shot). Accepts an optional stagger index (`v-reveal="i"`) to set `transition-delay` via inline style, capped at 360ms.
