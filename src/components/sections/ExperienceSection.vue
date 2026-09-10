@@ -119,3 +119,14 @@ const education = ref([
     degree: "Android Development",
     institution: "Google Africa Developers Programme",
     description: "It is an initiative by Google aimed at supporting and empowering developers in Africa. It focuses on providing resources, training, and opportunities to developers to help them build high-quality applications, grow their careers, and contribute to the African tech ecosystem."
+  },
+  {
+    period: "September 2018 - December 2022",
+    degree: "Bachelor of Science in Computer Science",
+    institution: "Kenyatta University, Nairobi",
+    description: "Comprehensive study of computer science fundamentals, including data structures, algorithms, software engineering principles, and database management systems."
+  },
+  {
+    period: "Jan 2018 - April 2018",
+    degree: "Certificate of Computer Fundamentals",
+    institution: "P.C.E.A College, Molo",
