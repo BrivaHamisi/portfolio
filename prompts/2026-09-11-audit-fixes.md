@@ -62,3 +62,13 @@ Everything else below I confirmed by reading the actual line the finding cites.
 3. `ContactUs.vue`: arbitrary `bg-[#cd3700]` WhatsApp button → `bg-orange-500 hover:bg-orange-600`, matching every other button on the site.
 4. Add a real `brand`/`accent` Tailwind token instead of literal `orange-500` classes everywhere — **optional, decision needed, see below.**
 
+### E — Meta / favicon
+1. Generate `public/apple-touch-icon.png` (180×180) from `public/images/BH_Monogram.png` via `sips` so the existing `<link rel="apple-touch-icon">` in `index.html` stops 404ing.
+2. `index.html`: `<meta name="theme-color" content="#ffffff">` → `#111827` (Tailwind `gray-900`) to match the actual dark theme.
+
+### F — Image optimization (binary asset changes, reversible via git)
+1. Resize/recompress in place with `sips` (same filename, no code changes needed) — targeting ~1920px max dimension and ~75% JPEG quality: `mockup_4.jpg` (8.0M), `mockup_6.jpg` (6.3M), `UI_1.png` (4.6M), `UI_Design3.jpg` (3.0M), `mockup_7.jpg`/`mockup_5.jpg` (2.6M ea.), `MobileUI.jpg` (2.6M), `UIDesign.jpg` (2.5M), `UIDesign_2.jpg` (2.3M), `mockup_1.jpg` (2.1M), `mockup_3.jpg` (2.0M), `UI_Mockup4.jpg`/`sw_1.jpg`/`sw_2.jpg`/`sw_3.jpg` (1.3M ea.). Expect ~80–90% size reduction with no visible on-screen quality loss.
+2. `latestWork.vue`: add `loading="lazy"` plus explicit `width`/`height` to grid thumbnails and modal carousel images, to cut CLS and defer offscreen fetches.
+3. Diffs on binary files don't show in a normal git diff — I'll report before/after file sizes in the final summary so you can judge the tradeoff, and it's fully reversible with `git checkout -- public/images/` if you don't like the result.
+
+### G — Not changing
