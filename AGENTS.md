@@ -52,3 +52,22 @@ Activate `vue-best-practices` and `vue-router-best-practices` when touching comp
 - This is JavaScript, not TypeScript — do not add type annotations or convert files to `.ts`/`lang="ts"` unless the user explicitly asks for a TypeScript migration.
 - Prefer the Composition API with `<script setup>` for new components, matching `AboutMeSection.vue`, `ExperienceSection.vue`, etc.
 - Use `ref`/`computed` for reactive state and derived values; avoid unnecessary watchers.
+- Keep components focused on one section of the page; extract a subcomponent if a section grows large rather than nesting deeply.
+- Props/emits for parent-child communication; don't mutate props.
+- There is no global store (no Vuex/Pinia) and none is needed for this app's current scope — don't add one for a single piece of shared UI state that a prop/emit or a small composable can handle.
+
+=== vue-router/core rules ===
+
+# Vue Router
+
+- The router (`src/router/index.js`) defines three routes: `home` (`/`, `HomeView.vue`), `designs` (`/work/designs`, `DesignsView.vue`), and `photography` (`/work/photography`, `PhotographyView.vue`). A `scrollBehavior` restores scroll position on back/forward and resets to top on a fresh non-hash navigation; hash-based section jumps (`/#about`, etc.) are deliberately left to it returning `false` since `navbar.vue` and the "back to portfolio" links on the `/work/*` views already handle those manually (they need to offset for the fixed navbar, which the router's default hash-scroll doesn't do).
+- The old `generateMetadata()`/`route.meta` scaffolding was removed as dead code in an earlier pass — don't reintroduce it without a reason; the `<head>` tags live statically in `index.html`.
+- `DesignsView.vue` / `PhotographyView.vue` both use a `?project=<id>` query param (not a path param) to switch between "grid of project cards" and "one project's photo/design masonry" on the same route — keep that pattern if you add more categories rather than minting per-project routes.
+- Use `router-link` / named routes rather than hardcoded `href`s for internal navigation.
+
+=== tailwind/core rules ===
+
+# Tailwind CSS & Design System ("Linear" theme)
+
+As of 2026-09-11 this site runs a design system adapted from Linear's product marketing site, applied via `tailwind.config.js` `theme.extend`. **This is the house style for every future page/section/component** — use these tokens by default rather than inventing new colors, sizes, or radii. Full source reference: `prompts/2026-09-11-linear-theme-reskin.md`.
+
