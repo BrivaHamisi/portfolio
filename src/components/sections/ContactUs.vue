@@ -33,3 +33,12 @@
         </div>
         <div v-reveal="2" class="bg-white/[0.02] border border-graphite rounded-md p-6 flex flex-col items-center text-center transition-colors duration-150 hover:border-smoke">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-fog mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <h3 class="text-paper font-[510] text-body-lg mb-2">Send Me an Email</h3>
+          <p class="text-fog text-body-sm"><a href="mailto:briva.digital@gmail.com" class="hover:text-paper transition-colors">briva.digital@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
