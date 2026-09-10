@@ -27,3 +27,18 @@
               <!-- Left side - Content -->
               <div class="w-full lg:w-1/2 relative">
                 <div class="relative h-64 lg:h-[calc(100vh-8rem)] max-h-[800px]">
+                  <!-- Video Player -->
+                  <template v-if="project.videoUrl">
+                    <video controls class="w-full h-full object-cover">
+                      <source :src="project.videoUrl" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </template>
+                  <!-- Image Carousel -->
+                  <template v-else>
+                    <img
+                      v-for="(image, index) in project.images"
+                      :key="index"
+                      :src="shouldLoadImage(index) ? image : undefined"
+                      :alt="`${project.title} - Image ${index + 1}`"
+                      loading="lazy"
