@@ -64,3 +64,13 @@ body {
   transition: opacity 200ms ease, transform 200ms ease;
 }
 .mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.btn-flashlight {
+  position: relative;
+  overflow: hidden;
+}
+.btn-flashlight::after {
