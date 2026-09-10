@@ -67,3 +67,13 @@ Every component file in `src/` is touched by this reskin. That's expected for a 
 
 - Section background stays void; wrap the content in a Card (Product Screenshot Frame) style: `bg-carbon rounded-xl shadow-card p-6` replacing the plain `bg-gray-900`.
 - Heading → `text-heading-sm font-[510] text-paper` (drop `font-bold`).
+- Body copy → `text-body-sm text-fog`.
+- Skill bar track: `bg-graphite`; skill bar fill: `bg-acid-lime` (this is a data-visualization fill, not decoration, so lime is appropriate and consistent with "small, functional flashlight" framing) — **decision flagged below**, since it's a borderline call against "one CTA per view."
+- "Load More" button → Ghost/Outline Button: `border border-graphite text-mist rounded-md px-3 py-2 text-sm hover:border-smoke`.
+
+### 5. What I Do (`whatIdo.vue`)
+
+- Heading → `text-heading-sm font-[510]`, no more `font-bold`.
+- Each service block: replace `border-l border-gray-700` with a proper Card (Subtle): `bg-white/[0.02] border border-graphite rounded-md p-4`.
+- Icons: **stay neutral** (`text-fog`), not lime — Linear's own spec says icons are "minimal line-art SVGs in single-color grey scale" and reserves lime strictly for the primary action. Not recoloring these to lime despite the current orange-500 treatment.
+- Body text → `text-fog`.
