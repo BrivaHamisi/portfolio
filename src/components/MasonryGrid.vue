@@ -6,3 +6,11 @@
       v-reveal
       class="break-inside-avoid mb-4 rounded-xl overflow-hidden border border-graphite bg-carbon"
     >
+      <img
+        :src="image"
+        :alt="alt ? `${alt} ${index + 1}` : `Image ${index + 1}`"
+        loading="lazy"
+        class="w-full h-auto block"
+      />
+    </div>
+  </div>
