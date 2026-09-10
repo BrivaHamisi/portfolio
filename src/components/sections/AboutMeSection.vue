@@ -75,3 +75,13 @@ const skills = ref([
   { name: 'Java', percentage: 65 },
 ])
 
+const showAllSkills = ref(false)
+
+const displayedSkills = computed(() => {
+  return showAllSkills.value ? skills.value : skills.value.slice(0, 6)
+})
+
+const toggleSkills = () => {
+  showAllSkills.value = !showAllSkills.value
+}
+</script>
