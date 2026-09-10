@@ -87,3 +87,13 @@ Every component file in `src/` is touched by this reskin. That's expected for a 
 
 - Heading → `text-heading-sm font-[510]`.
 - "Download CV" button → Primary Action Button (acid-lime) — this is a genuine, singular CTA for this section, unambiguous fit.
+- Timeline vertical line + numbered dot: currently `bg-orange-500`. Moving these to a neutral `bg-graphite`/`border-smoke` treatment (decorative structural elements, not the section's CTA) rather than lime, keeping "Download CV" as the only lime element in this section.
+- Period labels (currently `text-orange-500`): → `text-fog` (metadata, not an action).
+- "Load more" button → Ghost/Outline Button style, matching About's.
+
+### 8. Latest Work (`latestWork.vue`)
+
+- Grid thumbnails: wrap in Card (Product Screenshot Frame) treatment — `bg-carbon rounded-xl border border-graphite overflow-hidden`, image inside.
+- Section heading + underline bar → `text-heading-sm font-[510]`; drop the small orange-500 underline bar (decorative gradient/bar elements aren't part of Linear's vocabulary) in favor of just the heading, or a hairline `border-b border-graphite` beneath it — **decision flagged below**.
+- Modal panel: `bg-carbon` with `border border-graphite` (hairline) instead of `bg-gray-800`; drop background `bg-gray-900/90` overlay for `bg-void/90`.
+- Close/prev/next buttons → Ghost/Outline circular buttons: `bg-white/5 border border-graphite hover:bg-white/10` instead of `bg-gray-700`/`bg-gray-800`.
