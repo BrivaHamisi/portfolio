@@ -1,49 +1,8 @@
 <template>
-  <div id="home">
+  <div id="home" class="scroll-mt-20">
     <LandingPlatform/>
   </div>
-  <div id="about">
+  <div id="about" class="scroll-mt-20">
     <AboutMeSection/>
   </div>
-  <div id="skills">
-    <whatIdo/>
-    <ExperienceStats/>
-  </div>
-    <latestWork id="latestWork"/>
-
-  <ExperienceSection id="experience"/>
-  <Testimonial/>
-  <div id="contact">
-    <ContactUs/>
-  </div>
-  <Footer/>
-</template>
-
-<script>
-// Importing components
-import ExperienceSection from '../components/sections/ExperienceSection.vue';
-import whatIdo from '../components/sections/whatIdo.vue';
-import AboutMeSection from '../components/sections/AboutMeSection.vue';
-import latestWork from '../components/sections/latestWork.vue'
-import LandingPlatform from '../components/sections/LandingPlatform.vue';
-import ContactUs from '../components/sections/ContactUs.vue'
-import ExperienceStats from '@/components/sections/ExperienceStats.vue';
-import Footer from '../components/Footer.vue';
-import Testimonial from '@/components/sections/Testimonial.vue';
-import { Analytics } from "@vercel/analytics/react"
-
-export default {
-  name: 'HomeView',
-  components: {
-    whatIdo,
-    AboutMeSection,
-    ExperienceSection,
-    latestWork,
-    LandingPlatform,
-    ContactUs,
-    ExperienceStats,
-    Footer,
-    Testimonial
-  }
-}
-</script>
+  <div id="skills" class="scroll-mt-20">
