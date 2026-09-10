@@ -34,3 +34,21 @@ Activate `vue-best-practices` and `vue-router-best-practices` when touching comp
 - Stick to this structure. Don't introduce new top-level folders (e.g. `store/`, `services/`) without the user's approval — there is currently no state-management or API layer to extend.
 
 ## Frontend Bundling
+
+- This project uses Vue CLI, not Vite: `npm run serve` for local dev with hot reload, `npm run build` for a production build to `dist/`. If a change isn't showing up, ask the user to restart `npm run serve` or run `npm run build`.
+
+## Documentation Files
+
+- Only create documentation files (README sections, docs/, etc.) if explicitly requested.
+
+## Replies
+
+- Be concise. Focus on what changed and why, not a walkthrough of obvious code.
+
+=== javascript/vue rules ===
+
+# JavaScript & Vue
+
+- This is JavaScript, not TypeScript — do not add type annotations or convert files to `.ts`/`lang="ts"` unless the user explicitly asks for a TypeScript migration.
+- Prefer the Composition API with `<script setup>` for new components, matching `AboutMeSection.vue`, `ExperienceSection.vue`, etc.
+- Use `ref`/`computed` for reactive state and derived values; avoid unnecessary watchers.
