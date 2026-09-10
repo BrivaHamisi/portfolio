@@ -28,3 +28,12 @@
           @click="openProject(project)"
         />
       </div>
+      <div v-else class="text-center py-16 border border-graphite rounded-xl bg-carbon">
+        <p class="text-fog text-body-sm">More projects coming soon.</p>
+      </div>
+    </div>
+
+    <ProjectModal :show="showModal" :project="selectedProject" @close="closeModal" />
+  </div>
+</template>
+
