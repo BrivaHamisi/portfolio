@@ -163,3 +163,18 @@ import ProjectModal from '@/components/ProjectModal.vue'
 import { categories, softwareProjects, designProjects, photographyProjects, uiuxProject, designLinks, photographyLinks } from '@/data/work.js'
 
 const router = useRouter()
+const activeTab = ref('software')
+
+const tabRefs = ref([])
+const setTabRef = (el, index) => {
+  if (el) {
+    tabRefs.value[index] = el
+  }
+}
+
+const focusTab = (direction) => {
+  const currentIndex = categories.findIndex((cat) => cat.key === activeTab.value)
+  let nextIndex
+  if (direction === 'first') {
+    nextIndex = 0
+  } else if (direction === 'last') {
