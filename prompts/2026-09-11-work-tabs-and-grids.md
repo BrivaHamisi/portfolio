@@ -18,3 +18,13 @@ Your follow-up changes the view-more page: it's **project cards first, photos/de
 - **Homepage tab:** shows project cards (up to 6) — image, title, description, matching the redesigned card below.
 - **View More page (`/work/designs`, `/work/photography`):** shows the *same kind* of project cards, just all of them, not capped at 6.
 - **Clicking a project card** (homepage tab *or* view-more page) — that's the one action that opens the Pinterest-style masonry of that project's individual images. On the homepage, clicking a card routes to `/work/designs?project=<id>` and the Designs page opens straight into that project's masonry (via the query param) rather than requiring a second click; landing on `/work/designs` with no query shows the project-card grid.
+- A "← Back to Designs" link returns from the masonry view to the project-card grid.
+
+This also conveniently means **no content invention is needed for Designs** — today's single "Graphics Design" project (title, description, and its 7 `mockup_*.jpg` images) already has exactly this project→images shape. It becomes one project card; clicking it shows those same 7 images in the masonry. Nothing to placeholder or rename.
+
+## The photography content gap (unchanged conclusion, simpler now)
+
+There is still **no photography content anywhere in this repo** — every image in `public/images/` is either a UI mockup, a graphic-design piece, a brand asset, or a named person's headshot (testimonial photos of Moses Ngure, Maureen Mamo, Wachira Maina). I won't repurpose those headshots as if they were your photography portfolio. So `photographyProjects` starts as `[]`, and both the homepage tab and `/work/photography` show a real empty state ("Photography portfolio coming soon") until you add an actual project (cover image + title + its own photos).
+
+## Card redesign (folded in per your follow-up)
+
