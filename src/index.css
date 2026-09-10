@@ -55,3 +55,12 @@ body {
 }
 .modal-enter-from,
 .modal-leave-to {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.mobile-menu-enter-from,
