@@ -103,3 +103,18 @@
         </div>
 
         <!-- Photography -->
+        <div v-else-if="activeTab === 'photography'" role="tabpanel" id="panel-photography" aria-labelledby="tab-photography" tabindex="0">
+          <div v-if="photographyProjects.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <WorkProjectCard
+              v-for="(project, index) in visiblePhotography"
+              :key="project.id"
+              v-reveal="Math.min(index, 6)"
+              :image="project.coverImage"
+              :title="project.title"
+              :description="project.description"
+              @click="goToProject('photography', project.id)"
+            />
+          </div>
+          <div v-else class="text-center py-16 border border-graphite rounded-xl bg-carbon">
+            <PhotoIcon class="w-8 h-8 text-fog mx-auto mb-3" />
+            <p class="text-fog text-body-sm">Photography portfolio coming soon.</p>
