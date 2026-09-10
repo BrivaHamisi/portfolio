@@ -8,3 +8,13 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div v-for="(testimonial, index) in testimonials" :key="index"
+             v-reveal="index"
+             class="bg-carbon border border-graphite rounded-xl p-8 relative overflow-hidden transition-colors duration-150 hover:border-smoke">
+          <svg class="absolute top-6 right-6 w-10 h-10 text-fog opacity-20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+          </svg>
+          <img :src="testimonial.avatar" :alt="testimonial.name" class="w-12 h-12 rounded-full object-cover mb-4" />
+          <h3 class="font-[510] text-paper text-body-lg mb-1">{{ testimonial.name }}</h3>
+          <p class="text-fog text-caption mb-4">{{ testimonial.title }}</p>
+          <p class="text-mist text-body-sm leading-relaxed">{{ testimonial.comment }}</p>
+        </div>
