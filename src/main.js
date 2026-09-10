@@ -36,3 +36,13 @@ const revealDirective = {
 }
 
 const fillObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const target = entry.target.dataset.fillTarget
+        entry.target.style.width = `${target}%`
+        fillObserver.unobserve(entry.target)
+      }
+    })
+  },
+  { threshold: 0.3 }
