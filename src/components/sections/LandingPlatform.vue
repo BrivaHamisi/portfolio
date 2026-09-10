@@ -65,3 +65,12 @@ export default {
         autoStart: true,
         loop: true,
       });
+
+      // Double rAF so the initial (hidden) state actually paints before the
+      // transition-triggering class is added — otherwise browsers can collapse
+      // both states into one frame and skip the animation entirely.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          heroVisible.value = true;
+        });
+      });
