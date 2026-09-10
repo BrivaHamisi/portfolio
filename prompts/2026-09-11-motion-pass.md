@@ -83,3 +83,12 @@ No change to the existing focus-trap/Escape/scroll-lock logic from the earlier a
 
 1. **Grid stagger cap** — cap the Latest Work grid's stagger at the first 6 items (default, above), or stagger every item regardless of count (risks a multi-second cascade if more projects get added later)? **Default: cap at 6.**
 2. **Hero replay on route change** — since this is a single-route SPA, the hero's focal sequence only ever plays once per hard page load. Fine as-is, or should it also replay if a user navigates away and back via browser history (not expected to matter given there's only one route)? **Default: leave as page-load-only, this is a non-issue for a one-route site.**
+
+## Verification
+
+- `npm run serve`: scroll through the whole page once — each section should appear once, no re-triggering on scroll-up, no layout shift while hidden (reserve space, don't `display:none`).
+- Reload and watch the hero sequence fire once on load.
+- Open/close the work modal a few times — transition should feel quick, not sluggish; Escape/focus-trap/scroll-lock still work (from the prior pass).
+- Toggle `prefers-reduced-motion` in devtools (or OS setting) and reload — everything should appear immediately, no transforms, but hover/color feedback still works.
+- `npm run build` to confirm production build still compiles clean.
+- Per the `impeccable` skill's process, run its mechanical detector once after implementation: `node /Users/Webmaster/.claude/skills/impeccable/scripts/detect.mjs --json <changed files>` and address anything real it surfaces.
