@@ -26,3 +26,13 @@ A single full-width section, quiet canvas, one large typographic moment — no c
   <div class="max-w-4xl mx-auto px-4 text-center">
     <svg class="w-10 h-10 text-acid-lime opacity-80 mx-auto mb-6" viewBox="0 0 24 24" fill="currentColor">
       <!-- same quote-mark glyph already used in Testimonial.vue, reused for visual consistency -->
+    </svg>
+    <p class="text-heading-sm md:text-heading font-[400] italic text-paper leading-snug">
+      "The only truly secure system is one that is powered off, cast in a block of concrete and sealed in a lead-lined room with armed guards."
+    </p>
+    <p class="text-body-sm text-fog mt-6">— Gene Spafford</p>
+  </div>
+</div>
+```
+
+- Typography does the work: large (`text-heading-sm` mobile → `text-heading` desktop), italic, `font-[400]` (regular weight — Linear doesn't lean on bold for emphasis, size and italics carry it instead), tight `leading-snug` so a multi-line quote reads as one confident block rather than loose body text.
