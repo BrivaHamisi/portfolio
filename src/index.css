@@ -36,3 +36,12 @@ body {
 }
 
 .hero-in {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 550ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 200ms ease;
+}
+.hero-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
