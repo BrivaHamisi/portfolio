@@ -37,3 +37,13 @@ const testimonials = ref([
     name: 'Maureen Mamo',
     title: 'Economist',
     avatar: '/images/Mamo_M.jpg',
+    comment: "Briva's designs are a mark of excellence and creativity. I have had the opportunity to interact with his work over the years, and his commitment to grow and become better is admirable.  He is out to meet the needs and preferences of his clients, he is consistent and with a touch of his creativity produces quality designs from posters to fliers and bronchures."
+  },
+  {
+    name: 'Wachira Maina',
+    title: 'Sales & Marketing Consultant',
+    avatar: '/images/wachira_maina.jpg',
+    comment: "I highly recommend Hamisi Briva for his exceptional skills as a graphic designer. Hamisi's work consistently demonstrates creativity, attention to detail, and a thorough understanding of design principles. He brings fresh, innovative ideas to every project and skillfully translates concepts into visually compelling designs. His professionalism, timely delivery, and adaptability make him a pleasure to work with, and his designs have had a positive impact on our brand. Hamisi’s expertise and dedication to quality make him a valuable asset to any team."
+  }
+])
+</script>
