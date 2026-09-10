@@ -126,3 +126,13 @@ Every component file in `src/` is touched by this reskin. That's expected for a 
 2. **Hero visual** — keep your portrait (`Banner_Image.png`) beside the headline (adapted, more true to *your* site), or go fully text-only/void like Linear's actual marketing hero (more true to the *reference*)? **Default: keep the portrait** — this is a personal portfolio, not a SaaS product; a portrait is more appropriate content than an empty gradient floor, and Linear's own system doc doesn't forbid imagery, it just doesn't happen to use photos.
 3. **Skill bar fill color** — acid-lime (functional data-viz use) or neutral bone/paper? **Default: acid-lime** — it's the one place on the page that's genuinely showing a filled/active state rather than decoration, which fits the "functional flashlight" framing better than a chromatic decoration would.
 4. **Latest Work underline bar** — drop the small colored bar under section headings entirely, or replace with a hairline `border-b`? **Default: drop it** (cleanest reading of "no decorative bars" in the Do/Don't list).
+5. **Work modal Client/Type fields** — restructure into small Badge/Tag chips, or just recolor the existing icon+label rows? **Default: just recolor** (restructuring risks scope creep into layout changes beyond a "re-skin," and the icon+label rows already read fine).
+
+## Verification
+
+- `npm run serve`, check every section at desktop and mobile width against the token list (no `gray-9/8/700`, no `orange-500/600`, no `font-bold` left — I'll grep for these three strings across `src/` as a completion check).
+- Confirm exactly one acid-lime element is visually dominant per section (Download CV, WhatsApp, My Resume, skill bar fill, active nav indicator) — not scattered decoratively.
+- Confirm Inter Variable actually loads (Network tab / computed font-family in dev tools), with graceful fallback to system-ui if the Google Fonts request fails offline.
+- `npm run build` to confirm production build still compiles clean.
+- Full-page visual pass comparing against the Linear reference doc's Do/Don't list, section by section.
+- Review final git diff — this is a big diff by nature (touches ~13 files), but every hunk should map to a token substitution from this prompt, nothing extra.
