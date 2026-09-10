@@ -16,3 +16,21 @@ Activate `vue-best-practices` and `vue-router-best-practices` when touching comp
 
 ## Conventions
 
+- Match the conventions of the file you're editing before applying a house style — this codebase mixes Options API (`src/App.vue`) and Composition API with `<script setup>` (most `src/components/sections/*.vue`). New or heavily-touched components should use `<script setup>` to match the majority pattern; don't rewrite working Options API components just to convert them.
+- Use descriptive names for refs, computed values, and functions.
+- Check `src/components/` and `src/components/sections/` for an existing component to reuse or extend before writing a new one.
+- Content strings (bio, skills, experience) are currently hardcoded inline in components (e.g. `AboutMeSection.vue`) rather than centralized — follow that pattern unless asked to refactor it.
+
+## Verification Scripts
+
+- There is no test runner configured. Do not invent one-off verification scripts; instead run the dev server (`npm run serve`) and check the change in the browser, and run `npm run build` to confirm the production build succeeds.
+
+## Application Structure & Architecture
+
+- `src/views/HomeView.vue` composes the homepage from `src/components/sections/*.vue` (LandingPlatform, AboutMeSection, ExperienceSection, ExperienceStats, whatIdo, latestWork, QuoteSection, Testimonial, ContactUs). `src/views/DesignsView.vue` and `PhotographyView.vue` are the two `/work/*` pages.
+- `src/components/navbar.vue`, `src/components/Footer.vue`, and `src/components/ScrollProgress.vue` are shared chrome rendered around the routed view via `src/App.vue`.
+- `src/components/WorkProjectCard.vue` and `src/components/MasonryGrid.vue` are shared presentational components used by the Latest Work tabs and both `/work/*` pages — reuse these for any future work-category UI rather than duplicating card/grid markup.
+- The accessible modal (focus trap, Escape, scroll lock) lives inline inside `src/components/sections/latestWork.vue` and is reused for the Development and UI/UX Design tabs' detail view — there's no separate standalone modal component file.
+- Stick to this structure. Don't introduce new top-level folders (e.g. `store/`, `services/`) without the user's approval — there is currently no state-management or API layer to extend.
+
+## Frontend Bundling
