@@ -38,3 +38,12 @@
       <template v-else>
         <button type="button" @click="clearProject" class="text-mist hover:text-paper text-caption inline-block mb-8">← Back to Graphic Design</button>
         <h1 class="text-heading-sm font-[510] text-paper mb-2">{{ activeProject.title }}</h1>
+        <p class="text-body-sm text-fog mb-8 max-w-2xl">{{ activeProject.description }}</p>
+        <MasonryGrid :items="activeProject.images" :alt="activeProject.title" />
+      </template>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { computed } from 'vue'
