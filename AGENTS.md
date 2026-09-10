@@ -89,3 +89,21 @@ All available as Tailwind color classes (`bg-void`, `text-fog`, `border-graphite
 | `fog` | `#8a8f98` | Body copy, icons, secondary metadata — the default "muted text" color |
 | `mist` | `#d0d6e0` | Secondary headings, button text on dark surfaces, slightly brighter than `fog` |
 | `bone` | `#e5e5e6` | Near-white fills (rarely needed; `paper` covers most cases) |
+| `paper` | `#ffffff` | Primary headings, high-contrast text, icon/button text on dark surfaces |
+| `acid-lime` | `#e4f222` | **The one accent color.** Primary CTA buttons and the active nav indicator only — never decoration, never more than one per section |
+| `pulse-green` | `#27a644` | Reserved for a future success/positive state — unused today |
+| `coral-red` | `#eb5757` | Reserved for a future error/negative state — unused today |
+| `signal-teal` | `#02b8cc` | Reserved decorative/informational accent — unused today |
+| `iris-violet` | `#6366f1` | Reserved tag/badge fill — unused today |
+| `lavender` | `#8b5cf6` | Reserved secondary tag fill — unused today |
+
+**Never** use `gray-*`, `orange-*`, or any other default Tailwind color in this project — grep for these before finishing any styling task; a clean grep is part of the completion check.
+
+## Typography
+
+- Font: **Inter Variable**, loaded via a Google Fonts `<link>` in `index.html` (`family=Inter:wght@300..700`), configured as `font-sans` in `tailwind.config.js`. Falls back to `ui-sans-serif, system-ui` if the CDN request fails (e.g. offline dev) — that's an acceptable, expected fallback, not a bug.
+- Weights: **300–590 only**. Never use `font-bold` (Tailwind's 700) or `font-semibold`/`font-medium` — use the arbitrary-value classes `font-[510]` (roughly Tailwind's "medium/semibold" role — nav CTAs, card titles, button labels) and `font-[590]` (heavier emphasis, rarely needed) instead. Plain body text stays at the Tailwind default (400).
+- Type scale — custom `fontSize` tokens already carry the correct line-height and letter-spacing, so just use the class name:
+
+| Class | Size | Use |
+|---|---|---|
