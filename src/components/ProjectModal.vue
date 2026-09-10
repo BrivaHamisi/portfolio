@@ -42,3 +42,18 @@
                       :src="shouldLoadImage(index) ? image : undefined"
                       :alt="`${project.title} - Image ${index + 1}`"
                       loading="lazy"
+                      :class="['w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-500',
+                               { 'opacity-100': currentImageIndex === index, 'opacity-0': currentImageIndex !== index }]"
+                    />
+                  </template>
+                </div>
+                <!-- Image navigation buttons -->
+                <div v-if="!project.videoUrl && project.images.length > 1"
+                     class="absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full px-4">
+                  <button @click="prevImage" aria-label="Previous image" class="bg-white/5 border border-graphite rounded-full p-3 hover:bg-white/10 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-paper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button @click="nextImage" aria-label="Next image" class="bg-white/5 border border-graphite rounded-full p-3 hover:bg-white/10 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-paper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
