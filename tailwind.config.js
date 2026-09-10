@@ -28,3 +28,13 @@ module.exports = {
         sans: [
           'Inter Variable',
           'Inter',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          'sans-serif',
+        ],
+      },
+      fontSize: {
