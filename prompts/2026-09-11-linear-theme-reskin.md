@@ -8,3 +8,13 @@ Replace the current dark-gray + orange-500 visual identity with the supplied "Li
 
 The three token dumps you pasted (Markdown style guide, CSS custom properties, Design Tokens JSON) are the same 16 colors + 2 font families + full type/spacing/radius/shadow scale, just in three formats. Treating the Markdown doc as the single source of truth below.
 
+## Scope check I ran first
+
+- `orange-500`/`600`/`300`/`400` appears in 9 files (Footer, Testimonial, latestWork ×3, whatIdo ×2, ExperienceStats ×2, AboutMeSection ×2, LandingPlatform ×3, ContactUs ×6, ExperienceSection ×11)
+- `bg-gray-900/800/700` appears in 11 files
+- `font-bold` (Tailwind 700) appears in 8 files — all need to drop to weight 510 or 590, since Linear caps at 590
+- `rounded-lg/full/md` appears in 8 files — good news: Tailwind's default radius scale already matches Linear's almost exactly (`rounded-sm`=2px, `rounded`=4px, `rounded-md`=6px, `rounded-xl`=12px, `rounded-full`=9999px), so radius classes mostly just need auditing, not new config.
+
+Every component file in `src/` is touched by this reskin. That's expected for a full re-theme.
+
+## Files touched
