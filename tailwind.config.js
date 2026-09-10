@@ -18,3 +18,13 @@ module.exports = {
         bone: '#e5e5e6',
         paper: '#ffffff',
         'acid-lime': '#e4f222',
+        'pulse-green': '#27a644',
+        'coral-red': '#eb5757',
+        'signal-teal': '#02b8cc',
+        'iris-violet': '#6366f1',
+        lavender: '#8b5cf6',
+      },
+      fontFamily: {
+        sans: [
+          'Inter Variable',
+          'Inter',
