@@ -26,3 +26,13 @@ Implemented as a small Vue custom directive (`v-reveal`), registered globally in
 ### 1. `src/main.js` — register the directive
 
 - A `v-reveal` directive: on `mounted`, add a `reveal` class (opacity 0, translateY 12px) unless `prefers-reduced-motion: reduce` is set; observe the element with a shared `IntersectionObserver` (threshold 0.15); on intersect, add `is-visible` and unobserve (one-shot). Accepts an optional stagger index (`v-reveal="i"`) to set `transition-delay` via inline style, capped at 360ms.
+
+### 2. `src/index.css` — the reveal CSS + reduced-motion guard
+
+```css
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
