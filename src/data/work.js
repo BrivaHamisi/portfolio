@@ -26,3 +26,13 @@ export const softwareProjects = [
 ]
 
 export const designProjects = [
+  {
+    id: 'stancap-branding',
+    title: 'Graphics Design',
+    description: 'Your brand’s personality, captured in a single, powerful logo',
+    coverImage: '/images/mockup_1.jpg',
+    images: [
+      '/images/mockup_1.jpg',
+      '/images/mockup_2.jpg',
+      '/images/mockup_3.jpg',
+      '/images/mockup_4.jpg',
