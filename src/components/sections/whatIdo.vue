@@ -32,3 +32,11 @@
       icon: WrenchScrewdriverIcon,
       title: "Development",
       description: "I am a Full Stack Developer, I develop both web and mobile apps. Check the skills section to find out more on my strengths and abilities."
+    },
+    {
+      icon: CameraIcon,
+      title: "Video/Photography",
+      description: "I excel in photography, videography and video editing of any kind. Be it weddings, promos, graduations, birthdays, products, among others."
+    }
+  ])
+  </script>
