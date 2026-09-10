@@ -58,3 +58,13 @@
              class="block bg-paper text-void rounded-full px-4 py-2 text-center text-caption font-[510] mt-2">
             Let's Talk
           </a>
+        </div>
+      </div>
+    </Transition>
+  </nav>
+</template>
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useRouter } from 'vue-router'
+
