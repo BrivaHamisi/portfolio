@@ -77,3 +77,13 @@ Every component file in `src/` is touched by this reskin. That's expected for a 
 - Each service block: replace `border-l border-gray-700` with a proper Card (Subtle): `bg-white/[0.02] border border-graphite rounded-md p-4`.
 - Icons: **stay neutral** (`text-fog`), not lime — Linear's own spec says icons are "minimal line-art SVGs in single-color grey scale" and reserves lime strictly for the primary action. Not recoloring these to lime despite the current orange-500 treatment.
 - Body text → `text-fog`.
+
+### 6. Experience Stats (`ExperienceStats.vue`)
+
+- The big "6+" and the 4 stat numbers are currently `text-orange-500`. Per the Do/Don't list ("acid-lime exclusively for the single primary action per view... never for decoration"), these move to `text-paper font-[510]` (high-contrast white, Linear's own numeric-display convention) rather than lime.
+- Stat cards: `bg-carbon` → replace `bg-gray-800` with Card (Subtle) styling.
+
+### 7. Experience / Resume (`ExperienceSection.vue`)
+
+- Heading → `text-heading-sm font-[510]`.
+- "Download CV" button → Primary Action Button (acid-lime) — this is a genuine, singular CTA for this section, unambiguous fit.
