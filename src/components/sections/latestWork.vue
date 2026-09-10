@@ -73,3 +73,18 @@
             <WorkProjectCard
               v-for="(project, index) in visibleDesigns"
               :key="project.id"
+              v-reveal="Math.min(index, 6)"
+              :image="project.coverImage"
+              :title="project.title"
+              :description="project.description"
+              @click="goToProject('designs', project.id)"
+            />
+          </div>
+          <div v-else class="text-center py-16 border border-graphite rounded-xl bg-carbon">
+            <PaintBrushIcon class="w-8 h-8 text-fog mx-auto mb-3" />
+            <p class="text-fog text-body-sm">More design work coming soon.</p>
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+            <router-link to="/work/designs" class="border border-graphite text-mist rounded-md px-4 py-2 text-caption font-[510] hover:border-smoke transition-colors duration-150">
+              View More Designs →
+            </router-link>
