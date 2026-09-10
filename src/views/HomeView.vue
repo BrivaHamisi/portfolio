@@ -15,3 +15,12 @@
   <QuoteSection/>
   <Testimonial/>
   <div id="contact" class="scroll-mt-20">
+    <ContactUs/>
+  </div>
+  <Footer/>
+</template>
+
+<script>
+// Importing components
+import ExperienceSection from '../components/sections/ExperienceSection.vue';
+import whatIdo from '../components/sections/whatIdo.vue';
