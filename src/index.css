@@ -45,3 +45,13 @@ body {
 .hero-in.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.modal-enter-active {
+  transition: opacity 300ms ease-out, transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.modal-leave-active {
+  transition: opacity 200ms ease-in, transform 200ms ease-in;
+}
+.modal-enter-from,
+.modal-leave-to {
