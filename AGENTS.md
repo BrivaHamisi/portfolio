@@ -143,3 +143,21 @@ Custom `boxShadow` tokens in `tailwind.config.js`: `shadow-sm` (soft drop shadow
 
 ## Do's and Don'ts (carried from the source system)
 
+- Do reserve `acid-lime` for exactly one primary action per section — never for icons, decorative bars, stat numbers, or body links.
+- Do keep icons and decorative elements (timeline dots, quote glyphs, contact icons) neutral (`fog`/`graphite`/`smoke`) — Linear's own icons are single-color grayscale, not chromatic.
+- Do use hairline borders (`border-graphite` / `border-smoke`) for surface separation instead of drop shadows, in keeping with the source system.
+- Don't use `font-bold`/700+ weights anywhere — this system tops out at weight 590.
+- Don't add decorative gradients, colored accent bars, or chromatic body/link text — body and links stay in the `fog`/`mist`/`paper` grayscale.
+- Don't introduce a second chromatic accent as if it were another valid "CTA color" — `pulse-green`/`coral-red`/`signal-teal`/`iris-violet`/`lavender` exist in the palette as reserved future-state colors (success/error/tags) but are intentionally unused today; don't reach for them decoratively.
+
+=== deployment rules ===
+
+# Deployment
+
+- The site is deployed on **Vercel** (custom domain `brivahamisi.tech`), with `@vercel/analytics` wired up in `src/App.vue` via the `window.va` snippet — don't remove or duplicate that snippet.
+- `.github/workflows/actions.yaml` exists but is currently empty; don't assume CI runs any checks today.
+- Confirm `npm run build` succeeds locally before treating a change as deployable, since there is no CI gate doing this yet.
+
+=== tests rules ===
+
+# Testing
