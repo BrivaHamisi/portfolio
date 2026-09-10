@@ -68,3 +68,14 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 
+const router = useRouter()
+const isOpen = ref(false)
+const activeSection = ref('home')
+
+// Menu items
+const menuItems = ref([
+  { name: 'Home', ref: 'home', route: '/' },
+  { name: 'About', ref: 'about', route: '/#about' },
+  { name: 'Skills', ref: 'skills', route: '/#skills' },
+  { name: 'Latest Work', ref: 'latestWork', route: '/#latestWork' },
+  { name: 'Contact', ref: 'contact', route: '/#contact' }
