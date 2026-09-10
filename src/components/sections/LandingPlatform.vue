@@ -46,3 +46,12 @@ export default {
     const typewriter = ref(null);
     const heroVisible = ref(false);
 
+    const scrollToSection = (sectionRef) => {
+      const sectionElement = document.getElementById(sectionRef);
+      const marginTop = 32; // 32px margin
+
+      if (sectionElement) {
+        const sectionPosition = sectionElement.getBoundingClientRect().top + window.pageYOffset - marginTop;
+        window.scrollTo({
+          top: sectionPosition,
+          behavior: 'smooth',
