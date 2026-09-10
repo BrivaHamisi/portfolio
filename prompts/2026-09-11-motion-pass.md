@@ -7,3 +7,13 @@ Add purposeful motion consistent with the Linear-inspired reskin: restrained, fa
 ## Motion thesis (per the skill's required format)
 
 - **Focal moment:** the hero (`LandingPlatform.vue`) gets one authored entrance sequence on page load — kicker → headline → typewriter line → body copy → CTA button → portrait, each stepping in with a short stagger. This is the one sequence that earns bespoke treatment, since a portfolio is "Experience" mode — the hero is the work being shown, not just another section.
+- **Continuity:** the work modal's open/close is currently an instant `v-if` snap — that's a real state change (closed → open) that deserves a transition to stay legible, so it gets a fade+scale via Vue's `<Transition>`. Nav active-state color (scroll-spy) currently snaps too — gets a quick color transition.
+- **Feedback:** buttons already have `hover:brightness-95`; ghost buttons already have `hover:border-smoke`. Extending the same border-brighten pattern to the Latest Work grid cards and testimonial cards (currently only the image scales on hover, the card itself gives no signal it's interactive).
+- **Reveal:** section entrances get a single shared, restrained reveal (opacity 0→1, translateY 12px→0, 400ms, IntersectionObserver-triggered once, never re-triggers on scroll back up). Per the skill, sibling stagger is sanctioned specifically for content that reads as a list — so the 4 stat tiles (`ExperienceStats.vue`), 3 service tiles (`whatIdo.vue`), the work grid (`latestWork.vue`), and the 3 testimonial cards (`Testimonial.vue`) get a small per-item stagger (60ms step, capped at ~360ms total). Everything else reveals as a single block, not a staggered list — reinterpreting every section as "a list of its children" is exactly the generic pattern the skill warns against.
+- **Budget:** IntersectionObserver (not scroll listeners), transform+opacity only (GPU-compositable, no layout thrash), one-shot per element, `prefers-reduced-motion: reduce` collapses everything to an immediate, transform-free appearance — feedback/state transitions stay (they carry meaning) but spatial movement drops out.
+
+## Timing/easing (from the skill's table, applied to this project)
+
+- Feedback (hover/color changes): 150–200ms, standard ease.
+- Section reveals: 400ms, `cubic-bezier(0.16, 1, 0.3, 1)` (confident deceleration, no bounce).
+- Modal open: 300ms in, faster (200ms) on close — exit faster than entrance per the skill.
