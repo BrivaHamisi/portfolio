@@ -97,3 +97,12 @@ Every component file in `src/` is touched by this reskin. That's expected for a 
 - Section heading + underline bar → `text-heading-sm font-[510]`; drop the small orange-500 underline bar (decorative gradient/bar elements aren't part of Linear's vocabulary) in favor of just the heading, or a hairline `border-b border-graphite` beneath it — **decision flagged below**.
 - Modal panel: `bg-carbon` with `border border-graphite` (hairline) instead of `bg-gray-800`; drop background `bg-gray-900/90` overlay for `bg-void/90`.
 - Close/prev/next buttons → Ghost/Outline circular buttons: `bg-white/5 border border-graphite hover:bg-white/10` instead of `bg-gray-700`/`bg-gray-800`.
+- Title → `text-acid-lime` is currently used for the project title; per the single-CTA rule this should become `text-paper font-[510]` (it's a heading, not an action).
+- Client/Type labels (already fixed to `text-gray-200` last pass) → become **Badge/Status Tag** components: `bg-white/5 text-fog rounded px-1.5 text-xs` inline, replacing the icon+label row layout for those two fields specifically, OR keep the current row layout and just recolor — **decision flagged below** on how far to restructure vs. just recolor.
+- "More Work" link → `text-mist hover:text-paper underline` instead of `text-orange-500` (per Do/Don't: no chromatic link text in body copy).
+
+### 9. Testimonials (`Testimonial.vue`)
+
+- Heading → `text-heading-sm font-[510]`.
+- Cards → `bg-carbon border border-graphite rounded-xl` instead of `bg-gray-800 shadow-md`.
+- The featured (index 1) card's left accent bar: currently an orange gradient. Moving to neutral `bg-smoke` for all cards (no chromatic decoration on cards, per Do/Don't) rather than singling out one card with color.
