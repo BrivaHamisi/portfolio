@@ -118,3 +118,18 @@
           <div v-else class="text-center py-16 border border-graphite rounded-xl bg-carbon">
             <PhotoIcon class="w-8 h-8 text-fog mx-auto mb-3" />
             <p class="text-fog text-body-sm">Photography portfolio coming soon.</p>
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+            <router-link to="/work/photography" class="border border-graphite text-mist rounded-md px-4 py-2 text-caption font-[510] hover:border-smoke transition-colors duration-150">
+              View More Photos →
+            </router-link>
+            <a
+              v-for="link in photographyLinks"
+              :key="link.label"
+              :href="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 border border-graphite text-mist rounded-md px-4 py-2 text-caption font-[510] hover:border-smoke hover:text-paper transition-colors duration-150"
+            >
+              {{ link.label }}
+              <ArrowTopRightOnSquareIcon class="w-3.5 h-3.5" />
