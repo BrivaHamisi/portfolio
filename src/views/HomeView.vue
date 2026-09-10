@@ -40,3 +40,12 @@ export default {
     AboutMeSection,
     ExperienceSection,
     latestWork,
+    LandingPlatform,
+    ContactUs,
+    ExperienceStats,
+    Footer,
+    Testimonial,
+    QuoteSection
+  }
+}
+</script>
