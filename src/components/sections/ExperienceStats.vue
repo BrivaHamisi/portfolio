@@ -8,3 +8,12 @@
               <p class="text-heading font-[510] text-paper">6+</p>
               <p class="text-body-lg text-fog mt-2">Years Experience</p>
             </div>
+          </div>
+
+          <!-- Stats Grid Section -->
+          <div class="md:w-2/3">
+            <div class="grid grid-cols-2 gap-4">
+              <div v-for="(stat, index) in stats" :key="stat.label" v-reveal="index" class="bg-white/[0.02] border border-graphite p-4 rounded-md text-center">
+                <p class="text-heading-sm font-[510] text-paper">{{ stat.value }}</p>
+                <p class="text-body-sm text-fog mt-1">{{ stat.label }}</p>
+              </div>
