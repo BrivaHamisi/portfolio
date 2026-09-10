@@ -78,3 +78,13 @@ export const uiuxProject = { /* today's UI/UX Design entry, unchanged: client, t
 
 ### 2. `latestWork.vue` — tab bar + per-tab body
 
+- Tab bar: 4 plain-text tabs matching the nav-link pattern (`text-mist`, active tab `text-acid-lime` + small underline), `activeTab` ref, `transition-colors duration-150`.
+- **Software tab:** cards showing `image` (screenshot), `title`, short `description`, and a visible `Visit Site →` link (`target="_blank" rel="noopener noreferrer"`, `text-acid-lime hover:underline`) pointing at `liveUrl`. Clicking the card image still opens the existing accessible modal for the fuller description/client/type/year — the link is a distinct, more direct action sitting on the card itself.
+- **Designs tab:** up to 6 `designProjects` as redesigned cards (cover image, title, description — no hover-overlay). Clicking a card routes to `/work/designs?project=<id>`, landing directly in that project's masonry view. A "View More →" link routes to plain `/work/designs` (the project-card grid).
+- **Photography tab:** same pattern, empty state since `photographyProjects` is `[]`.
+- **UI/UX Design tab:** a single card (today's existing treatment) that opens the existing modal with the full carousel/quote/client/Figma-link content — unchanged from today, just moved into its own tab instead of living in the same grid as Software/Designs.
+
+### 3. `MasonryGrid.vue`
+
+Pure CSS masonry — no new dependency: `columns-2 md:columns-3 lg:columns-4 gap-4` on the container, each item `break-inside-avoid mb-4 rounded-xl overflow-hidden border border-graphite bg-carbon`, `<img loading="lazy" ...>` inside (native lazy loading, same pattern already used elsewhere in this codebase). `v-reveal` per item for a fade-in as the user scrolls the masonry, no stagger (not a fixed-count list).
+
