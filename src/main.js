@@ -17,3 +17,12 @@ const revealObserver = new IntersectionObserver(
   },
   { threshold: 0.15 }
 )
+
+const revealDirective = {
+  mounted(el, binding) {
+    if (prefersReducedMotion()) {
+      return
+    }
+    el.classList.add('reveal')
+    if (typeof binding.value === 'number') {
+      const delay = Math.min(binding.value * 60, 360)
