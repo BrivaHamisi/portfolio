@@ -64,3 +64,14 @@ import { ArrowDownTrayIcon } from '@heroicons/vue/24/outline'
 
 const experiences = ref([
   {
+    period: "2019 - Now",
+    title: "Founder and CEO",
+    company: "Briva Digital",
+    description: "A digital agency focused on Web, Creative Graphic Design, Android App Development, Branding and UI/UX Design. Successfully Designs various creatives and Supports wide range of Customers"
+  },
+  {
+    period: "May 2025 - Now",
+    title: "Webmaster",
+    company: "Daystar University",
+    description: "Responsible for managing and maintaining the university's website to ensure it functions effectively, aligns with the institution's goals, and provides a good user experience"
+  },
