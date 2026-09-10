@@ -15,3 +15,11 @@
           </div>
         </div>
       </div>
+    </div>
+  </template>
+  
+  <script setup>
+  import { ref } from 'vue'
+  import { PaintBrushIcon, WrenchScrewdriverIcon, CameraIcon } from '@heroicons/vue/24/outline'
+
+  const services = ref([
