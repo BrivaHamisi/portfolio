@@ -55,3 +55,12 @@ const fillDirective = {
     if (prefersReducedMotion()) {
       el.style.width = `${targetPercent}%`
       return
+    }
+    el.style.width = '0%'
+    fillObserver.observe(el)
+  },
+  unmounted(el) {
+    fillObserver.unobserve(el)
+  },
+}
+
