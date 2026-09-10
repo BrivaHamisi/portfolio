@@ -116,3 +116,17 @@
                 </blockquote>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </Transition>
+  </teleport>
+</template>
+
+<script setup>
+import { ref, watch, nextTick, onBeforeUnmount } from 'vue'
+
+const props = defineProps({
+  show: { type: Boolean, default: false },
+  project: { type: Object, default: null },
+})
