@@ -38,3 +38,13 @@ module.exports = {
         ],
       },
       fontSize: {
+        caption: ['13px', { lineHeight: '1.2' }],
+        'body-sm': ['15px', { lineHeight: '1.6', letterSpacing: '-0.165px' }],
+        'body-lg': ['20px', { lineHeight: '1.33', letterSpacing: '-0.24px' }],
+        subheading: ['24px', { lineHeight: '1.33', letterSpacing: '-0.288px' }],
+        'heading-sm': ['32px', { lineHeight: '1.13', letterSpacing: '-0.704px' }],
+        heading: ['48px', { lineHeight: '1', letterSpacing: '-1.056px' }],
+        'heading-lg': ['64px', { lineHeight: '1', letterSpacing: '-1.408px' }],
+        display: ['72px', { lineHeight: '1', letterSpacing: '-1.584px' }],
+      },
+      boxShadow: {
