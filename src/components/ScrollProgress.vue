@@ -18,3 +18,13 @@ const updateProgress = () => {
   const docHeight = document.documentElement.scrollHeight - window.innerHeight
   progress.value = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0
   ticking = false
+}
+
+const onScroll = () => {
+  if (!ticking) {
+    requestAnimationFrame(updateProgress)
+    ticking = true
+  }
+}
+
+onMounted(() => {
