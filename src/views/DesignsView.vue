@@ -47,3 +47,13 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { ArrowTopRightOnSquareIcon } from '@heroicons/vue/24/outline'
+import WorkProjectCard from '@/components/WorkProjectCard.vue'
+import MasonryGrid from '@/components/MasonryGrid.vue'
+import { designProjects, designLinks } from '@/data/work.js'
+
+const route = useRoute()
+const router = useRouter()
+
+const activeProject = computed(() =>
