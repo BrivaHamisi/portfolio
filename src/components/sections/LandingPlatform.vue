@@ -36,3 +36,13 @@
   </div>
 </template>
 
+<script>
+import { ref, onMounted } from 'vue';
+import Typewriter from 'typewriter-effect/dist/core';
+
+export default {
+  name: 'LandingPage',
+  setup() {
+    const typewriter = ref(null);
+    const heroVisible = ref(false);
+
