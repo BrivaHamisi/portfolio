@@ -68,3 +68,13 @@ export const designProjects = [
     description: '...',
     coverImage: '/images/mockup_1.jpg',
     images: ['/images/mockup_1.jpg', '/images/mockup_2.jpg', /* ...mockup_3..7.jpg */],
+  },
+]
+
+export const photographyProjects = [] // intentionally empty — see content gap above
+
+export const uiuxProject = { /* today's UI/UX Design entry, unchanged: client, type, year, quote, images carousel, figma previewUrl */ }
+```
+
+### 2. `latestWork.vue` — tab bar + per-tab body
+
