@@ -36,3 +36,12 @@ export const designProjects = [
       '/images/mockup_2.jpg',
       '/images/mockup_3.jpg',
       '/images/mockup_4.jpg',
+      '/images/mockup_5.jpg',
+      '/images/mockup_6.jpg',
+      '/images/mockup_7.jpg',
+    ],
+    client: 'Stancap Enterprises',
+    year: '2024',
+  },
+]
+
