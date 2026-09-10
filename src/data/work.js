@@ -45,3 +45,12 @@ export const designProjects = [
   },
 ]
 
+// Intentionally empty — no photography content exists in this repo yet.
+// Add an entry here ({ id, title, description, coverImage, images }) once real photos are available.
+export const photographyProjects = []
+
+export const designLinks = [
+  { label: 'Behance', url: 'https://www.behance.net/brivahamisi' },
+  { label: 'Dribbble', url: 'https://dribbble.com/_HamisiBriva' },
+  { label: 'Pinterest', url: 'https://www.pinterest.com/brivahamisi/' },
+]
