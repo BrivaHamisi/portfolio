@@ -6,3 +6,12 @@
     <AboutMeSection/>
   </div>
   <div id="skills" class="scroll-mt-20">
+    <whatIdo/>
+    <ExperienceStats/>
+  </div>
+  <latestWork id="latestWork"/>
+
+  <ExperienceSection id="experience"/>
+  <QuoteSection/>
+  <Testimonial/>
+  <div id="contact" class="scroll-mt-20">
