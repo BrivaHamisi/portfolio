@@ -7,3 +7,13 @@
  * Without this, overscroll/rubber-band bounce (trackpad elastic scroll,
  * mobile pull-past-the-edge) reveals the browser's default white
  * html/body background beyond the page content, since only the inner
+ * content div is styled with bg-void.
+ */
+html,
+body {
+  background-color: #08090a;
+}
+
+/*
+ * .reveal / .hero-in declare transition-property explicitly (as a comma list with
+ * mixed durations) rather than relying on Tailwind's `transition`/`transition-colors`
