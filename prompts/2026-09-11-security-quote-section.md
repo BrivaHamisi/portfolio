@@ -36,3 +36,12 @@ A single full-width section, quiet canvas, one large typographic moment — no c
 ```
 
 - Typography does the work: large (`text-heading-sm` mobile → `text-heading` desktop), italic, `font-[400]` (regular weight — Linear doesn't lean on bold for emphasis, size and italics carry it instead), tight `leading-snug` so a multi-line quote reads as one confident block rather than loose body text.
+- The acid-lime quote-mark glyph is the section's one accent touch — sized and placed as a quiet marker above the text, not a loud illustration.
+- `v-reveal` (the directive from the motion pass) gives it the same fade-up-once-on-scroll treatment as every other section — no new motion vocabulary needed.
+- No card/border/background-tint — letting it sit directly on the void canvas is what makes it feel like a deliberate typographic moment rather than another boxed content block, consistent with how Linear itself uses plain-canvas hero/statement text.
+
+## Verification
+
+- `npm run serve`, scroll to the new section at desktop and mobile widths — confirm the quote wraps cleanly at both sizes and doesn't overflow or look cramped on small screens.
+- Confirm it fades in once via `v-reveal`, doesn't re-trigger scrolling back up.
+- `npm run build` to confirm it compiles clean.
