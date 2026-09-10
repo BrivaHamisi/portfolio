@@ -48,3 +48,13 @@
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a v-for="item in menuItems" :key="item.name"
              :href="item.route"
+             @click="navigateTo(item, $event)"
+             class="text-mist hover:text-paper block px-3 py-2 rounded-md text-body-sm transition-colors duration-150"
+             :class="{ 'text-acid-lime': item.ref === activeSection }"
+          >
+            {{ item.name }}
+          </a>
+          <a href="/#contact" @click="navigateTo({ route: '/#contact' }, $event)"
+             class="block bg-paper text-void rounded-full px-4 py-2 text-center text-caption font-[510] mt-2">
+            Let's Talk
+          </a>
