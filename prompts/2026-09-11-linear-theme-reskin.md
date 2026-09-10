@@ -106,3 +106,13 @@ Every component file in `src/` is touched by this reskin. That's expected for a 
 - Heading → `text-heading-sm font-[510]`.
 - Cards → `bg-carbon border border-graphite rounded-xl` instead of `bg-gray-800 shadow-md`.
 - The featured (index 1) card's left accent bar: currently an orange gradient. Moving to neutral `bg-smoke` for all cards (no chromatic decoration on cards, per Do/Don't) rather than singling out one card with color.
+- Quote glyph icon: `text-fog` instead of `text-orange-500` (decorative icon, not an action).
+
+### 10. Contact (`ContactUs.vue`)
+
+- Card wrapper → `bg-carbon border border-graphite rounded-xl`.
+- WhatsApp button → Primary Action Button (acid-lime) — legitimate singular CTA for this section.
+- Address/Call/Email icons → `text-fog` instead of `text-orange-500` (decorative icons, not actions).
+- Heading → `text-heading-sm font-[510]`.
+
+### 11. Footer (`Footer.vue`)
