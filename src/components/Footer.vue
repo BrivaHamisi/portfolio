@@ -25,3 +25,12 @@
               xmlns="http://www.w3.org/2000/svg"
             >
               <path :d="link.path" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</template>
+
+<script>
