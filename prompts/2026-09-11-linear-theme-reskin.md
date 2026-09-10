@@ -47,3 +47,13 @@ Every component file in `src/` is touched by this reskin. That's expected for a 
 - `App.vue`: `#app` font-family → the new Inter stack; add `bg-void text-mist` as the base canvas/text so every section doesn't need to repeat it.
 
 ### 2. Navigation (`navbar.vue`)
+
+- Background: `bg-gray-900` → `bg-void` (or transparent-over-void per Linear's fixed nav pattern), keep `fixed`/`shadow` behavior but replace shadow with a hairline bottom border (`border-b border-graphite`) instead of `shadow-md`.
+- Menu links: drop the hover-pill-background style; adopt "Nav Text Button" — `text-mist`, 13px, weight 400, underline-on-hover instead of `hover:bg-gray-700`.
+- Active-state (scroll-spy) indicator: swap `bg-gray-700 text-white` for a small `text-acid-lime` + bottom-border treatment (active nav indicator is explicitly called out as a valid acid-lime use case).
+- Add a right-aligned "Sign-up Button"-style pill CTA — **decision needed, see below** on what it should link to (Resume / Contact / WhatsApp).
+- Mobile menu: same color/weight treatment; hamburger icon color `text-fog` hover `text-paper`.
+
+### 3. Hero (`LandingPlatform.vue`)
+
+- Canvas: drop the `bg_main.jpg` parallax photo background and gradient overlay — Linear's hero pattern is a plain void canvas (optionally the "Hero Gradient Floor" dark-to-light wash), not a photographic background. **Decision needed, see below**: keep your portrait/banner image beside the headline (as today, `Banner_Image.png` on the right) or go fully text-only like Linear's actual marketing hero?
