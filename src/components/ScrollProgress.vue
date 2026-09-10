@@ -8,3 +8,13 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const progress = ref(0)
+let ticking = false
+
+const updateProgress = () => {
+  const scrollTop = window.scrollY
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight
+  progress.value = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0
+  ticking = false
