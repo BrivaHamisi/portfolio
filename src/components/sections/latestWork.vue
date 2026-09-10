@@ -178,3 +178,18 @@ const focusTab = (direction) => {
   if (direction === 'first') {
     nextIndex = 0
   } else if (direction === 'last') {
+    nextIndex = categories.length - 1
+  } else {
+    nextIndex = (currentIndex + direction + categories.length) % categories.length
+  }
+  activeTab.value = categories[nextIndex].key
+  nextTick(() => {
+    tabRefs.value[nextIndex]?.focus()
+  })
+}
+
+const visibleSoftware = computed(() => softwareProjects.slice(0, 6))
+const visibleDesigns = computed(() => designProjects.slice(0, 6))
+const visiblePhotography = computed(() => photographyProjects.slice(0, 6))
+
+const goToProject = (categoryKey, projectId) => {
