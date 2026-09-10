@@ -73,3 +73,13 @@ Wrap the existing `<div v-if="showModal" ...>` in a Vue `<Transition name="modal
 ```
 No change to the existing focus-trap/Escape/scroll-lock logic from the earlier accessibility pass — purely visual.
 
+### 7. Feedback polish (small, low-risk)
+
+- `navbar.vue`: add `transition-colors duration-150` to nav links (the `text-acid-lime` active-state swap currently snaps).
+- `latestWork.vue` grid cards: add `border border-graphite transition-colors duration-150 group-hover:border-smoke` (currently only the image scales on hover).
+- `Testimonial.vue` cards: add `transition-colors duration-150 hover:border-smoke`.
+
+## Decisions needed before I start
+
+1. **Grid stagger cap** — cap the Latest Work grid's stagger at the first 6 items (default, above), or stagger every item regardless of count (risks a multi-second cascade if more projects get added later)? **Default: cap at 6.**
+2. **Hero replay on route change** — since this is a single-route SPA, the hero's focal sequence only ever plays once per hard page load. Fine as-is, or should it also replay if a user navigates away and back via browser history (not expected to matter given there's only one route)? **Default: leave as page-load-only, this is a non-issue for a one-route site.**
