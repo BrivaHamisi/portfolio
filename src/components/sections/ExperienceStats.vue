@@ -26,3 +26,13 @@
   
   <script setup>
   import { ref } from 'vue';
+  
+  const stats = ref([
+    { value: '7+', label: 'Design Experience' },
+    { value: '70+', label: 'Clients Served' },
+    { value: '40+', label: 'Completed Projects' },
+    { value: '9', label: 'Achievements' },
+  ]);
+  </script>
+
+  
