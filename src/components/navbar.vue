@@ -8,3 +8,13 @@
         </div>
 
         <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center">
+          <div class="flex items-baseline space-x-2">
+            <a v-for="item in menuItems" :key="item.name"
+               :href="item.route"
+               @click="navigateTo(item, $event)"
+               class="text-mist hover:underline px-3 py-2 text-caption font-[400] transition-colors duration-150"
+               :class="{ 'text-acid-lime': item.ref === activeSection }"
+            >
+              {{ item.name }}
+            </a>
