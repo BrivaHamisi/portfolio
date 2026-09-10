@@ -26,3 +26,13 @@ const revealDirective = {
     el.classList.add('reveal')
     if (typeof binding.value === 'number') {
       const delay = Math.min(binding.value * 60, 360)
+      el.style.transitionDelay = `${delay}ms`
+    }
+    revealObserver.observe(el)
+  },
+  unmounted(el) {
+    revealObserver.unobserve(el)
+  },
+}
+
+const fillObserver = new IntersectionObserver(
