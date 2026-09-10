@@ -71,3 +71,21 @@ Activate `vue-best-practices` and `vue-router-best-practices` when touching comp
 
 As of 2026-09-11 this site runs a design system adapted from Linear's product marketing site, applied via `tailwind.config.js` `theme.extend`. **This is the house style for every future page/section/component** — use these tokens by default rather than inventing new colors, sizes, or radii. Full source reference: `prompts/2026-09-11-linear-theme-reskin.md`.
 
+- Avoid inline `style` attributes where a Tailwind utility covers the same need; the codebase already does this for computed values (e.g. dynamic `width` percentages), which is an acceptable exception.
+- Configuration lives in `tailwind.config.js` and `postcss.config.js` — extend the theme there instead of hardcoding arbitrary values (`bg-[#123456]`) unless a one-off truly doesn't fit the palette.
+
+## Colors
+
+All available as Tailwind color classes (`bg-void`, `text-fog`, `border-graphite`, etc.) via `tailwind.config.js`.
+
+| Token | Hex | Role |
+|---|---|---|
+| `void` | `#08090a` | Page canvas — default background everything sits on |
+| `carbon` | `#0f1011` | Card surfaces, nav bar, modal panels |
+| `obsidian` | `#161718` | Elevated/nested panels (rarely needed yet) |
+| `graphite` | `#23252a` | Hairline borders, dividers, ghost-button outlines |
+| `smoke` | `#383b3f` | Higher-contrast hairline border (hover states, section separators) |
+| `ash` | `#62666d` | Muted/inactive text — rarely used directly, `fog` covers most cases |
+| `fog` | `#8a8f98` | Body copy, icons, secondary metadata — the default "muted text" color |
+| `mist` | `#d0d6e0` | Secondary headings, button text on dark surfaces, slightly brighter than `fog` |
+| `bone` | `#e5e5e6` | Near-white fills (rarely needed; `paper` covers most cases) |
