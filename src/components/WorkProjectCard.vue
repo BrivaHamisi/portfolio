@@ -16,3 +16,13 @@
           v-if="liveUrl"
           :href="liveUrl"
           target="_blank"
+          rel="noopener noreferrer"
+          class="text-acid-lime hover:underline text-caption font-[510]"
+          @click.stop
+          @keydown.enter.stop
+        >
+          Visit Site →
+        </a>
+        <a
+          v-if="githubUrl"
+          :href="githubUrl"
