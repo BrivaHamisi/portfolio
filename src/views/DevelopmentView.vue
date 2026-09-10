@@ -47,3 +47,13 @@ import { softwareProjects } from '@/data/work.js'
 const router = useRouter()
 
 const showModal = ref(false)
+const selectedProject = ref(null)
+
+const openProject = (project) => {
+  selectedProject.value = project
+  showModal.value = true
+}
+
+const closeModal = () => {
+  showModal.value = false
+}
