@@ -17,3 +17,13 @@ export default {
     navbar
   }
 }
+
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments) };
+
+</script> -->
+
+<script>
+import navbar from './components/navbar.vue';
+import ScrollProgress from './components/ScrollProgress.vue';
+
+export default {
