@@ -14,3 +14,11 @@
       />
     </div>
   </div>
+</template>
+
+<script setup>
+defineProps({
+  items: { type: Array, default: () => [] },
+  alt: { type: String, default: '' },
+})
+</script>
