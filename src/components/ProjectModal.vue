@@ -175,3 +175,17 @@ const nextImage = () => {
   }
 }
 
+const prevImage = () => {
+  if (props.project && !props.project.videoUrl) {
+    currentImageIndex.value = (currentImageIndex.value - 1 + props.project.images.length) % props.project.images.length
+  }
+}
+
+watch(() => props.show, (isOpen) => {
+  if (isOpen) {
+    lastFocusedElement = document.activeElement
+    currentImageIndex.value = 0
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeydown)
+    nextTick(() => {
+      closeButton.value?.focus()
