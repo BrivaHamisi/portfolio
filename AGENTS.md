@@ -216,3 +216,21 @@ There's no framework-specific skill for plain Tailwind class usage — just foll
 - `src/data/work.js` — categorized Latest Work data (`categories`, `softwareProjects`, `designProjects`, `photographyProjects`, `uiuxProject`). `photographyProjects` is intentionally `[]` — there's no real photography content in this repo yet (see "Things that will trip you up"). Add new work by editing this file, not by hardcoding entries back into `latestWork.vue`.
 - `src/data/blogs.js` — a small standalone data file for content that used to back a removed blogs feature; check with the user before deleting it or `public/images/blogs/*` outright, since it may be leftover rather than needed, but removing dead code isn't your call to make silently.
 - `public/images/` holds all static imagery referenced directly by path (no import/bundling of images from `src/assets` except the logo).
+
+## 6. Tech stack
+
+Vue 3, Vue CLI (webpack) build tooling, Vue Router 4, Tailwind CSS + PostCSS + Autoprefixer, Inter Variable (loaded from Google Fonts via a `<link>` in `index.html`, not self-hosted), `@heroicons/vue` for icons, `typewriter-effect` for the landing hero animation, `@vercel/analytics` for pageview analytics, deployed on Vercel. No TypeScript, no state management library, no test runner, no CSS-in-JS, no UI component library beyond hand-rolled Tailwind markup.
+
+Do not add TypeScript, Vite, Pinia, a test framework, or a CSS framework/component library without the user asking — the project is intentionally small and dependency-light.
+
+## 7. Decisions already made for you
+
+- Composition API with `<script setup>` is the preferred style for new/rewritten components, even though `App.vue` still uses Options API — don't force a repo-wide rewrite just to unify this.
+- Content is hardcoded per-component rather than pulled from a CMS or centralized JSON — keep new content in the same style unless asked to centralize it.
+- The "Linear" dark theme (`void` base, `acid-lime` as the single accent — see `tailwind/core rules` above) is the site's only theme — there is no light-mode toggle to build or preserve here (don't confuse this with the light/dark expectations of unrelated projects).
+- Analytics is Vercel Analytics via the existing `window.va` snippet in `App.vue` — don't replace it with a different analytics tool without being asked.
+
+## 8. Things that will trip you up
+
+- `head`, if aliased in some shells, may not be the standard Unix `head` — use the `Read` tool or `wc -l`/`sed -n` instead of piping through `head` when inspecting files in this environment.
+- `jsconfig.json` looks like it configures TypeScript-style options (`compilerOptions`) but this is a plain JS project; it only powers editor path-alias resolution (`@/*` → `src/*`), not a type checker.
