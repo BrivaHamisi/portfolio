@@ -27,3 +27,12 @@ import navbar from './components/navbar.vue';
 import ScrollProgress from './components/ScrollProgress.vue';
 
 export default {
+  name: 'App',
+  components: {
+    navbar,
+    ScrollProgress
+  },
+  mounted() {
+    window.va = window.va || function () {
+      (window.vaq = window.vaq || []).push(arguments);
+    };
