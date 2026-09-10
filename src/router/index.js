@@ -7,3 +7,12 @@ import PhotographyView from '../views/PhotographyView.vue'
 const routes = [
   {
     path: '/',
+    name: 'home',
+    component: HomeView
+  },
+  {
+    path: '/work/development',
+    name: 'development',
+    component: DevelopmentView
+  },
+  {
