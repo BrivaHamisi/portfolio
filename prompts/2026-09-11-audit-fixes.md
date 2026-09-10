@@ -72,3 +72,12 @@ Everything else below I confirmed by reading the actual line the finding cites.
 3. Diffs on binary files don't show in a normal git diff — I'll report before/after file sizes in the final summary so you can judge the tradeoff, and it's fully reversible with `git checkout -- public/images/` if you don't like the result.
 
 ### G — Not changing
+1. The `#latestWork` id/fragment-root claim (see "Verified against source" above) — no change, flagged only.
+
+## Decisions (I'll use the bolded default if you just approve this prompt as-is)
+
+1. **B3 route meta** — delete the dead `generateMetadata()` code, or wire it to actually set `document.title` per route? **Default: delete** (there's only one route today, so live head-swapping has near-zero value, and it's dead code either way until a second route exists).
+2. **B5 "View More"** — remove the button, or link it somewhere? **Default: remove** (there's no testimonials archive page to view more of).
+3. **C4 experience-years mismatch** — update the About bio's "3 years" to "6+ years" to match `ExperienceStats.vue`, or leave the bio number as-is and just flag the mismatch to you? **Default: update to "6+ years."**
+4. **D2 blue labels in the work modal** — recolor to `text-orange-500`, or a neutral `text-gray-200`? **Default: `text-gray-200`** — orange is already used for the heading right above it, and repeating it on every label reads louder than the current design intends.
+5. **D4 Tailwind color token** — add `brand`/`accent` tokens to `tailwind.config.js`, or leave literal `orange-500` classes as-is? **Default: skip this** (it's a refactor, not a bug fix — only D1–D3's three concrete off-palette values get touched).
