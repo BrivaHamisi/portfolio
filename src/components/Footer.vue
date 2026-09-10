@@ -71,3 +71,12 @@ export default defineComponent({
 
     return {
       currentYear,
+      socialLinks
+    };
+  }
+});
+</script>
+
+<style scoped>
+/* Add any additional custom styles here if needed */
+</style>
