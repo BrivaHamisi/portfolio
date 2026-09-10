@@ -93,3 +93,12 @@ body {
   .hero-in.is-visible {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+  .modal-enter-from,
+  .modal-leave-to,
+  .mobile-menu-enter-from,
+  .mobile-menu-leave-to {
+    transform: none;
+  }
+}
