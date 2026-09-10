@@ -8,3 +8,13 @@ Restructure the "Latest Work" section from one flat project grid into 4 tabs —
 
 1. Build the tab/grid infrastructure now using existing images as placeholder content (not waiting on new assets).
 2. "View More" opens a real route (`/work/designs`, `/work/photography`) rather than an in-page overlay.
+3. Software cards get a static screenshot + "Visit Site" link (not a live iframe).
+4. 6 cards show per tab on the homepage before "View More".
+
+## Corrected structure — two levels, not a flat grid
+
+Your follow-up changes the view-more page: it's **project cards first, photos/designs second**. So each category is a list of *projects* (a project = one client/job/shoot with a cover image, title, description, and its own set of individual images) — not a flat wall of individual images.
+
+- **Homepage tab:** shows project cards (up to 6) — image, title, description, matching the redesigned card below.
+- **View More page (`/work/designs`, `/work/photography`):** shows the *same kind* of project cards, just all of them, not capped at 6.
+- **Clicking a project card** (homepage tab *or* view-more page) — that's the one action that opens the Pinterest-style masonry of that project's individual images. On the homepage, clicking a card routes to `/work/designs?project=<id>` and the Designs page opens straight into that project's masonry (via the query param) rather than requiring a second click; landing on `/work/designs` with no query shows the project-card grid.
