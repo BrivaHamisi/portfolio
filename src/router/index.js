@@ -16,3 +16,13 @@ const routes = [
     component: DevelopmentView
   },
   {
+    path: '/work/designs',
+    name: 'designs',
+    component: DesignsView
+  },
+  {
+    path: '/work/photography',
+    name: 'photography',
+    component: PhotographyView
+  },
+]
