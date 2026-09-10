@@ -54,3 +54,13 @@ Implemented as a small Vue custom directive (`v-reveal`), registered globally in
 
 ### 4. Apply `v-reveal="index"` for the sanctioned list cases (staggered)
 
+- `ExperienceStats.vue` — 4 stat tiles.
+- `whatIdo.vue` — 3 service tiles.
+- `latestWork.vue` — grid thumbnails (cap stagger group at first 6 visible; beyond that, same delay as item 6 so a long grid doesn't take seconds to finish revealing).
+- `Testimonial.vue` — 3 testimonial cards.
+
+### 5. Hero focal sequence (`LandingPlatform.vue`) — bespoke, not the shared directive
+
+A small `mounted()` sequence (or a dedicated local composable) that adds a `.hero-in` class to each element in order with increasing `transition-delay` (kicker 0ms, headline 80ms, typewriter 160ms, body 240ms, button 320ms, portrait 160ms so it comes in alongside the typewriter rather than dead last). Skips straight to the visible end-state under `prefers-reduced-motion: reduce`.
+
+### 6. Modal open/close continuity (`latestWork.vue`)
