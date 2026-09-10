@@ -13,3 +13,18 @@
           aria-label="Latest work categories"
           class="flex justify-center gap-6 mb-10 border-b border-graphite pb-px flex-wrap"
           @keydown.left.prevent="focusTab(-1)"
+          @keydown.right.prevent="focusTab(1)"
+          @keydown.home.prevent="focusTab('first')"
+          @keydown.end.prevent="focusTab('last')"
+        >
+          <button
+            v-for="(cat, index) in categories"
+            :key="cat.key"
+            :ref="(el) => setTabRef(el, index)"
+            role="tab"
+            type="button"
+            :id="`tab-${cat.key}`"
+            :aria-controls="`panel-${cat.key}`"
+            :aria-selected="activeTab === cat.key"
+            :tabindex="activeTab === cat.key ? 0 : -1"
+            @click="activeTab = cat.key"
