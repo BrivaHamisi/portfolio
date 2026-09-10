@@ -161,3 +161,21 @@ Custom `boxShadow` tokens in `tailwind.config.js`: `shadow-sm` (soft drop shadow
 === tests rules ===
 
 # Testing
+
+- No test framework (Vitest, Jest, etc.) is currently configured in this project. Do not add test files or a test runner unless the user asks for one.
+- Verify changes manually: `npm run serve` and check the affected section in the browser (including responsive/mobile widths, since this is a single long scrolling page), then `npm run build` to confirm the production bundle compiles.
+
+---
+
+# Portfolio Repository Agent Instructions
+
+You are helping maintain **brivahamisi.tech**, Briva Hamisi's personal portfolio — a static Vue 3 site showcasing his work as a software engineer, full-stack/mobile developer, and creative designer (graphic design, video editing, photography). The homepage is one long scrolling page; a couple of `/work/*` routes exist for browsing full work categories (see "How the app is structured" below).
+
+## 1. What you are building
+
+A scrolling marketing/portfolio homepage: a landing hero, an "About Me" section with a skills list, an experience section with stats, a "What I Do" section, a tabbed "Latest Work" showcase (Development / Graphic Design / Photography / UI/UX Design), testimonials, and a contact section, wrapped in a shared navbar and footer. The Graphic Design and Photography tabs link out to dedicated `/work/designs` and `/work/photography` pages for browsing a category's full project list and drilling into one project's photo/design set. There is no login, no admin area, no database, and no dynamic content fetched from a server — everything is static JS/Vue plus images in `public/images/`. Build nothing beyond what a static portfolio needs; don't introduce a backend, CMS, or auth for this project unless the user explicitly asks for one.
+
+## 2. How to work
+
+This is the most important workflow in this file — do not skip step 3 for anything nontrivial.
+
