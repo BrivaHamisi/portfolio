@@ -37,3 +37,13 @@
   </div>
 </template>
 
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import WorkProjectCard from '@/components/WorkProjectCard.vue'
+import ProjectModal from '@/components/ProjectModal.vue'
+import { softwareProjects } from '@/data/work.js'
+
+const router = useRouter()
+
+const showModal = ref(false)
