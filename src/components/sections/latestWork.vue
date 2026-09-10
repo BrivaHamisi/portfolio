@@ -148,3 +148,18 @@
           />
         </div>
       </div>
+    </div>
+
+    <ProjectModal :show="showModal" :project="selectedProject" @close="closeModal" />
+  </div>
+</template>
+
+<script setup>
+import { ref, computed, nextTick } from 'vue'
+import { useRouter } from 'vue-router'
+import { ArrowTopRightOnSquareIcon, PaintBrushIcon, PhotoIcon } from '@heroicons/vue/24/outline'
+import WorkProjectCard from '@/components/WorkProjectCard.vue'
+import ProjectModal from '@/components/ProjectModal.vue'
+import { categories, softwareProjects, designProjects, photographyProjects, uiuxProject, designLinks, photographyLinks } from '@/data/work.js'
+
+const router = useRouter()
