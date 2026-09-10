@@ -234,3 +234,21 @@ Do not add TypeScript, Vite, Pinia, a test framework, or a CSS framework/compone
 
 - `head`, if aliased in some shells, may not be the standard Unix `head` — use the `Read` tool or `wc -l`/`sed -n` instead of piping through `head` when inspecting files in this environment.
 - `jsconfig.json` looks like it configures TypeScript-style options (`compilerOptions`) but this is a plain JS project; it only powers editor path-alias resolution (`@/*` → `src/*`), not a type checker.
+- `.github/workflows/actions.yaml` exists but is empty — there is no CI currently enforcing build/lint/test on this repo.
+- `src/App.vue` has a large commented-out duplicate `<script>` block above the active one; leave it unless the user asks you to clean it up, since removing "unused" code that isn't yours to judge can hide intent.
+- Blog-related data/images exist (`src/data/blogs.js`, `public/images/blogs/*`) even though blogs were removed from the site per git history — confirm with the user before deleting, since it may be for a future re-add rather than dead weight.
+- Inter Variable is loaded from Google Fonts at runtime, not self-hosted — if the dev/build environment has no network access, the browser falls back to `system-ui`. That's an acceptable degradation, not a bug to "fix" by vendoring the font.
+- `photographyProjects` in `src/data/work.js` is deliberately `[]`. Do not populate it with unrelated existing images (testimonial headshots, UI mockups, etc.) just to make the grid look full — that would misrepresent real people's photos or unrelated work as Briva's photography. The Photography tab and `/work/photography` are built to show a real empty state until an actual photo project is supplied.
+- The Development tab's "Visit Site" link (`softwareProjects[].liveUrl`) currently points at a GitHub repo, not a live deployed site, because that's the only URL that existed in the original data. Flag this to the user rather than inventing a plausible-looking live URL if asked to add more software projects without one.
+- `DesignsView.vue`/`PhotographyView.vue` use a `?project=<id>` query param to switch between the project-card grid and one project's photo masonry on the *same* route — don't refactor this into per-project path routes (`/work/designs/:id`) without discussing it first, since the query-param approach was a deliberate choice to avoid multiplying routes for what's still a small, static site.
+
+## 9. Checks to run
+
+- `npm install` if `node_modules` is stale or `package.json` changed.
+- `npm run serve` and manually verify the affected section renders correctly at both desktop and mobile widths.
+- `npm run build` to confirm the production bundle compiles without errors.
+- Review the git diff before finishing — this repo has no linter configured, so it's the only automated-adjacent check available; read your own diff carefully for stray console.logs, commented-out code, or accidental content changes.
+
+## 10. When in doubt
+
+Keep it small, match the existing Tailwind dark theme and Composition API style, don't add infrastructure (TypeScript, state management, testing, CI) the project doesn't already have unless asked, and confirm before deleting anything that looks unused but might be intentional leftover (like the blogs data). Run the manual browser check and `npm run build` before calling a change done.
