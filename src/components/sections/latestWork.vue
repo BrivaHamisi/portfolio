@@ -43,3 +43,18 @@
               :key="project.id"
               v-reveal="Math.min(index, 6)"
               :image="project.image"
+              :title="project.title"
+              :description="project.description"
+              :live-url="project.liveUrl"
+              @click="openProject(project)"
+            />
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+            <router-link to="/work/development" class="border border-graphite text-mist rounded-md px-4 py-2 text-caption font-[510] hover:border-smoke transition-colors duration-150">
+              View More Projects →
+            </router-link>
+            <a
+              href="https://github.com/BrivaHamisi"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 border border-graphite text-mist rounded-md px-4 py-2 text-caption font-[510] hover:border-smoke hover:text-paper transition-colors duration-150"
