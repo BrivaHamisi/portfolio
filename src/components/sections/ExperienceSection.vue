@@ -9,3 +9,14 @@
         <a href="https://docs.google.com/document/d/1f3Sd1ETlEa6T2D0vj2uC6mp0B8lTL7Bm00Sa30dh8yU" target="_blank" rel="noopener noreferrer" class="shrink-0">
           <button v-flashlight class="inline-flex items-center gap-2 bg-acid-lime hover:brightness-95 transition text-void font-[510] text-body-sm py-3 px-6 rounded-md">
             <ArrowDownTrayIcon class="w-5 h-5" />
+            Download CV
+          </button>
+        </a>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-8">
+        <div v-reveal class="w-full md:w-1/2">
+          <h3 class="text-body-lg font-[510] text-paper mb-4 text-left">Experiences</h3>
+          <div v-for="(job, index) in displayedExperiences" :key="index" class="mb-6 relative pl-10">
+            <div class="absolute left-0 top-0 h-full w-px bg-graphite"></div>
+            <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-graphite border border-smoke flex items-center justify-center -ml-4 text-caption font-[510] text-mist">
