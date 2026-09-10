@@ -64,3 +64,12 @@ Implemented as a small Vue custom directive (`v-reveal`), registered globally in
 A small `mounted()` sequence (or a dedicated local composable) that adds a `.hero-in` class to each element in order with increasing `transition-delay` (kicker 0ms, headline 80ms, typewriter 160ms, body 240ms, button 320ms, portrait 160ms so it comes in alongside the typewriter rather than dead last). Skips straight to the visible end-state under `prefers-reduced-motion: reduce`.
 
 ### 6. Modal open/close continuity (`latestWork.vue`)
+
+Wrap the existing `<div v-if="showModal" ...>` in a Vue `<Transition name="modal">` with:
+```css
+.modal-enter-active { transition: opacity 300ms ease-out, transform 300ms cubic-bezier(0.16, 1, 0.3, 1); }
+.modal-leave-active { transition: opacity 200ms ease-in, transform 200ms ease-in; }
+.modal-enter-from, .modal-leave-to { opacity: 0; transform: scale(0.97); }
+```
+No change to the existing focus-trap/Escape/scroll-lock logic from the earlier accessibility pass — purely visual.
+
