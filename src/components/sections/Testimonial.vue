@@ -18,3 +18,12 @@
           <p class="text-fog text-caption mb-4">{{ testimonial.title }}</p>
           <p class="text-mist text-body-sm leading-relaxed">{{ testimonial.comment }}</p>
         </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const testimonials = ref([
