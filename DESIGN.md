@@ -103,3 +103,56 @@ Linear's design system is a midnight command center built on near-black surfaces
 
 | Name | Value | Token |
 |------|-------|-------|
+| sm | `rgba(0, 0, 0, 0.4) 0px 2px 4px 0px` | `--shadow-sm` |
+| md | `rgba(0, 0, 0, 0.2) 0px 0px 12px 0px inset` | `--shadow-md` |
+| subtle | `rgb(35, 37, 42) 0px 0px 0px 1px inset` | `--shadow-subtle` |
+| subtle-2 | `rgba(0, 0, 0, 0.2) 0px 0px 0px 1px` | `--shadow-subtle-2` |
+| subtle-3 | `rgba(0, 0, 0, 0.01) 0px 5px 2px 0px, rgba(0, 0, 0, 0.04) ...` | `--shadow-subtle-3` |
+| xl | `rgba(8, 9, 10, 0.6) 0px 4px 32px 0px` | `--shadow-xl` |
+| subtle-4 | `rgba(255, 255, 255, 0.03) 0px 0px 0px 1px inset, rgba(255...` | `--shadow-subtle-4` |
+| subtle-5 | `rgba(0, 0, 0, 0.1) 0px 0px 0px 2px` | `--shadow-subtle-5` |
+
+### Layout
+
+- **Page max-width:** 1200px
+- **Section gap:** 96px
+- **Card padding:** 24px
+- **Element gap:** 8px
+
+## Components
+
+### Primary Action Button (Acid Lime)
+**Role:** High-emphasis CTA — the one chromatic button in the system
+
+Background #e4f222, text #08090a, border-radius 6px, padding 10px 16px, Inter 14px / weight 510, letter-spacing -0.011em. Sits as the sole filled chromatic element — every other button on the site is neutral.
+
+### Nav Text Button
+**Role:** Top navigation items
+
+Transparent background, text #d0d6e0, padding 8px 12px, Inter 13px / weight 400. No border, no fill — pure typographic nav with underline on hover.
+
+### Pill Button
+**Role:** Tag chips, status pills, compact action triggers
+
+Background rgba(255,255,255,0.05), text #d0d6e0, border-radius 9999px, padding 4px 12px, Inter 12–13px / weight 400.
+
+### Ghost / Outline Button
+**Role:** Secondary actions, less prominent CTAs
+
+Transparent background, border 1px #23252a, text #d0d6e0, border-radius 6px, padding 8px 12px, Inter 13px / weight 400.
+
+### Sign-up Button (Rounded Pill, Neutral)
+**Role:** High-emphasis nav CTA
+
+Background #ffffff, text #08090a, border-radius 9999px, padding 8px 16px, Inter 13px / weight 510. White pill against the dark nav bar — the second highest-contrast element after the acid-lime CTA.
+
+### Card (Product Screenshot Frame)
+**Role:** Large showcase surface for product UI screenshots
+
+Background #0f1011, border-radius 12px, inset shadow rgb(35,37,42) 0 0 0 1px, padding 24px. Hairline inner border defines the card edge — no outer shadow, no glow.
+
+### Card (Subtle)
+**Role:** Small content cards, nested panels
+
+Background rgba(255,255,255,0.02), border-radius 6px, shadow rgba(0,0,0,0.4) 0 2px 4px, padding 8px. Almost invisible — the card barely separates from the canvas.
+
