@@ -56,3 +56,22 @@ export default {
           top: sectionPosition,
           behavior: 'smooth',
         });
+      }
+    };
+
+    onMounted(() => {
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        // An indefinitely looping typewriter is exactly what reduced-motion
+        // is meant to suppress — show one representative role as static text.
+        if (typewriter.value) {
+          typewriter.value.textContent = 'a Software Engineer';
+        }
+      } else {
+        new Typewriter(typewriter.value, {
+          strings: ['a Software Engineer', 'a UI/UX Designer', 'a Creative Graphics Designer', 'a Video Editor', 'a Photographer'],
+          autoStart: true,
+          loop: true,
+        });
+      }
