@@ -97,3 +97,23 @@ const experiences = ref([
     title: "STEM IT",
     company: "FOCUS Kenya",
     description: "Involved in student ministry, offered mentorship and advisory support to students and Christian Union leaders. Facilitated training to students in different Universities/Colleges. Involved in FOCUS Kenya Android Students App Development, FOCUS Kenya Bookstall App Development, FOCUS Student Management System, and FOCUS Tatua Enterprise System. Involved in Creative Graphics Design for FOCUS Productions"
+  },
+  {
+    period: "2022 - 2022",
+    title: "IT Support and Graphics Designer",
+    company: "ArielTech & Essert Kenya",
+    description: "Assisted in the development of responsive web applications using CMS (Content Management Systems) to implement user-friendly interfaces. Designed Creatives for print such as banners, Business cards and Company profiles "
+  },
+])
+
+const education = ref([
+  {
+    period: "January 2026 - Present",
+    degree: "Master of Science in Information Technology",
+    institution: "Kabarak University",
+    description: "is a two-year postgraduate program designed to build advanced skills in modern computing, systems development, data management, networking, and IT research. It blends theory with practical, industry-focused training and includes a research project or thesis. The program prepares graduates for senior roles in software development, systems administration, IT leadership, and academia, and also serves as a pathway to doctoral studies"
+  },
+  {
+    period: "Feb 2025 - June 2025",
+    degree: "Certificate in Apologetics",
+    institution: "St. Paul's University & Apologetics Kenya",
