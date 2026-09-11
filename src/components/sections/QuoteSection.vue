@@ -1,8 +1,7 @@
 <template>
-  <div class="bg-void w-full py-24 relative overflow-hidden">
+  <div v-reveal class="bg-void w-full py-24 relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 relative">
       <svg
-        v-reveal
         class="pointer-events-none select-none absolute -top-6 -left-2 md:-left-8 w-24 h-24 md:w-32 md:h-32 text-acid-lime opacity-10"
         viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
       >
