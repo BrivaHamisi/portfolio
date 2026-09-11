@@ -35,8 +35,9 @@
           </button>
         </div>
 
+        <Transition name="tab-panel" mode="out-in">
         <!-- Development -->
-        <div v-if="activeTab === 'software'" role="tabpanel" id="panel-software" aria-labelledby="tab-software" tabindex="0">
+        <div v-if="activeTab === 'software'" key="software" role="tabpanel" id="panel-software" aria-labelledby="tab-software" tabindex="0">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <WorkProjectCard
               v-for="(project, index) in visibleSoftware"
@@ -68,7 +69,7 @@
         </div>
 
         <!-- Graphic Design -->
-        <div v-else-if="activeTab === 'designs'" role="tabpanel" id="panel-designs" aria-labelledby="tab-designs" tabindex="0">
+        <div v-else-if="activeTab === 'designs'" key="designs" role="tabpanel" id="panel-designs" aria-labelledby="tab-designs" tabindex="0">
           <div v-if="designProjects.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <WorkProjectCard
               v-for="(project, index) in visibleDesigns"
@@ -103,7 +104,7 @@
         </div>
 
         <!-- Photography -->
-        <div v-else-if="activeTab === 'photography'" role="tabpanel" id="panel-photography" aria-labelledby="tab-photography" tabindex="0">
+        <div v-else-if="activeTab === 'photography'" key="photography" role="tabpanel" id="panel-photography" aria-labelledby="tab-photography" tabindex="0">
           <div v-if="photographyProjects.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <WorkProjectCard
               v-for="(project, index) in visiblePhotography"
@@ -138,7 +139,7 @@
         </div>
 
         <!-- UI/UX Design -->
-        <div v-else-if="activeTab === 'uiux'" role="tabpanel" id="panel-uiux" aria-labelledby="tab-uiux" tabindex="0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div v-else-if="activeTab === 'uiux'" key="uiux" role="tabpanel" id="panel-uiux" aria-labelledby="tab-uiux" tabindex="0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <WorkProjectCard
             v-reveal
             :image="uiuxProject.images[0]"
@@ -147,6 +148,7 @@
             @click="openProject(uiuxProject)"
           />
         </div>
+        </Transition>
       </div>
     </div>
 

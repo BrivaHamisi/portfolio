@@ -86,6 +86,35 @@ body {
   opacity: 1;
 }
 
+/*
+ * Hero headline entrance: a light-beam sweep across the h1, revealed via
+ * clip-path (driven by the Web Animations API in LandingPlatform.vue, not
+ * CSS transition, since it needs to run once on mount in sync with the
+ * beam element rather than react to a class toggle). This is the site's
+ * one authored focal moment — a literal realization of the design
+ * system's "acid-lime as a functional flashlight" language applied to the
+ * first thing a visitor sees, instead of another generic fade-and-rise.
+ */
+.hero-beam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: #e4f222;
+  box-shadow: 0 0 16px 2px rgba(228, 242, 34, 0.65);
+  pointer-events: none;
+}
+
+.tab-panel-enter-active,
+.tab-panel-leave-active {
+  transition: opacity 200ms ease;
+}
+.tab-panel-enter-from,
+.tab-panel-leave-to {
+  opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal.is-visible,
@@ -100,5 +129,8 @@ body {
   .mobile-menu-enter-from,
   .mobile-menu-leave-to {
     transform: none;
+  }
+  .hero-beam {
+    display: none;
   }
 }

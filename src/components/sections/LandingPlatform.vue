@@ -3,9 +3,12 @@
     <!-- Content -->
     <div class="relative z-30 flex items-center min-h-screen px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div class="text-paper w-full lg:w-1/2 text-left">
-        <h1 class="hero-in [transition-delay:0ms] text-heading-lg md:text-display text-paper font-[510] mb-2" :class="{ 'is-visible': heroVisible }">
-          Hi, I'm <span class="text-paper">Briva Hamisi</span>
-        </h1>
+        <div class="relative">
+          <h1 ref="heroHeadline" class="text-heading-lg md:text-display text-paper font-[510] mb-2">
+            Hi, I'm <span class="text-paper">Briva Hamisi</span>
+          </h1>
+          <span ref="heroBeam" class="hero-beam" aria-hidden="true"></span>
+        </div>
         <div class="hero-in [transition-delay:80ms] text-subheading text-mist h-12 mb-4 font-[510]" :class="{ 'is-visible': heroVisible }">
           <span ref="typewriter"></span>
         </div>
@@ -45,6 +48,8 @@ export default {
   setup() {
     const typewriter = ref(null);
     const heroVisible = ref(false);
+    const heroHeadline = ref(null);
+    const heroBeam = ref(null);
 
     const scrollToSection = (sectionRef) => {
       const sectionElement = document.getElementById(sectionRef);
@@ -61,6 +66,18 @@ export default {
 
     onMounted(() => {
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Set the headline's hidden state synchronously, before the browser's
+      // first paint, so there's no flash of fully-visible text before the
+      // sweep begins (same reasoning as the double-rAF trick below).
+      if (heroHeadline.value) {
+        if (prefersReducedMotion) {
+          heroHeadline.value.style.clipPath = 'inset(0 0% 0 0)';
+          if (heroBeam.value) heroBeam.value.style.display = 'none';
+        } else {
+          heroHeadline.value.style.clipPath = 'inset(0 100% 0 0)';
+        }
+      }
 
       if (prefersReducedMotion) {
         // An indefinitely looping typewriter is exactly what reduced-motion
@@ -82,6 +99,23 @@ export default {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           heroVisible.value = true;
+
+          if (!prefersReducedMotion && heroHeadline.value && heroBeam.value) {
+            const easing = 'cubic-bezier(0.16, 1, 0.3, 1)';
+            const duration = 750;
+            heroHeadline.value.animate(
+              [{ clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)' }],
+              { duration, easing, fill: 'forwards' }
+            );
+            heroBeam.value.animate(
+              [
+                { left: '0%', opacity: 1 },
+                { left: '100%', opacity: 1, offset: 0.85 },
+                { left: '100%', opacity: 0 },
+              ],
+              { duration, easing, fill: 'forwards' }
+            );
+          }
         });
       });
     });
@@ -89,6 +123,8 @@ export default {
     return {
       typewriter,
       heroVisible,
+      heroHeadline,
+      heroBeam,
       scrollToSection,
     };
   },
