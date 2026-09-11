@@ -183,3 +183,29 @@ You are helping maintain **brivahamisi.tech**, Briva Hamisi's personal portfolio
 A scrolling marketing/portfolio homepage: a landing hero, an "About Me" section with a skills list, an experience section with stats, a "What I Do" section, a tabbed "Latest Work" showcase (Development / Graphic Design / Photography / UI/UX Design), a pull-quote section, testimonials, and a contact section, wrapped in a shared navbar and footer. All three of Development, Graphic Design, and Photography link out to dedicated `/work/*` pages: Development shows the full project grid (each card opens the same accessible modal used on the homepage); Graphic Design and Photography show a project-card grid that drills into one project's photo/design set as a Pinterest-style masonry. There is no login, no admin area, no database, and no dynamic content fetched from a server — everything is static JS/Vue plus images in `public/images/`. Build nothing beyond what a static portfolio needs; don't introduce a backend, CMS, or auth for this project unless the user explicitly asks for one.
 
 ## 2. How to work
+
+This is the most important workflow in this file — do not skip step 3 for anything nontrivial.
+
+1. Look at the relevant section component(s) in `src/components/sections/` and the shared chrome (`navbar.vue`, `Footer.vue`) before changing anything — content and styling conventions live inline in each file, not in a central config.
+2. Match the "Linear" design system tokens (see the `tailwind/core rules` section below — `void`/`carbon` surfaces, `acid-lime` as the sole accent, Inter Variable type scale) and the Composition API `<script setup>` pattern used by most sections.
+3. **Write an implementation prompt in `prompts/`** covering: the goal, the files you expect to touch, your approach/plan and assumptions, and how you'll verify it (manual check steps, viewports, `npm run build`). Follow the naming and format described in `prompts/README.md`.
+4. **Ask the user for approval before writing any code**, with Yes/No as selectable options, e.g.: `I prepared the implementation prompt at prompts/<name>.md. Is this good to execute?`
+5. Only skip steps 3–4 for genuinely trivial, low-risk edits the user explicitly asked for in exact terms (a typo fix, a single copy/text change, a one-line style tweak) — anything touching layout, a new section, content restructuring, dependencies, or multiple files goes through the prompt. You may also skip the prompt when the user explicitly tells you to skip it for the current task ("just do it", "skip the prompt for this one") — that permission covers only that task, not future ones.
+6. Once approved, implement exactly what the prompt describes — don't scope-creep beyond it. Run `npm run serve` to check it visually (desktop and mobile widths), then `npm run build` to confirm production build success.
+7. Close with a short report using bullets, not paragraphs, under three headings:
+   - `What I did` — a few one-line bullets.
+   - `Test` — numbered steps to see/verify the change (section/URL, viewport sizes, `npm run build`).
+   - `Needs your attention` — anything you're unsure about or that needs a decision, or say "None."
+
+## Recording durable decisions
+
+If you discover a rule, convention, or gotcha mid-task that isn't already written down here and would help next time (a hidden constraint, a "don't do X because Y" you had to learn the hard way, a decision the user made that should stick) — add it directly to the relevant section of this file (e.g. "Decisions already made for you" or "Things that will trip you up") as part of your change, rather than letting it live only in the conversation. This file is the only shared memory this project has; there's no separate `.ai/rules` directory or rule-recording tool here.
+
+## 3. UI work
+
+You do not have a `designs/` folder of mockups to work from in this project. When the user gives specific copy, images, or layout direction, follow it exactly and note it in the implementation prompt. Otherwise, match the established "Linear" design system (see `tailwind/core rules` above for the full token/component reference) rather than introducing a new style. Since this is a single long page, always check how a change reflows at mobile width, not just desktop.
+
+## 4. Skills to lean on
+
+- `vue-best-practices`, for Composition API, `<script setup>`, and component structure.
+- `vue-router-best-practices`, if routing/metadata handling changes.
