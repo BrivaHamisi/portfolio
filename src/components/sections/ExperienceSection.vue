@@ -137,3 +137,23 @@ const education = ref([
     institution: "P.C.E.A College, Molo",
     description: "The Certificate of Computer Fundamentals Programme is a full-time course that requires learners to commit to at least 3 hours of learning per week to successfully complete the coursework. The Programme prepares learner with the sought after professional skills for today's digital workforce."
   },
+  
+])
+
+const itemsToShow = ref(3)
+const isShowingAll = ref(false)
+
+const displayedExperiences = computed(() => 
+  isShowingAll.value ? experiences.value : experiences.value.slice(0, itemsToShow.value)
+)
+const displayedEducation = computed(() => 
+  isShowingAll.value ? education.value : education.value.slice(0, itemsToShow.value)
+)
+
+const toggleLoadMore = () => {
+  isShowingAll.value = !isShowingAll.value
+  if (!isShowingAll.value) {
+    itemsToShow.value = 3 
+  }
+}
+</script>
