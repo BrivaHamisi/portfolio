@@ -24,3 +24,30 @@ Activate `vue-best-practices` and `vue-router-best-practices` when touching comp
 ## Verification Scripts
 
 - There is no test runner configured. Do not invent one-off verification scripts; instead run the dev server (`npm run serve`) and check the change in the browser, and run `npm run build` to confirm the production build succeeds.
+
+## Application Structure & Architecture
+
+- `src/views/HomeView.vue` composes the homepage from `src/components/sections/*.vue` (LandingPlatform, AboutMeSection, ExperienceSection, ExperienceStats, whatIdo, latestWork, QuoteSection, Testimonial, ContactUs). `src/views/DevelopmentView.vue`, `DesignsView.vue`, and `PhotographyView.vue` are the three `/work/*` pages.
+- `src/components/navbar.vue`, `src/components/Footer.vue`, and `src/components/ScrollProgress.vue` are shared chrome rendered around the routed view via `src/App.vue`. The routed content itself is wrapped in a `<main>` landmark in `App.vue` — keep that wrapper when touching `App.vue`.
+- `src/components/WorkProjectCard.vue`, `src/components/MasonryGrid.vue`, and `src/components/ProjectModal.vue` are shared presentational components used by the Latest Work tabs and the `/work/*` pages — reuse these for any future work-category UI rather than duplicating card/grid/modal markup.
+- `ProjectModal.vue` is the extracted accessible modal (`role="dialog"`, focus trap, Escape, scroll lock, focus restore) — it's a real standalone component now (`<ProjectModal :show="..." :project="..." @close="..." />`), used by both `latestWork.vue` (Development/UI-UX tab detail view) and `DevelopmentView.vue`. It is not inline in `latestWork.vue` anymore.
+- `WorkProjectCard.vue` uses a **stretched-button pattern**, not a `role="button"` wrapper: a single real `<button>` absolutely positioned to cover the whole card is the actual interactive element (native Enter/Space, no custom keydown handlers needed); the title/description are `pointer-events-none` so clicks pass through to it; any secondary real links (Visit Site, GitHub) sit in their own `pointer-events-auto` layer on top. **Never put a real `<a>`/`<button>` inside a `role="button"` div** — nested interactive elements are invalid and confusing to assistive tech. If you need another "card with an optional secondary link" component, copy this pattern rather than a role=button wrapper.
+- Stick to this structure. Don't introduce new top-level folders (e.g. `store/`, `services/`) without the user's approval — there is currently no state-management or API layer to extend.
+
+## Frontend Bundling
+
+- This project uses Vue CLI, not Vite: `npm run serve` for local dev with hot reload, `npm run build` for a production build to `dist/`. If a change isn't showing up, ask the user to restart `npm run serve` or run `npm run build`.
+
+## Documentation Files
+
+- Only create documentation files (README sections, docs/, etc.) if explicitly requested.
+
+## Replies
+
+- Be concise. Focus on what changed and why, not a walkthrough of obvious code.
+
+=== javascript/vue rules ===
+
+# JavaScript & Vue
+
+- This is JavaScript, not TypeScript — do not add type annotations or convert files to `.ts`/`lang="ts"` unless the user explicitly asks for a TypeScript migration.
