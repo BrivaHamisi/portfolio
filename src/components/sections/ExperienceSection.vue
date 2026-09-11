@@ -18,3 +18,23 @@
         </a>
       </div>
 
+      <div class="flex flex-col md:flex-row gap-8">
+        <div v-reveal class="w-full md:w-1/2">
+          <h3 class="text-body-lg font-[510] text-paper mb-4 text-left">Experiences</h3>
+          <div v-for="(job, index) in displayedExperiences" :key="index" class="mb-6 relative pl-10">
+            <div class="absolute left-0 top-0 h-full w-px bg-graphite"></div>
+            <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-graphite border border-smoke flex items-center justify-center -ml-4 text-caption font-[510] text-mist">
+              {{ index + 1 }}
+            </div>
+            <div class="relative">
+              <div class="font-[510] text-fog relative z-10 text-left">{{ job.period }}</div>
+            </div>
+            <h4 class="text-body-lg font-[510] text-paper mb-1 text-left mt-2">{{ job.title }}</h4>
+            <p class="text-mist mb-1 text-left">{{ job.company }}</p>
+            <p class="text-body-sm text-fog text-left">{{ job.description }}</p>
+          </div>
+        </div>
+
+        <div v-reveal class="w-full md:w-1/2">
+          <h3 class="text-body-lg font-[510] text-paper mb-4 text-left">Education</h3>
+          <div v-for="(edu, index) in displayedEducation" :key="index" class="mb-6 relative pl-10">
