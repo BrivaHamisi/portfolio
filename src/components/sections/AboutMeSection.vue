@@ -68,3 +68,21 @@ const skills = ref([
   { name: 'Python', percentage: 70 },
   { name: 'PHP', percentage: 80 },
   { name: 'Kotlin', percentage: 40 },
+  { name: 'Flutter', percentage: 80 },
+  { name: 'React', percentage: 65 },
+  { name: 'SQL', percentage: 85 },
+  { name: 'Bootstrap', percentage: 80 },
+  { name: 'WordPress', percentage: 90 },
+  { name: 'Java', percentage: 65 },
+])
+
+const showAllSkills = ref(false)
+
+const displayedSkills = computed(() => {
+  return showAllSkills.value ? skills.value : skills.value.slice(0, 6)
+})
+
+const toggleSkills = () => {
+  showAllSkills.value = !showAllSkills.value
+}
+</script>
