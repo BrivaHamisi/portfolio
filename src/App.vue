@@ -6,6 +6,7 @@
       <router-view></router-view>
     </main>
     <Analytics />
+    <ScrollToTop />
   </div>
 </template>
 
@@ -26,6 +27,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 <script>
 import navbar from './components/navbar.vue';
 import ScrollProgress from './components/ScrollProgress.vue';
+import ScrollToTop from './components/ScrollToTop.vue';
 import { Analytics } from '@vercel/analytics/vue';
 
 export default {
@@ -33,6 +35,7 @@ export default {
   components: {
     navbar,
     ScrollProgress,
+    ScrollToTop,
     Analytics
   }
 }
