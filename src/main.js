@@ -64,6 +64,60 @@ const fillDirective = {
   },
 }
 
+const countObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target)
+        countObserver.unobserve(entry.target)
+      }
+    })
+  },
+  { threshold: 0.15 }
+)
+
+const animateCount = (el) => {
+  const target = parseFloat(el.dataset.countTarget)
+  const suffix = el.dataset.countSuffix
+  const duration = 1200
+  const start = performance.now()
+
+  const step = (now) => {
+    const progress = Math.min((now - start) / duration, 1)
+    const eased = 1 - Math.pow(1 - progress, 3)
+    el.textContent = `${Math.round(target * eased)}${suffix}`
+    if (progress < 1) {
+      requestAnimationFrame(step)
+    } else {
+      el.textContent = `${target}${suffix}`
+    }
+  }
+  requestAnimationFrame(step)
+}
+
+// Animates a stat number counting up from 0 to its target value once it
+// scrolls into view, e.g. v-count="'70+'" -> counts 0 -> 70, keeping the "+".
+const countDirective = {
+  mounted(el, binding) {
+    const raw = String(binding.value)
+    const match = raw.match(/^(\d+(?:\.\d+)?)(.*)$/)
+    const target = match ? match[1] : '0'
+    const suffix = match ? match[2] : ''
+    el.dataset.countTarget = target
+    el.dataset.countSuffix = suffix
+
+    if (prefersReducedMotion()) {
+      el.textContent = raw
+      return
+    }
+    el.textContent = `0${suffix}`
+    countObserver.observe(el)
+  },
+  unmounted(el) {
+    countObserver.unobserve(el)
+  },
+}
+
 // The design system describes the acid-lime accent as "a functional
 // flashlight — small, high-contrast, used sparingly to signal action."
 // This makes that literal on the primary action buttons: a soft highlight
@@ -91,5 +145,6 @@ const flashlightDirective = {
 const app = createApp(App)
 app.directive('reveal', revealDirective)
 app.directive('fill', fillDirective)
+app.directive('count', countDirective)
 app.directive('flashlight', flashlightDirective)
 app.use(router).mount('#app')
