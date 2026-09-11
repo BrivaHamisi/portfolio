@@ -15,3 +15,20 @@ const routes = [
     name: 'home',
     component: HomeView
   },
+  {
+    path: '/work/development',
+    name: 'development',
+    component: DevelopmentView
+  },
+  {
+    path: '/work/designs',
+    name: 'designs',
+    component: DesignsView
+  },
+  {
+    path: '/work/photography',
+    name: 'photography',
+    component: PhotographyView
+  },
+]
+
