@@ -104,3 +104,29 @@ All available as Tailwind color classes (`bg-void`, `text-fog`, `border-graphite
 
 - Font: **Inter Variable**, loaded via a Google Fonts `<link>` in `index.html` (`family=Inter:wght@300..700`), configured as `font-sans` in `tailwind.config.js`. Falls back to `ui-sans-serif, system-ui` if the CDN request fails (e.g. offline dev) — that's an acceptable, expected fallback, not a bug.
 - Weights: **300–590 only**. Never use `font-bold` (Tailwind's 700) or `font-semibold`/`font-medium` — use the arbitrary-value classes `font-[510]` (roughly Tailwind's "medium/semibold" role — nav CTAs, card titles, button labels) and `font-[590]` (heavier emphasis, rarely needed) instead. Plain body text stays at the Tailwind default (400).
+- Type scale — custom `fontSize` tokens already carry the correct line-height and letter-spacing, so just use the class name:
+
+| Class | Size | Use |
+|---|---|---|
+| `text-caption` | 13px | Nav links, small buttons, badges |
+| `text-body-sm` | 15px | Default body copy, descriptions |
+| `text-body-lg` | 20px | Subheadings, card titles, emphasis text |
+| `text-subheading` | 24px | Rarely used yet — between body-lg and heading-sm |
+| `text-heading-sm` | 32px | `/work/*` sub-page `<h1>`s, modal titles |
+| `text-heading` | 48px | Homepage section `<h2>`s, large stat numbers |
+| `text-heading-lg` | 64px | Hero `<h1>` (mobile/tablet) |
+| `text-display` | 72px | Hero `<h1>` (desktop, `md:` and up) |
+
+## Spacing & Radius
+
+- Spacing: plain Tailwind default scale (4px base unit) — no custom spacing tokens were added; Tailwind's defaults already line up with Linear's 4/8/12/16/24/96 ladder.
+- Radius: plain Tailwind defaults already match Linear's radius vocabulary exactly — don't add custom radius tokens.
+  - `rounded-sm` (2px) — small/tight elements
+  - `rounded` (4px) — badges
+  - `rounded-md` (6px) — buttons, inputs
+  - `rounded-xl` (12px) — cards, modal panels, image frames
+  - `rounded-full` — pills, circular icon buttons
+  - Never use `rounded-lg` (8px) or `rounded-2xl`+ — they're outside this system's vocabulary.
+
+## Shadows
+
