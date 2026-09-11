@@ -5,6 +5,7 @@
     <main class="pt-32">
       <router-view></router-view>
     </main>
+    <Analytics />
   </div>
 </template>
 
@@ -20,29 +21,3 @@ export default {
 
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments) };
 
-</script> -->
-
-<script>
-import navbar from './components/navbar.vue';
-import ScrollProgress from './components/ScrollProgress.vue';
-
-export default {
-  name: 'App',
-  components: {
-    navbar,
-    ScrollProgress
-  },
-  mounted() {
-    window.va = window.va || function () {
-      (window.vaq = window.vaq || []).push(arguments);
-    };
-  }
-}
-</script>
-
-<style>
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-</style>
