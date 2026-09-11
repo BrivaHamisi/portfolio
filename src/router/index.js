@@ -8,6 +8,7 @@ import HomeView from '../views/HomeView.vue'
 const DevelopmentView = () => import(/* webpackChunkName: "work-development" */ '../views/DevelopmentView.vue')
 const DesignsView = () => import(/* webpackChunkName: "work-designs" */ '../views/DesignsView.vue')
 const PhotographyView = () => import(/* webpackChunkName: "work-photography" */ '../views/PhotographyView.vue')
+const NotFoundView = () => import(/* webpackChunkName: "not-found" */ '../views/NotFoundView.vue')
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
     path: '/work/photography',
     name: 'photography',
     component: PhotographyView
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: NotFoundView
   },
 ]
 
