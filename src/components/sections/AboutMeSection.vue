@@ -33,3 +33,21 @@
                   <div
                     v-fill="skill.percentage"
                     class="bg-acid-lime h-2 rounded-full relative overflow-hidden transition-[width] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            @click="toggleSkills"
+            :aria-expanded="showAllSkills"
+            class="mt-6 px-3 py-2 border border-graphite text-mist text-caption rounded-md hover:border-smoke transition duration-300"
+          >
+            {{ showAllSkills ? 'Show Less' : 'Load More' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
