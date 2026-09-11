@@ -16,3 +16,20 @@
             A versatile professional with 6+ years of experience across IT, media, and the entertainment industry. Adept at delivering high-quality solutions in mobile app and web development, video editing, and graphic design.
             Proficient in a broad range of technologies and tools, including PHP, JavaScript, Java, C, Python, HTML, CSS, Nginx, Bootstrap, Laravel, Kotlin, WordPress, and the Adobe Creative Suite (Photoshop, Illustrator, InDesign, Lightroom, Premiere Pro, After Effects). Experienced in production process managers like PM2.
           </p>
+          <p class="text-body-sm text-fog mb-6">
+            Demonstrates strong leadership, working with minimum supervision and excelling in communication, with a proven ability to make critical decisions and work under pressure.
+          </p>
+
+          <!-- Dynamic Skill Bars -->
+          <div class="mt-8">
+            <h4 class="text-body-lg font-[510] text-paper mb-4">Skills</h4>
+            <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+              <div v-for="(skill, index) in displayedSkills" :key="index">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="text-caption font-[510] text-mist">{{ skill.name }}</span>
+                  <span class="text-caption font-[510] text-mist">{{ skill.percentage }}%</span>
+                </div>
+                <div class="w-full bg-graphite rounded-full h-2">
+                  <div
+                    v-fill="skill.percentage"
+                    class="bg-acid-lime h-2 rounded-full relative overflow-hidden transition-[width] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
