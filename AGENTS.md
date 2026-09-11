@@ -236,3 +236,29 @@ Do not add TypeScript, Vite, Pinia, a test framework, or a CSS framework/compone
 - Content is hardcoded per-component rather than pulled from a CMS or centralized JSON — keep new content in the same style unless asked to centralize it.
 - The "Linear" dark theme (`void` base, `acid-lime` as the single accent — see `tailwind/core rules` above) is the site's only theme — there is no light-mode toggle to build or preserve here (don't confuse this with the light/dark expectations of unrelated projects).
 - Analytics is Vercel Analytics via the existing `window.va` snippet in `App.vue` — don't replace it with a different analytics tool without being asked.
+
+## 8. Things that will trip you up
+
+- `head`, if aliased in some shells, may not be the standard Unix `head` — use the `Read` tool or `wc -l`/`sed -n` instead of piping through `head` when inspecting files in this environment.
+- `jsconfig.json` looks like it configures TypeScript-style options (`compilerOptions`) but this is a plain JS project; it only powers editor path-alias resolution (`@/*` → `src/*`), not a type checker.
+- `.github/workflows/actions.yaml` exists but is empty — there is no CI currently enforcing build/lint/test on this repo.
+- `src/App.vue` has a large commented-out duplicate `<script>` block above the active one; leave it unless the user asks you to clean it up, since removing "unused" code that isn't yours to judge can hide intent.
+- Blog-related data/images exist (`src/data/blogs.js`, `public/images/blogs/*`) even though blogs were removed from the site per git history — confirm with the user before deleting, since it may be for a future re-add rather than dead weight.
+- Inter Variable is loaded from Google Fonts at runtime, not self-hosted — if the dev/build environment has no network access, the browser falls back to `system-ui`. That's an acceptable degradation, not a bug to "fix" by vendoring the font.
+- `photographyProjects` in `src/data/work.js` is deliberately `[]`. Do not populate it with unrelated existing images (testimonial headshots, UI mockups, etc.) just to make the grid look full — that would misrepresent real people's photos or unrelated work as Briva's photography. The Photography tab and `/work/photography` are built to show a real empty state until an actual photo project is supplied.
+- The Development tab's "Visit Site" link (`softwareProjects[].liveUrl`) currently points at a GitHub repo, not a live deployed site, because that's the only URL that existed in the original data. Flag this to the user rather than inventing a plausible-looking live URL if asked to add more software projects without one.
+- `DesignsView.vue`/`PhotographyView.vue` use a `?project=<id>` query param to switch between the project-card grid and one project's photo masonry on the *same* route — don't refactor this into per-project path routes (`/work/designs/:id`) without discussing it first, since the query-param approach was a deliberate choice to avoid multiplying routes for what's still a small, static site.
+- The Latest Work tab bar is a real ARIA tabs widget (`role="tablist"`/`tab`/`tabpanel`, roving `tabindex`, arrow-key navigation via `focusTab()` in `latestWork.vue`) — if you add a 5th category, add it to `categories` in `work.js` and the matching `v-else-if` panel block with the same `role="tabpanel"` / `aria-labelledby` wiring, don't drop back to plain buttons.
+- The accessible modal used to live inline inside `latestWork.vue`; it's now `src/components/ProjectModal.vue`. If you're looking for the focus-trap/Escape/scroll-lock logic and it's not where you remember, that's why.
+
+## 9. Checks to run
+
+- `npm install` if `node_modules` is stale or `package.json` changed.
+- `npm run serve` and manually verify the affected section renders correctly at both desktop and mobile widths.
+- `npm run build` to confirm the production bundle compiles without errors.
+- For any UI/styling change, run the `impeccable` skill's mechanical detector over the changed files: `node ~/.claude/skills/impeccable/scripts/detect.mjs --json <changed files>` — this has caught real issues (a stray `border-l-4` "AI slop" tell) that a build pass alone wouldn't. Treat a clean scan as one signal, not proof of quality — it doesn't replace an actual look at the rendered page when you can get one.
+- Review the git diff before finishing — this repo has no linter configured, so between the two above, it's the main automated-adjacent check available; read your own diff carefully for stray console.logs, commented-out code, or accidental content changes.
+
+## 10. When in doubt
+
+Keep it small, match the existing Tailwind dark theme and Composition API style, don't add infrastructure (TypeScript, state management, testing, CI) the project doesn't already have unless asked, and confirm before deleting anything that looks unused but might be intentional leftover (like the blogs data). Run the manual browser check and `npm run build` before calling a change done.
