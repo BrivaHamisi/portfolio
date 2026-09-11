@@ -50,3 +50,56 @@ Linear's design system is a midnight command center built on near-black surfaces
 
 ### Type Scale
 
+| Role | Size | Line Height | Letter Spacing | Token |
+|------|------|-------------|----------------|-------|
+| caption | 13px | 1.2 | — | `--text-caption` |
+| body-sm | 15px | 1.6 | -0.165px | `--text-body-sm` |
+| body-lg | 20px | 1.33 | -0.24px | `--text-body-lg` |
+| subheading | 24px | 1.33 | -0.288px | `--text-subheading` |
+| heading-sm | 32px | 1.13 | -0.704px | `--text-heading-sm` |
+| heading | 48px | 1 | -1.056px | `--text-heading` |
+| heading-lg | 64px | 1 | -1.408px | `--text-heading-lg` |
+| display | 72px | 1 | -1.584px | `--text-display` |
+
+## Tokens — Spacing & Shapes
+
+**Base unit:** 4px
+
+**Density:** compact
+
+### Spacing Scale
+
+| Name | Value | Token |
+|------|-------|-------|
+| 4 | 4px | `--spacing-4` |
+| 8 | 8px | `--spacing-8` |
+| 12 | 12px | `--spacing-12` |
+| 16 | 16px | `--spacing-16` |
+| 20 | 20px | `--spacing-20` |
+| 24 | 24px | `--spacing-24` |
+| 28 | 28px | `--spacing-28` |
+| 32 | 32px | `--spacing-32` |
+| 36 | 36px | `--spacing-36` |
+| 40 | 40px | `--spacing-40` |
+| 48 | 48px | `--spacing-48` |
+| 56 | 56px | `--spacing-56` |
+| 64 | 64px | `--spacing-64` |
+| 80 | 80px | `--spacing-80` |
+| 96 | 96px | `--spacing-96` |
+| 128 | 128px | `--spacing-128` |
+
+### Border Radius
+
+| Element | Value |
+|---------|-------|
+| cards | 12px |
+| pills | 9999px |
+| small | 2px |
+| badges | 4px |
+| inputs | 6px |
+| buttons | 6px |
+
+### Shadows
+
+| Name | Value | Token |
+|------|-------|-------|
