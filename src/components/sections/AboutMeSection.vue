@@ -6,6 +6,7 @@
           <img
             src="/images/profile.png"
             alt="Briva Hamisi"
+            loading="lazy"
             class="w-full rounded-xl mb-6 lg:h-full lg:object-cover"
           />
         </div>
