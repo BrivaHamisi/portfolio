@@ -32,3 +32,20 @@ const routes = [
   },
 ]
 
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+    if (to.hash) {
+      // Hash-based section jumps are handled manually (navbar.vue, the
+      // "back to portfolio" links) so they can offset for the fixed navbar.
+      return false
+    }
+    return { top: 0 }
+  }
+})
+
+export default router
