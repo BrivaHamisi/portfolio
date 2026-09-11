@@ -209,3 +209,30 @@ You do not have a `designs/` folder of mockups to work from in this project. Whe
 
 - `vue-best-practices`, for Composition API, `<script setup>`, and component structure.
 - `vue-router-best-practices`, if routing/metadata handling changes.
+- `web-design-guidelines`, for accessibility and responsive review of any UI change.
+
+There's no framework-specific skill for plain Tailwind class usage — just follow the patterns already in the file you're editing.
+
+## 5. How the app is structured
+
+- `src/main.js` boots the app, mounts `App.vue`, applies global `src/index.css` (Tailwind entry + the `.reveal`/`.hero-in`/modal-transition/`.btn-flashlight` CSS from the motion and coherence passes), and registers three global directives: `v-reveal` (fade-up-once-on-scroll), `v-fill` (animates a width from 0 to a target %, used by the About section's skill bars), and `v-flashlight` (cursor-tracking highlight, primary lime buttons only).
+- `src/App.vue` renders `ScrollProgress` (fixed top-of-viewport scroll indicator) + `navbar` + a `<main>` landmark wrapping `router-view` + implicitly the footer through the view, and registers the Vercel Analytics snippet in `mounted()`.
+- `src/router/index.js` defines the 4 routes (`home`, `development`, `designs`, `photography`) and a `scrollBehavior` (see "How to work" above).
+- `src/views/HomeView.vue` assembles the homepage from section components; `DevelopmentView.vue`/`DesignsView.vue`/`PhotographyView.vue` are the standalone `/work/*` pages.
+- `src/components/sections/*.vue` — one file per homepage section, mostly self-contained with their own hardcoded content and Tailwind classes.
+- `src/data/work.js` — categorized Latest Work data: `categories`, `softwareProjects`, `designProjects`, `photographyProjects`, `uiuxProject`, plus `designLinks`/`photographyLinks` (the external Behance/Dribbble/Pinterest profile links shown alongside each category). `photographyProjects` is intentionally `[]` — there's no real photography content in this repo yet (see "Things that will trip you up"). Add new work by editing this file, not by hardcoding entries back into `latestWork.vue`.
+- `src/data/blogs.js` — a small standalone data file for content that used to back a removed blogs feature; check with the user before deleting it or `public/images/blogs/*` outright, since it may be leftover rather than needed, but removing dead code isn't your call to make silently.
+- `public/images/` holds all static imagery referenced directly by path (no import/bundling of images from `src/assets` except the logo).
+
+## 6. Tech stack
+
+Vue 3, Vue CLI (webpack) build tooling, Vue Router 4, Tailwind CSS + PostCSS + Autoprefixer, Inter Variable (loaded from Google Fonts via a `<link>` in `index.html`, not self-hosted), `@heroicons/vue` for icons, `typewriter-effect` for the landing hero animation, `@vercel/analytics` for pageview analytics, deployed on Vercel. No TypeScript, no state management library, no test runner, no CSS-in-JS, no UI component library beyond hand-rolled Tailwind markup.
+
+Do not add TypeScript, Vite, Pinia, a test framework, or a CSS framework/component library without the user asking — the project is intentionally small and dependency-light.
+
+## 7. Decisions already made for you
+
+- Composition API with `<script setup>` is the preferred style for new/rewritten components, even though `App.vue` still uses Options API — don't force a repo-wide rewrite just to unify this.
+- Content is hardcoded per-component rather than pulled from a CMS or centralized JSON — keep new content in the same style unless asked to centralize it.
+- The "Linear" dark theme (`void` base, `acid-lime` as the single accent — see `tailwind/core rules` above) is the site's only theme — there is no light-mode toggle to build or preserve here (don't confuse this with the light/dark expectations of unrelated projects).
+- Analytics is Vercel Analytics via the existing `window.va` snippet in `App.vue` — don't replace it with a different analytics tool without being asked.
