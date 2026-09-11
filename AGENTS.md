@@ -156,3 +156,30 @@ Custom `boxShadow` tokens in `tailwind.config.js`: `shadow-sm` (soft drop shadow
 - Don't introduce a second chromatic accent as if it were another valid "CTA color" — `pulse-green`/`coral-red`/`signal-teal`/`iris-violet`/`lavender` exist in the palette as reserved future-state colors (success/error/tags) but are intentionally unused today; don't reach for them decoratively.
 - Do gate any new looping/auto-playing animation (typewriter-style, carousels, etc.) behind `window.matchMedia('(prefers-reduced-motion: reduce)')`, matching the pattern already used by `v-reveal`, `v-fill`, and the hero's typewriter — show a static, still-meaningful fallback rather than just skipping the content.
 - Don't nest a real interactive element inside another one (`<a>` wrapping a `<button>`, a `role="button"` div containing a real `<a>`/`<button>`) — both were audit-caught bugs already fixed once. Use a single element per action, or the stretched-button pattern from `WorkProjectCard.vue` when a card needs both a primary click target and a secondary real link.
+
+=== deployment rules ===
+
+# Deployment
+
+- The site is deployed on **Vercel** (custom domain `brivahamisi.tech`), with `@vercel/analytics` wired up in `src/App.vue` via the `window.va` snippet — don't remove or duplicate that snippet.
+- `.github/workflows/actions.yaml` exists but is currently empty; don't assume CI runs any checks today.
+- Confirm `npm run build` succeeds locally before treating a change as deployable, since there is no CI gate doing this yet.
+
+=== tests rules ===
+
+# Testing
+
+- No test framework (Vitest, Jest, etc.) is currently configured in this project. Do not add test files or a test runner unless the user asks for one.
+- Verify changes manually: `npm run serve` and check the affected section in the browser (including responsive/mobile widths, since this is a single long scrolling page), then `npm run build` to confirm the production bundle compiles.
+
+---
+
+# Portfolio Repository Agent Instructions
+
+You are helping maintain **brivahamisi.tech**, Briva Hamisi's personal portfolio — a static Vue 3 site showcasing his work as a software engineer, full-stack/mobile developer, and creative designer (graphic design, video editing, photography). The homepage is one long scrolling page; three `/work/*` routes exist for browsing full work categories (see "How the app is structured" below).
+
+## 1. What you are building
+
+A scrolling marketing/portfolio homepage: a landing hero, an "About Me" section with a skills list, an experience section with stats, a "What I Do" section, a tabbed "Latest Work" showcase (Development / Graphic Design / Photography / UI/UX Design), a pull-quote section, testimonials, and a contact section, wrapped in a shared navbar and footer. All three of Development, Graphic Design, and Photography link out to dedicated `/work/*` pages: Development shows the full project grid (each card opens the same accessible modal used on the homepage); Graphic Design and Photography show a project-card grid that drills into one project's photo/design set as a Pinterest-style masonry. There is no login, no admin area, no database, and no dynamic content fetched from a server — everything is static JS/Vue plus images in `public/images/`. Build nothing beyond what a static portfolio needs; don't introduce a backend, CMS, or auth for this project unless the user explicitly asks for one.
+
+## 2. How to work
