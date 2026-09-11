@@ -156,3 +156,55 @@ Background #0f1011, border-radius 12px, inset shadow rgb(35,37,42) 0 0 0 1px, pa
 
 Background rgba(255,255,255,0.02), border-radius 6px, shadow rgba(0,0,0,0.4) 0 2px 4px, padding 8px. Almost invisible — the card barely separates from the canvas.
 
+### Text Input
+**Role:** Form fields, search inputs
+
+Background rgba(255,255,255,0.02), border 1px rgba(255,255,255,0.08), text #d0d6e0, border-radius 6px, padding 12px 14px, Inter 14px / weight 400. Focus ring: border brightens to #d0d6e0.
+
+### Badge / Status Tag
+**Role:** Issue status, category labels, inline metadata
+
+Background rgba(255,255,255,0.05), text #8a8f98, border-radius 4px, padding 0px 6px, Inter 12px / weight 400. Color-coded variants use Pulse Green, Coral Red, Iris Violet, or Lavender fills.
+
+### Logo Mark
+**Role:** Brand identification in nav
+
+Linear wordmark + geometric glyph, Inter 16px / weight 510, color #ffffff. Glyph rendered as inline SVG in white.
+
+### Logo Bar (Customer Strip)
+**Role:** Social proof — customer logos in a horizontal row
+
+Neutral grey logos (Vercel, Cursor, Oscar, OpenAI, Coinbase, Cash App, Boom, Ramp) at #8a8f98–#d0d6e0, evenly spaced with 48–64px gaps, no card backgrounds.
+
+### Hero Gradient Floor
+**Role:** Atmospheric base under the product screenshot
+
+Linear gradient from rgb(8,9,10) at 10% to rgb(208,214,224) at 100% — a subtle light wash that grounds the floating product UI against the void.
+
+## Do's and Don'ts
+
+### Do
+- Use Inter Variable with font-feature-settings 'cv01' on, 'ss03' on, 'zero' on — these alternate glyphs define Linear's typographic identity
+- Use #e4f222 exclusively for the single primary action per view — never for decoration, never for secondary buttons
+- Set body text at 16px Inter weight 400 with line-height 1.5 — larger reading sizes (17px+ at weight 590) are reserved for body emphasis blocks
+- Use letter-spacing -0.022em at 48px and above — tight tracking is non-negotiable for display type
+- Set card radius to 12px, button radius to 6px, pill radius to 9999px — three radii is the entire radius vocabulary
+- Use 0.5px hairline borders (#23252a or #383b3f) instead of shadows for surface separation — Linear's elevation comes from borders and subtle inner shadows
+- Keep section gaps at 96px and element gaps at 8px — the 8/12/24/96 spacing ladder is the rhythm
+
+### Don't
+- Do not use bold weights (700+) — Linear's type scale caps at weight 590, the system deliberately avoids heavy display weights
+- Do not use decorative gradients on buttons, cards, or text — gradients are reserved for the hero atmospheric floor only
+- Do not introduce additional chromatic accent colors as actions — the acid-lime button is the only chromatic UI element
+- Do not use large radii (16px+) on cards or panels — 12px is the max card radius in this system
+- Do not use shadows to separate cards from the canvas — use hairline borders (#23252a) and inner inset shadows instead
+- Do not use chromatic text colors for body copy — all body text sits in the #d0d6e0 / #8a8f98 / #62666d grey scale
+- Do not use Berkeley Mono for headings or marketing copy — it is reserved for issue IDs, keyboard shortcuts, and technical metadata
+
+## Surfaces
+
+| Level | Name | Value | Purpose |
+|-------|------|-------|---------|
+| 0 | Void | `#08090a` | Page canvas — the default full-bleed background |
+| 1 | Carbon | `#0f1011` | Card surfaces, product screenshot frames, nav containers |
+| 2 | Obsidian | `#161718` | Elevated panels, deeper nested surfaces |
