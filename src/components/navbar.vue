@@ -16,3 +16,20 @@
                class="text-mist hover:underline px-3 py-4 text-caption font-[400] transition-colors duration-150"
                :class="{ 'text-acid-lime': item.ref === activeSection }"
             >
+              {{ item.name }}
+            </a>
+          </div>
+          <a href="/#contact" @click="navigateTo({ route: '/#contact' }, $event)"
+             class="ml-6 bg-paper text-void rounded-full px-4 py-2 text-caption font-[510] hover:brightness-95 transition">
+            Let's Talk
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button @click="isOpen = !isOpen" type="button" class="bg-transparent inline-flex items-center justify-center p-3 rounded-md text-fog hover:text-paper transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-void focus:ring-acid-lime">
+            <span class="sr-only">Open main menu</span>
+            <!-- Icon when menu is closed -->
+            <svg v-if="!isOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
