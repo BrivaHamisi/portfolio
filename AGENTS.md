@@ -65,3 +65,36 @@ Activate `vue-best-practices` and `vue-router-best-practices` when touching comp
 - The old `generateMetadata()`/`route.meta` scaffolding was removed as dead code in an earlier pass — don't reintroduce it without a reason; the `<head>` tags live statically in `index.html`.
 - `DesignsView.vue` / `PhotographyView.vue` both use a `?project=<id>` query param (not a path param) to switch between "grid of project cards" and "one project's photo/design masonry" on the same route — keep that pattern if you add more categories rather than minting per-project routes. `DevelopmentView.vue` doesn't need this (its cards open `ProjectModal` instead of a masonry), so it's a plain project grid with no query param.
 - Use `router-link` / named routes for internal navigation, **except** hash-based section jumps to the homepage (e.g. `/#latestWork`, `/#about`) — those deliberately use a real `<a href="/#...">` with `@click.prevent` calling a manual scroll handler (see `navbar.vue`'s `navigateTo()` and the `goBackToPortfolio()` helper repeated in each `/work/*` view), since the router's default hash-scroll doesn't offset for the fixed navbar. Keep using a real `href` (not a plain `@click`-only element) so keyboard/no-JS/right-click "copy link" all still work.
+
+=== tailwind/core rules ===
+
+# Tailwind CSS & Design System ("Linear" theme)
+
+As of 2026-09-11 this site runs a design system adapted from Linear's product marketing site, applied via `tailwind.config.js` `theme.extend`. **This is the house style for every future page/section/component** — use these tokens by default rather than inventing new colors, sizes, or radii. Full original reference (colors, type, components, do's/don'ts, the raw CSS/JSON token dumps): `DESIGN.md` at the repo root — that's the canonical source the `impeccable` skill reads. The reskin implementation plan is `prompts/2026-09-11-linear-theme-reskin.md`.
+
+- Avoid inline `style` attributes where a Tailwind utility covers the same need; the codebase already does this for computed values (e.g. dynamic `width` percentages), which is an acceptable exception.
+- Configuration lives in `tailwind.config.js` and `postcss.config.js` — extend the theme there instead of hardcoding arbitrary values (`bg-[#123456]`) unless a one-off truly doesn't fit the palette.
+
+## Colors
+
+All available as Tailwind color classes (`bg-void`, `text-fog`, `border-graphite`, etc.) via `tailwind.config.js`.
+
+| Token | Hex | Role |
+|---|---|---|
+| `void` | `#08090a` | Page canvas — default background everything sits on |
+| `carbon` | `#0f1011` | Card surfaces, nav bar, modal panels |
+| `obsidian` | `#161718` | Elevated/nested panels (rarely needed yet) |
+| `graphite` | `#23252a` | Hairline borders, dividers, ghost-button outlines |
+| `smoke` | `#383b3f` | Higher-contrast hairline border (hover states, section separators) |
+| `ash` | `#62666d` | Muted/inactive text — rarely used directly, `fog` covers most cases |
+| `fog` | `#8a8f98` | Body copy, icons, secondary metadata — the default "muted text" color |
+| `mist` | `#d0d6e0` | Secondary headings, button text on dark surfaces, slightly brighter than `fog` |
+| `bone` | `#e5e5e6` | Near-white fills (rarely needed; `paper` covers most cases) |
+| `paper` | `#ffffff` | Primary headings, high-contrast text, icon/button text on dark surfaces |
+| `acid-lime` | `#e4f222` | **The one accent color.** Primary CTA buttons and the active nav indicator only — never decoration, never more than one per section |
+| `pulse-green` | `#27a644` | Reserved for a future success/positive state — unused today |
+| `coral-red` | `#eb5757` | Reserved for a future error/negative state — unused today |
+| `signal-teal` | `#02b8cc` | Reserved decorative/informational accent — unused today |
+| `iris-violet` | `#6366f1` | Reserved tag/badge fill — unused today |
+| `lavender` | `#8b5cf6` | Reserved secondary tag fill — unused today |
+
