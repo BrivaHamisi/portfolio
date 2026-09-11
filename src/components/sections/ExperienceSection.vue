@@ -58,3 +58,23 @@
         class="border border-graphite text-mist text-caption py-2 px-4 rounded-md mt-8 block mx-auto hover:border-smoke transition"
       >
         {{ isShowingAll ? 'Show less' : 'Load more' }}
+      </button>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue'
+import { ArrowDownTrayIcon } from '@heroicons/vue/24/outline'
+
+const experiences = ref([
+  {
+    period: "2019 - Now",
+    title: "Founder and CEO",
+    company: "Briva Digital",
+    description: "A digital agency focused on Web, Creative Graphic Design, Android App Development, Branding and UI/UX Design. Successfully Designs various creatives and Supports wide range of Customers"
+  },
+  {
+    period: "May 2025 - Now",
+    title: "Webmaster",
+    company: "Daystar University",
