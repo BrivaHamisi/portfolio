@@ -104,3 +104,20 @@ const navigateTo = (item, event) => {
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' })
         }
+      })
+    }
+  }
+  // No hash: let the real href navigate normally (or Vue Router's link behavior).
+}
+
+let observer = null
+
+onMounted(() => {
+  const sectionIds = menuItems.value.map((item) => item.ref)
+  const sections = sectionIds
+    .map((id) => document.getElementById(id))
+    .filter(Boolean)
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
