@@ -78,3 +78,22 @@ const experiences = ref([
     period: "May 2025 - Now",
     title: "Webmaster",
     company: "Daystar University",
+    description: "Responsible for managing and maintaining the university's website to ensure it functions effectively, aligns with the institution's goals, and provides a good user experience"
+  },
+  {
+    period: "Nov 2024 - Now",
+    title: "Communications Officer",
+    company: "Resilient Woman of Africa",
+    description: "Responsible for managing and improving an organization’s internal and external communication. My role involves crafting messages, maintaining the organization's brand, and ensuring effective engagement with various audience"
+  },
+  {
+    period: "Aug 2024 - May 2025",
+    title: "Backend Software Engineer",
+    company: "Stanbest Group (EA) Limited",
+    description: "Integrating POS (Point of Sale) systems with eTIMS(Electronic Tax Invoice Management Systems) Creating RESTFUL APIs"
+  },
+  {
+    period: "2022 - 2024",
+    title: "STEM IT",
+    company: "FOCUS Kenya",
+    description: "Involved in student ministry, offered mentorship and advisory support to students and Christian Union leaders. Facilitated training to students in different Universities/Colleges. Involved in FOCUS Kenya Android Students App Development, FOCUS Kenya Bookstall App Development, FOCUS Student Management System, and FOCUS Tatua Enterprise System. Involved in Creative Graphics Design for FOCUS Productions"
