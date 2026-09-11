@@ -21,3 +21,26 @@ export default {
 
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments) };
 
+</script> -->
+
+<script>
+import navbar from './components/navbar.vue';
+import ScrollProgress from './components/ScrollProgress.vue';
+import { Analytics } from '@vercel/analytics/vue';
+
+export default {
+  name: 'App',
+  components: {
+    navbar,
+    ScrollProgress,
+    Analytics
+  }
+}
+</script>
+
+<style>
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>
