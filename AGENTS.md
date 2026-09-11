@@ -165,3 +165,36 @@ Custom `boxShadow` tokens in `tailwind.config.js`: `shadow-sm` (soft drop shadow
 - Security headers (CSP, `X-Frame-Options`, HSTS, `Referrer-Policy`, `Permissions-Policy`) live in `vercel.json`. If you add a new third-party script/font/API call anywhere, update the CSP there too — an unlisted origin will get silently blocked in production, not throw a build error, so this is easy to miss until something looks broken live.
 - `vue.config.js` sets `productionSourceMap: false` — don't remove this without a reason.
 - Node version is pinned via `"engines": { "node": ">=22.0.0" }` in `package.json` and `.nvmrc` (`22`) — Vercel reads `engines.node` to pick its build runtime, so keep the two in sync if this ever changes.
+- `.github/workflows/actions.yaml` exists but is currently empty; don't assume CI runs any checks today.
+- Confirm `npm run build` succeeds locally before treating a change as deployable, since there is no CI gate doing this yet.
+
+=== tests rules ===
+
+# Testing
+
+- No test framework (Vitest, Jest, etc.) is currently configured in this project. Do not add test files or a test runner unless the user asks for one.
+- Verify changes manually: `npm run serve` and check the affected section in the browser (including responsive/mobile widths, since this is a single long scrolling page), then `npm run build` to confirm the production bundle compiles.
+
+---
+
+# Portfolio Repository Agent Instructions
+
+You are helping maintain **brivahamisi.tech**, Briva Hamisi's personal portfolio — a static Vue 3 site showcasing his work as a software engineer, full-stack/mobile developer, and creative designer (graphic design, video editing, photography). The homepage is one long scrolling page; three `/work/*` routes exist for browsing full work categories (see "How the app is structured" below).
+
+## 1. What you are building
+
+A scrolling marketing/portfolio homepage: a landing hero, an "About Me" section with a skills list, an experience section with stats, a "What I Do" section, a tabbed "Latest Work" showcase (Development / Graphic Design / Photography / UI/UX Design), a pull-quote section, testimonials, and a contact section, wrapped in a shared navbar and footer. All three of Development, Graphic Design, and Photography link out to dedicated `/work/*` pages: Development shows the full project grid (each card opens the same accessible modal used on the homepage); Graphic Design and Photography show a project-card grid that drills into one project's photo/design set as a Pinterest-style masonry. There is no login, no admin area, no database, and no dynamic content fetched from a server — everything is static JS/Vue plus images in `public/images/`. Build nothing beyond what a static portfolio needs; don't introduce a backend, CMS, or auth for this project unless the user explicitly asks for one.
+
+## 2. How to work
+
+This is the most important workflow in this file — do not skip step 3 for anything nontrivial.
+
+1. Look at the relevant section component(s) in `src/components/sections/` and the shared chrome (`navbar.vue`, `Footer.vue`) before changing anything — content and styling conventions live inline in each file, not in a central config.
+2. Match the "Linear" design system tokens (see the `tailwind/core rules` section below — `void`/`carbon` surfaces, `acid-lime` as the sole accent, Inter Variable type scale) and the Composition API `<script setup>` pattern used by most sections.
+3. **Write an implementation prompt in `prompts/`** covering: the goal, the files you expect to touch, your approach/plan and assumptions, and how you'll verify it (manual check steps, viewports, `npm run build`). Follow the naming and format described in `prompts/README.md`.
+4. **Ask the user for approval before writing any code**, with Yes/No as selectable options, e.g.: `I prepared the implementation prompt at prompts/<name>.md. Is this good to execute?`
+5. Only skip steps 3–4 for genuinely trivial, low-risk edits the user explicitly asked for in exact terms (a typo fix, a single copy/text change, a one-line style tweak) — anything touching layout, a new section, content restructuring, dependencies, or multiple files goes through the prompt. You may also skip the prompt when the user explicitly tells you to skip it for the current task ("just do it", "skip the prompt for this one") — that permission covers only that task, not future ones.
+6. Once approved, implement exactly what the prompt describes — don't scope-creep beyond it. Run `npm run serve` to check it visually (desktop and mobile widths), then `npm run build` to confirm production build success.
+7. Close with a short report using bullets, not paragraphs, under three headings:
+   - `What I did` — a few one-line bullets.
+   - `Test` — numbered steps to see/verify the change (section/URL, viewport sizes, `npm run build`).
