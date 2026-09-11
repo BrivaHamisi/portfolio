@@ -31,6 +31,7 @@
           />
         </div>
         <div v-else class="text-center py-16 border border-graphite rounded-xl bg-carbon">
+          <PhotoIcon class="w-8 h-8 text-fog mx-auto mb-3" />
           <p class="text-fog text-body-sm">Photography portfolio coming soon.</p>
         </div>
       </template>
@@ -39,18 +40,29 @@
         <button type="button" @click="clearProject" class="text-mist hover:text-paper text-caption inline-block mb-8">← Back to Photography</button>
         <h1 class="text-heading-sm font-[510] text-paper mb-2">{{ activeProject.title }}</h1>
         <p class="text-body-sm text-fog mb-8 max-w-2xl">{{ activeProject.description }}</p>
-        <MasonryGrid :items="activeProject.images" :alt="activeProject.title" />
+        <MasonryGrid :items="activeProject.images" :alt="activeProject.title" @select="openLightbox" />
       </template>
     </div>
+
+    <ImageLightbox
+      v-if="activeProject"
+      :show="lightboxOpen"
+      :images="activeProject.images"
+      :current-index="lightboxIndex"
+      :title="activeProject.title"
+      @update:current-index="setLightboxIndex"
+      @close="closeLightbox"
+    />
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { ArrowTopRightOnSquareIcon } from '@heroicons/vue/24/outline'
+import { ArrowTopRightOnSquareIcon, PhotoIcon } from '@heroicons/vue/24/outline'
 import WorkProjectCard from '@/components/WorkProjectCard.vue'
 import MasonryGrid from '@/components/MasonryGrid.vue'
+import ImageLightbox from '@/components/ImageLightbox.vue'
 import { photographyProjects, photographyLinks } from '@/data/work.js'
 
 const route = useRoute()
@@ -59,6 +71,39 @@ const router = useRouter()
 const activeProject = computed(() =>
   photographyProjects.find((project) => project.id === route.query.project) || null
 )
+
+const lightboxOpen = ref(false)
+const lightboxIndex = ref(0)
+
+watch(
+  () => [route.query.project, route.query.image, activeProject.value],
+  () => {
+    const imageParam = route.query.image
+    if (activeProject.value && imageParam !== undefined) {
+      const idx = Number(imageParam)
+      if (Number.isInteger(idx) && idx >= 0 && idx < activeProject.value.images.length) {
+        lightboxIndex.value = idx
+        lightboxOpen.value = true
+        return
+      }
+    }
+    lightboxOpen.value = false
+  },
+  { immediate: true }
+)
+
+const openLightbox = (index) => {
+  router.replace({ query: { ...route.query, image: index } })
+}
+
+const setLightboxIndex = (index) => {
+  router.replace({ query: { ...route.query, image: index } })
+}
+
+const closeLightbox = () => {
+  const { image, ...rest } = route.query
+  router.replace({ query: rest })
+}
 
 const selectProject = (id) => {
   router.push({ query: { project: id } })

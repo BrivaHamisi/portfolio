@@ -1,18 +1,21 @@
 <template>
   <div class="columns-2 md:columns-3 lg:columns-4 gap-4">
-    <div
+    <button
       v-for="(image, index) in items"
       :key="image"
+      type="button"
       v-reveal
-      class="break-inside-avoid mb-4 rounded-xl overflow-hidden border border-graphite bg-carbon"
+      class="block w-full break-inside-avoid mb-4 rounded-xl overflow-hidden border border-graphite bg-carbon transition-colors duration-150 hover:border-smoke"
+      :aria-label="`Open ${alt || 'image'} ${index + 1}`"
+      @click="$emit('select', index)"
     >
       <img
         :src="image"
         :alt="alt ? `${alt} ${index + 1}` : `Image ${index + 1}`"
         loading="lazy"
-        class="w-full h-auto block"
+        class="w-full h-auto block pointer-events-none"
       />
-    </div>
+    </button>
   </div>
 </template>
 
@@ -21,4 +24,5 @@ defineProps({
   items: { type: Array, default: () => [] },
   alt: { type: String, default: '' },
 })
+defineEmits(['select'])
 </script>
