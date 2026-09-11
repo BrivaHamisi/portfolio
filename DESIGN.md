@@ -208,3 +208,55 @@ Linear gradient from rgb(8,9,10) at 10% to rgb(208,214,224) at 100% — a subtle
 | 0 | Void | `#08090a` | Page canvas — the default full-bleed background |
 | 1 | Carbon | `#0f1011` | Card surfaces, product screenshot frames, nav containers |
 | 2 | Obsidian | `#161718` | Elevated panels, deeper nested surfaces |
+| 3 | Slate | `#23252a` | Interactive surface tint, ghost button fills, border-adjacent backgrounds |
+
+## Elevation
+
+Elevation in Linear's system is achieved almost entirely through hairline borders (0.5px #23252a or 1px inset #23252a) and subtle dark drop shadows (rgba(0,0,0,0.4) 0 2px 4px) rather than layered shadow stacks. The visual hierarchy comes from the surface-level progression (#08090a → #0f1011 → #161718 → #23252a) and border definition, not from ambient shadow. The acid-lime CTA button uses an inset shadow stack (0px 5px 2px / 0px 3px 2px / 0px 1px 1px) — the only place in the system where a real shadow is applied to a chrome element.
+
+## Imagery
+
+Linear's visual language is product-screenshot-first: the hero and section illustrations are real Linear app UI captured at full fidelity — issue cards, kanban boards, AI agent panels, command palettes — placed inside framed card containers with hairline borders. No stock photography, no lifestyle imagery, no abstract illustration. Logos appear as a customer strip in neutral grey (#8a8f98) at uniform size. Icons are minimal line-art SVGs in single-color grey scale. The hero screenshot floats on a subtle linear gradient (dark-to-light) that creates atmospheric depth without literal scenery. Every visual element is a functional artifact of the product itself.
+
+> **Portfolio note:** this project isn't a SaaS product, so there's no "product screenshot" to showcase in the hero — a portrait photo is used instead (a deliberate, agreed adaptation of the reference, not an oversight). See `prompts/2026-09-11-linear-theme-reskin.md` for that decision.
+
+## Layout
+
+Layout is max-width contained at ~1200px, centered, with full-bleed dark backgrounds extending to viewport edges. The hero is a left-aligned oversized headline (64–72px) paired with a right-aligned link CTA, followed by a large product screenshot that bleeds beyond the max-width slightly. Section rhythm alternates between text-left/image-right 2-column compositions and full-width product showcase bands, separated by 96px vertical gaps. The customer logo strip is a single horizontal row. The page never uses 3-column card grids or masonry — information density stays low, with most sections using generous whitespace and a single focal point per screen. Navigation is a fixed top bar with left-aligned logo and right-aligned links, no sidebar, no mega-menu.
+
+> **Portfolio note:** this project *does* use 3-column card grids (What I Do, stat tiles, Latest Work, testimonials) and a Pinterest-style masonry (`/work/designs`, `/work/photography`) — a deliberate departure from the reference layout to fit this site's actual content shape (a portfolio has more discrete items to browse than a single-product marketing page). The token system (color/type/spacing/radius/shadow) is what's preserved exactly; the page-level layout composition was adapted.
+
+## Agent Prompt Guide
+
+**Quick Color Reference:**
+- text (primary heading): #ffffff
+- text (body): #d0d6e0
+- text (muted): #8a8f98
+- background (canvas): #08090a
+- background (card): #0f1011
+- border (hairline): #23252a
+- accent (CTA): #e4f222
+- primary action: #e4f222 (filled action)
+
+**3-5 Example Component Prompts:**
+
+1. **Hero headline block:** Full-bleed #08090a canvas. Headline at 64px Inter Variable weight 510, color #ffffff, letter-spacing -0.022em, line-height 1.0. Subtext at 16px Inter weight 400, color #8a8f98. No button — secondary link text in #d0d6e0 with arrow glyph.
+
+2. **Product screenshot card:** Background #0f1011, border-radius 12px, inset border 1px #23252a via box-shadow, padding 24px. Contains a simulated app UI at full opacity over the card surface. No outer drop shadow.
+
+3. **Acid-lime primary action button:** Background #e4f222, text #08090a, border-radius 6px, padding 10px 16px, Inter 14px weight 510, letter-spacing -0.011em. Only one per view.
+
+4. **Nav top bar:** Background #08090a (transparent over canvas), padding 16px horizontal, max-width 1200px centered. Logo wordmark #ffffff at 16px weight 510 left-aligned. Nav links #d0d6e0 at 13px weight 400, 8px gaps. Right-aligned white pill sign-up button: bg #ffffff, text #08090a, border-radius 9999px, padding 8px 16px.
+
+5. **Status badge row:** Horizontal flex, 8px gap. Each badge: background rgba(255,255,255,0.05), text #8a8f98, border-radius 4px, padding 0px 6px, Inter 12px weight 400. Color-coded variants: #27a644 for success, #eb5757 for error, #6366f1 for tags.
+
+## Type Scale Detail
+
+Display: 72px / 510 / lh 1.0 / ls -0.022em
+Hero: 64px / 510 / lh 1.0 / ls -0.022em
+Section heading: 48px / 510 / lh 1.0 / ls -0.022em
+Subheading: 32px / 400 / lh 1.13 / ls -0.022em
+Heading: 24px / 400 / lh 1.33 / ls -0.012em
+Body emphasis: 20px / 590 / lh 1.33 / ls -0.012em
+Body large: 17px / 590 / lh 1.6 / ls default
+Body: 16px / 400 / lh 1.5 / ls default
