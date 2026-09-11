@@ -132,3 +132,36 @@ All available as Tailwind color classes (`bg-void`, `text-fog`, `border-graphite
 
 Custom `boxShadow` tokens in `tailwind.config.js`: `shadow-sm` (soft drop shadow), `shadow-card` (the hairline inset-border trick — this is how cards get their edge, *not* a drop shadow), `shadow-cta` (subtle inset stack, available for a primary button if it needs more presence), `shadow-xl` (rare, large soft shadow). Prefer a plain `border border-graphite` for most card/panel separation — that's what most components already do, and it's more true to the "hairline over shadow" spirit of this system than reaching for `shadow-card` by default.
 
+## Component patterns already established — copy these, don't reinvent
+
+- **Primary action button** (the one lime element per section): `bg-acid-lime text-void font-[510] text-body-sm rounded-md px-6 py-3 hover:brightness-95 transition`, plus the `v-flashlight` directive (see below). Examples: "Download CV" (`ExperienceSection.vue`), "Chat on WhatsApp" (`ContactUs.vue`), "My Resume" (`LandingPlatform.vue`). Each must be a single real `<a>` or `<button>` — never wrap one in the other (`<a><button>...</button></a>` is invalid nested-interactive markup; style the `<a>` directly instead).
+- **`v-flashlight` directive** (`main.js`): a cursor-tracking highlight on the primary lime buttons only — realizes the design system's own description of the accent as "a functional flashlight." Apply it only to genuine primary actions, not decoratively.
+- **Ghost/outline button** (secondary action): `border border-graphite text-mist text-caption rounded-md px-3 py-2 hover:border-smoke transition`. Example: "Load More" (`AboutMeSection.vue`, `ExperienceSection.vue`) — Load More/Show Less toggles also carry `:aria-expanded="<state>"`.
+- **External platform link chip**: `inline-flex items-center gap-1.5 border border-graphite text-mist rounded-md px-4 py-2 text-caption font-[510] hover:border-smoke hover:text-paper transition-colors duration-150`, with `ArrowTopRightOnSquareIcon` (`@heroicons/vue/24/outline`) as the trailing icon. Used for the Behance/Dribbble/Pinterest/GitHub links in `latestWork.vue` and the `/work/*` views (`designLinks`/`photographyLinks` in `src/data/work.js`). Don't hand-draw brand logos for these (Behance/Dribbble/Pinterest) — only GitHub gets its real logo glyph, since that path is already verified-accurate; a generic external-link icon is the safer default for the rest.
+- **Interactive card with a secondary link** (`WorkProjectCard.vue`): stretched-button pattern — see "Application Structure & Architecture" above. Copy this, don't reach for `role="button"` on a div that also contains a real `<a>`.
+- **Section masthead**: `<div v-reveal class="... mb-12 pb-8 border-b border-graphite">` wrapping the heading (and CTA, and/or intro paragraph, if the section has one) at `text-heading` (48px). Used by every section except the Hero (its own bespoke treatment) and About (heading lives inside its profile card instead). Keep new sections' masthead spacing at `mb-12 pb-8`, not `mb-16` or other one-off values — this drifted once already and had to be corrected back.
+- **Nav text link**: `text-mist hover:underline text-caption`, active state `text-acid-lime`. See `navbar.vue`.
+- **Nav pill CTA** (white, high-contrast): `bg-paper text-void rounded-full px-4 py-2 text-caption font-[510] hover:brightness-95`. See `navbar.vue`'s "Let's Talk" link.
+- **Card / panel**: `bg-carbon border border-graphite rounded-xl` (+ padding as needed). Used for the About card, work grid thumbnails, modal panel, testimonial cards, contact card.
+- **Subtle inline card** (lighter weight, e.g. a service tile or stat tile): `bg-white/[0.02] border border-graphite rounded-md p-4`.
+- **Icon-only circular button** (modal close/prev/next): `bg-white/5 border border-graphite rounded-full p-3 hover:bg-white/10 transition-colors` — the `p-3` is load-bearing for the 44px touch-target minimum, don't shrink it back to `p-2`.
+
+## Do's and Don'ts (carried from the source system)
+
+- Do reserve `acid-lime` for exactly one primary action per section — never for icons, decorative bars, stat numbers, or body links.
+- Do keep icons and decorative elements (timeline dots, quote glyphs, contact icons) neutral (`fog`/`graphite`/`smoke`) — Linear's own icons are single-color grayscale, not chromatic.
+- Do use hairline borders (`border-graphite` / `border-smoke`) for surface separation instead of drop shadows, in keeping with the source system.
+- Don't use `font-bold`/700+ weights anywhere — this system tops out at weight 590.
+- Don't add decorative gradients, colored accent bars, or chromatic body/link text — body and links stay in the `fog`/`mist`/`paper` grayscale.
+- Don't introduce a second chromatic accent as if it were another valid "CTA color" — `pulse-green`/`coral-red`/`signal-teal`/`iris-violet`/`lavender` exist in the palette as reserved future-state colors (success/error/tags) but are intentionally unused today; don't reach for them decoratively.
+- Do gate any new looping/auto-playing animation (typewriter-style, carousels, etc.) behind `window.matchMedia('(prefers-reduced-motion: reduce)')`, matching the pattern already used by `v-reveal`, `v-fill`, and the hero's typewriter — show a static, still-meaningful fallback rather than just skipping the content.
+- Don't nest a real interactive element inside another one (`<a>` wrapping a `<button>`, a `role="button"` div containing a real `<a>`/`<button>`) — both were audit-caught bugs already fixed once. Use a single element per action, or the stretched-button pattern from `WorkProjectCard.vue` when a card needs both a primary click target and a secondary real link.
+
+=== deployment rules ===
+
+# Deployment
+
+- The site is deployed on **Vercel** (custom domain `brivahamisi.tech`), with the `<Analytics />` component from `@vercel/analytics/vue` mounted in `src/App.vue` (as of the 2026-09-11 security pass — previously a raw `<script src="https://vercel.com/analytics/script.js">`, replaced because the package loads its script same-origin via `/_vercel/insights/script.js`, letting the CSP in `vercel.json` use a plain `script-src 'self'` with no third-party allowlist entry). Don't reintroduce the raw CDN script tag.
+- Security headers (CSP, `X-Frame-Options`, HSTS, `Referrer-Policy`, `Permissions-Policy`) live in `vercel.json`. If you add a new third-party script/font/API call anywhere, update the CSP there too — an unlisted origin will get silently blocked in production, not throw a build error, so this is easy to miss until something looks broken live.
+- `vue.config.js` sets `productionSourceMap: false` — don't remove this without a reason.
+- Node version is pinned via `"engines": { "node": ">=22.0.0" }` in `package.json` and `.nvmrc` (`22`) — Vercel reads `engines.node` to pick its build runtime, so keep the two in sync if this ever changes.
