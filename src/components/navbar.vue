@@ -86,3 +86,21 @@ const navigateTo = (item, event) => {
   // Close mobile menu if open
   isOpen.value = false
 
+  // Check if the route contains a hash (e.g., '/#about')
+  if (item.route.includes('#')) {
+    event.preventDefault()
+    const [path, hash] = item.route.split('#')
+
+    // If already on the correct page, scroll to the section
+    if (router.currentRoute.value.path === path || (path === '/' && router.currentRoute.value.path === '/')) {
+      const element = document.getElementById(hash)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // Navigate to the route and then scroll to the section
+      router.push(item.route).then(() => {
+        const element = document.getElementById(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
