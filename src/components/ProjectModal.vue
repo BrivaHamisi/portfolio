@@ -67,6 +67,20 @@
               <div class="w-full lg:w-1/2 p-6 md:p-8 bg-carbon overflow-y-auto max-h-[calc(100vh-8rem)]">
                 <h2 id="project-modal-title" class="text-paper text-heading-sm font-[510] mb-4">{{ project.title }}</h2>
                 <p class="text-fog mb-6 text-body-sm">{{ project.fullDescription }}</p>
+                <div v-if="project.problem || project.role || project.outcome" class="space-y-4 mb-6 pb-6 border-b border-graphite">
+                  <div v-if="project.problem">
+                    <span class="text-caption text-fog block mb-1">The Challenge</span>
+                    <span class="text-body-sm text-mist">{{ project.problem }}</span>
+                  </div>
+                  <div v-if="project.role">
+                    <span class="text-caption text-fog block mb-1">My Role</span>
+                    <span class="text-body-sm text-mist">{{ project.role }}</span>
+                  </div>
+                  <div v-if="project.outcome">
+                    <span class="text-caption text-fog block mb-1">The Outcome</span>
+                    <span class="text-body-sm text-mist">{{ project.outcome }}</span>
+                  </div>
+                </div>
                 <div class="space-y-4 mb-6">
                   <div class="flex items-center">
                     <span class="text-fog">

@@ -10,8 +10,8 @@ export const softwareProjects = [
     id: 'stanbest-website',
     title: 'Software Development',
     description: 'Your vision transformed into a seamless digital experience that engages and resonates with your audience. Every element reflects your brand’s unique identity, ensuring your message captivates and builds lasting connections with users.',
-    image: '/images/sw_1.jpg',
-    images: ['/images/sw_1.jpg', '/images/sw_2.jpg', '/images/sw_3.jpg'],
+    image: '/images/sw_1.webp',
+    images: ['/images/sw_1.webp', '/images/sw_2.webp', '/images/sw_3.webp'],
     liveUrl: '',
     githubUrl: 'https://github.com/BrivaHamisi',
     videoUrl: null,
@@ -22,6 +22,9 @@ export const softwareProjects = [
     previewUrl: 'https://github.com/BrivaHamisi',
     quote: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
     quoteAuthor: 'Martin Fowler',
+    problem: 'Stanbest needed a fast, modern web presence that represented the brand credibly and let visitors get answers without waiting on a human.',
+    role: 'Sole developer — architecture, frontend build, and AI chatbot integration.',
+    outcome: 'Shipped a production Next.js site with an integrated AI chatbot for instant visitor support.',
   },
 ]
 
@@ -30,24 +33,48 @@ export const designProjects = [
     id: 'stancap-branding',
     title: 'Graphics Design',
     description: 'Your brand’s personality, captured in a single, powerful logo',
-    coverImage: '/images/mockup_1.jpg',
+    coverImage: '/images/mockup_1.webp',
     images: [
-      '/images/mockup_1.jpg',
-      '/images/mockup_2.jpg',
-      '/images/mockup_3.jpg',
-      '/images/mockup_4.jpg',
-      '/images/mockup_5.jpg',
-      '/images/mockup_6.jpg',
-      '/images/mockup_7.jpg',
+      '/images/mockup_1.webp',
+      '/images/mockup_2.webp',
+      '/images/mockup_3.webp',
+      '/images/mockup_4.webp',
+      '/images/mockup_5.webp',
+      '/images/mockup_6.webp',
+      '/images/mockup_7.webp',
     ],
     client: 'Stancap Enterprises',
     year: '2024',
+    problem: 'Stancap Enterprises needed a brand identity that felt professional and consistent everywhere it appeared — apparel, signage, stationery, and packaging.',
+    role: 'Sole graphic designer — logo design and full brand mockup set.',
+    outcome: "Delivered a versatile logo and mockup suite applied consistently across the client's merchandise and signage.",
   },
 ]
 
-// Intentionally empty — no photography content exists in this repo yet.
-// Add an entry here ({ id, title, description, coverImage, images }) once real photos are available.
-export const photographyProjects = []
+// DEMO CONTENT — these are freely-licensed placeholder photos (not Briva's own
+// work), sourced online at the user's request so this tab isn't empty while a
+// real photo set is prepared. The `demo: true` flag drives a visible "Demo
+// placeholder" badge in PhotographyView.vue. Replace this entry (and delete
+// public/images/photography/demo-*.jpg) with real photography when available.
+export const photographyProjects = [
+  {
+    id: 'landscape-demo',
+    title: 'Landscape Collection (Demo)',
+    description: 'A placeholder set standing in for a real photography portfolio, so this tab has something to show while genuine work is prepared.',
+    demo: true,
+    coverImage: '/images/photography/demo-1.webp',
+    images: [
+      '/images/photography/demo-1.webp',
+      '/images/photography/demo-2.webp',
+      '/images/photography/demo-3.webp',
+      '/images/photography/demo-4.webp',
+      '/images/photography/demo-5.jpg',
+      '/images/photography/demo-6.webp',
+    ],
+    client: '—',
+    year: '2026',
+  },
+]
 
 export const designLinks = [
   { label: 'Behance', url: 'https://www.behance.net/brivahamisi' },
@@ -63,7 +90,7 @@ export const uiuxProject = {
   id: 'stanbest-uiux',
   title: 'UI/UX Design',
   description: 'Seamlessly blending aesthetics with functionality, our UI/UX design transforms user interactions into intuitive, delightful experiences. From sleek interfaces to effortless navigation, we craft digital journeys that captivate and engage, ensuring every click feels natural and meaningful.',
-  images: ['/images/UI_Mockup4.jpg', '/images/UI_Mockup3.jpg', '/images/UI_Mockup2.jpg', '/images/UI_Mockup1.jpg', '/images/bg_main.jpg', '/images/UI_1.png', '/images/UIDesign.jpg', '/images/UIDesign_2.jpg', '/images/UI_Design3.jpg', '/images/MobileUI.jpg'],
+  images: ['/images/UI_Mockup4.webp', '/images/UI_Mockup3.webp', '/images/UI_Mockup2.webp', '/images/UI_Mockup1.webp', '/images/bg_main.webp', '/images/UI_1.webp', '/images/UIDesign.webp', '/images/UIDesign_2.webp', '/images/UI_Design3.webp', '/images/MobileUI.webp'],
   videoUrl: null,
   fullDescription: 'I design with a deep understanding that great user experiences go beyond just looks. My UI/UX design blends creative flair with strategic thinking, creating interfaces that are visually striking and easy to navigate. Every detail, from color harmony and typography to layout and micro-interactions, is thoughtfully crafted to enhance user engagement. With a strong focus on user behavior and accessibility, I aim to build digital experiences that feel intuitive, foster connection, and deliver value. Whether its for mobile or web, my designs ensure that each interaction is purposeful and fluid, making technology feel human',
   client: 'Stanbest Group (EA) Limited, FOCUS Kenya',
@@ -72,4 +99,7 @@ export const uiuxProject = {
   previewUrl: 'https://www.figma.com/design/CALoyJqgn3oYv2ryML7BFv/Stanbest?node-id=0-1&t=pMobcroRoDNRfkT5-1',
   quote: "We tend to forget that behind every product, there's a person – a human with dreams, struggles, and emotions. UX design is about connecting the heart of the designer to the heart of the user",
   quoteAuthor: 'Aarron Walter',
+  problem: 'Stanbest and FOCUS Kenya needed interfaces that felt considered and easy to use across mobile and web, not just visually polished.',
+  role: 'Sole UI/UX designer — research-informed layout, interaction design, and prototyping in Figma.',
+  outcome: 'Delivered a cohesive design system and prototypes used to guide development across both products.',
 }

@@ -39,7 +39,22 @@
       <template v-else>
         <button type="button" @click="clearProject" class="text-mist hover:text-paper text-caption inline-block mb-8">← Back to Photography</button>
         <h1 class="text-heading-sm font-[510] text-paper mb-2">{{ activeProject.title }}</h1>
-        <p class="text-body-sm text-fog mb-8 max-w-2xl">{{ activeProject.description }}</p>
+        <p class="text-body-sm text-fog mb-6 max-w-2xl">{{ activeProject.description }}</p>
+        <span v-if="activeProject.demo" class="inline-block mb-6 border border-graphite text-fog text-caption font-[510] rounded-full px-3 py-1">Demo placeholder — not Briva's own photography</span>
+        <div v-if="activeProject.problem || activeProject.role || activeProject.outcome" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 pb-8 border-b border-graphite max-w-4xl">
+          <div v-if="activeProject.problem">
+            <span class="text-caption text-fog block mb-1">The Challenge</span>
+            <span class="text-body-sm text-mist">{{ activeProject.problem }}</span>
+          </div>
+          <div v-if="activeProject.role">
+            <span class="text-caption text-fog block mb-1">My Role</span>
+            <span class="text-body-sm text-mist">{{ activeProject.role }}</span>
+          </div>
+          <div v-if="activeProject.outcome">
+            <span class="text-caption text-fog block mb-1">The Outcome</span>
+            <span class="text-body-sm text-mist">{{ activeProject.outcome }}</span>
+          </div>
+        </div>
         <MasonryGrid :items="activeProject.images" :alt="activeProject.title" @select="openLightbox" />
       </template>
     </div>
