@@ -4,7 +4,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
         <div class="col-span-1 lg:col-span-2">
           <img
-            src="/images/profile.png"
+            src="/images/brand/profile.png"
             alt="Briva Hamisi"
             loading="lazy"
             class="w-full rounded-xl mb-6 lg:h-full lg:object-cover"
