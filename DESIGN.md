@@ -470,3 +470,56 @@ Micro: 10px / 510 / lh 1.5 / ls default
   --radius-full-2: 9999px;
 
   /* Shadows */
+  --shadow-sm: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px;
+  --shadow-md: rgba(0, 0, 0, 0.2) 0px 0px 12px 0px inset;
+  --shadow-subtle: rgb(35, 37, 42) 0px 0px 0px 1px inset;
+  --shadow-subtle-2: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
+  --shadow-subtle-3: rgba(0, 0, 0, 0.01) 0px 5px 2px 0px, rgba(0, 0, 0, 0.04) 0px 3px 2px 0px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 0px 1px 0px;
+  --shadow-xl: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
+  --shadow-subtle-4: rgba(255, 255, 255, 0.03) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.04) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.6) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 4px 4px 0px;
+  --shadow-subtle-5: rgba(0, 0, 0, 0.1) 0px 0px 0px 2px;
+}
+```
+
+## Design Tokens (source JSON)
+
+```json
+{
+  "color": {
+    "void": { "$value": "#08090a", "$type": "color", "$description": "Void — Page canvas, full-bleed backgrounds — the default everything sits on" },
+    "carbon": { "$value": "#0f1011", "$type": "color", "$description": "Carbon — Card surfaces, nav bars — one step above canvas for contained content" },
+    "obsidian": { "$value": "#161718", "$type": "color", "$description": "Obsidian — Elevated surfaces, deeper card panels" },
+    "graphite": { "$value": "#23252a", "$type": "color", "$description": "Graphite — Subtle borders, dividers, ghost button outlines — low-contrast structural edges" },
+    "smoke": { "$value": "#383b3f", "$type": "color", "$description": "Smoke — Hairline borders at higher contrast than graphite — section separators" },
+    "ash": { "$value": "#62666d", "$type": "color", "$description": "Ash — Muted body text, inactive icons, secondary metadata" },
+    "fog": { "$value": "#8a8f98", "$type": "color", "$description": "Fog — Tertiary text, placeholder copy, icon fills" },
+    "mist": { "$value": "#d0d6e0", "$type": "color", "$description": "Mist — Secondary headings, button text on dark surfaces" },
+    "bone": { "$value": "#e5e5e6", "$type": "color", "$description": "Bone — Near-white surface fills, high-contrast button text" },
+    "paper": { "$value": "#ffffff", "$type": "color", "$description": "Paper — Primary headings, hero type, max-contrast emphasis text" },
+    "acid-lime": { "$value": "#e4f222", "$type": "color", "$description": "Acid Lime — Primary action buttons, active nav indicators — electric accent that breaks the monochrome system" },
+    "pulse-green": { "$value": "#27a644", "$type": "color", "$description": "Pulse Green — Green outline accent for tags, dividers, and focused UI edges. Use as a supporting accent, not as a status color" },
+    "coral-red": { "$value": "#eb5757", "$type": "color", "$description": "Coral Red — Red wash for highlight backgrounds, decorative bands, and soft emphasis behind content. Use as a supporting accent, not as a status color" },
+    "signal-teal": { "$value": "#02b8cc", "$type": "color", "$description": "Signal Teal — Decorative accent, informational icon fills" },
+    "iris-violet": { "$value": "#6366f1", "$type": "color", "$description": "Iris Violet — Tag/badge fills — soft chromatic punctuation on tags and labels" },
+    "lavender": { "$value": "#8b5cf6", "$type": "color", "$description": "Lavender — Secondary tag fills, category indicators" }
+  },
+  "font": {
+    "inter-variable": { "$value": "Inter Variable", "$type": "fontFamily", "$description": "Primary UI and heading typeface — used across nav, body, headings, buttons, cards" },
+    "berkeley-mono": { "$value": "Berkeley Mono", "$type": "fontFamily", "$description": "Code-adjacent UI text — issue IDs (ENG-2703), keyboard shortcuts, monospaced metadata" }
+  },
+  "$extensions": {
+    "com.refero.extraction": {
+      "url": "https://linear.app",
+      "siteName": "Linear",
+      "extractedAt": "2026-07-03T02:44:11.708Z",
+      "variant": "compact"
+    }
+  }
+}
+```
+
+---
+
+## Where this actually lives in the codebase
+
+This document is the **source reference** the reskin (`prompts/2026-09-11-linear-theme-reskin.md`) was built from. The token *values* are implemented in `tailwind.config.js` (`theme.extend.colors/fontFamily/fontSize/boxShadow`) — that's the operational source of truth for what a class name resolves to. `AGENTS.md`'s "Tailwind CSS & Design System" section is the day-to-day quick-reference (condensed, with portfolio-specific usage notes and established component patterns this project has actually built). Read `AGENTS.md` first for "how do I build X here"; come back to this file for "what was the original brief" or "why does the token/value look like this."
