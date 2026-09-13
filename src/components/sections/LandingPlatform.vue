@@ -15,16 +15,16 @@
         <p class="hero-in [transition-delay:160ms] text-body-sm text-fog max-w-2xl mb-8" :class="{ 'is-visible': heroVisible }">
           I am a Software Engineer, Fullstack Developer, Mobile Apps Developer, Creative Graphic Designer, UI/UX Designer, Video Editor, and Photographer. My passion lies in creating impactful digital experiences across various platforms, combining technical expertise and creativity. Whether it’s building scalable web solutions, designing intuitive mobile apps, or crafting stunning visuals, I bring a comprehensive approach to every project. Let's collaborate and bring your ideas to life!
         </p>
-        <div class="hero-in [transition-delay:240ms] flex flex-wrap items-center gap-4" :class="{ 'is-visible': heroVisible }">
+        <div class="hero-in [transition-delay:240ms] flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4" :class="{ 'is-visible': heroVisible }">
           <button
             v-flashlight
-            class="px-6 py-3 bg-acid-lime text-void font-[510] text-body-sm rounded-md hover:brightness-95 transition"
+            class="w-full px-6 py-3 bg-acid-lime text-void font-[510] text-body-sm rounded-md hover:brightness-95 transition sm:w-auto"
             @click="scrollToSection('experience')"
           >
             My Resume
           </button>
           <button
-            class="px-6 py-3 border border-graphite text-mist font-[510] text-body-sm rounded-md hover:border-smoke transition-colors duration-150"
+            class="w-full px-6 py-3 border border-graphite text-mist font-[510] text-body-sm rounded-md hover:border-smoke transition-colors duration-150 sm:w-auto"
             @click="scrollToSection('contact')"
           >
             Get in Touch
