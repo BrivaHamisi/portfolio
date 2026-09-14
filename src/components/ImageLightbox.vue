@@ -32,7 +32,9 @@
               <img
                 :src="images[currentIndex]"
                 :alt="`${title} — image ${currentIndex + 1} of ${images.length}`"
-                class="w-full max-h-[65vh] object-contain rounded-lg bg-void"
+                :width="currentSize?.[0] || undefined"
+                :height="currentSize?.[1] || undefined"
+                class="w-full max-h-[65vh] object-contain rounded-xl bg-void"
               />
               <button
                 v-if="images.length > 1"
@@ -105,8 +107,9 @@
 </template>
 
 <script setup>
-import { ref, watch, nextTick, onBeforeUnmount } from 'vue'
+import { ref, computed, watch, nextTick, onBeforeUnmount } from 'vue'
 import { ArrowDownTrayIcon, ShareIcon } from '@heroicons/vue/24/outline'
+import { workImageSizes } from '@/data/work'
 
 const props = defineProps({
   show: { type: Boolean, default: false },
@@ -121,6 +124,8 @@ const closeButton = ref(null)
 const shareStatus = ref('')
 let lastFocusedElement = null
 let shareStatusTimer = null
+
+const currentSize = computed(() => workImageSizes[props.images[props.currentIndex]] || null)
 
 const goTo = (idx) => {
   const total = props.images.length
