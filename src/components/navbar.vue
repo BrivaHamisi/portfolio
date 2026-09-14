@@ -20,15 +20,15 @@
             </a>
           </div>
           <a href="/#contact" @click="navigateTo({ route: '/#contact' }, $event)"
-             class="ml-6 bg-paper text-void rounded-full px-4 py-2 text-caption font-[510] hover:brightness-95 transition">
+             class="ml-6 min-h-11 inline-flex items-center bg-paper text-void rounded-full px-4 py-2 text-caption font-[510] hover:brightness-95 transition">
             Let's Talk
           </a>
         </div>
 
         <!-- Mobile menu button -->
         <div class="md:hidden">
-          <button @click="isOpen = !isOpen" type="button" class="bg-transparent inline-flex items-center justify-center p-3 rounded-md text-fog hover:text-paper transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-void focus:ring-acid-lime">
-            <span class="sr-only">Open main menu</span>
+          <button @click="isOpen = !isOpen" type="button" aria-controls="mobile-menu" :aria-expanded="isOpen" class="bg-transparent inline-flex items-center justify-center p-3 rounded-md text-fog hover:text-paper transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-void focus:ring-acid-lime">
+            <span class="sr-only">{{ isOpen ? 'Close main menu' : 'Open main menu' }}</span>
             <!-- Icon when menu is closed -->
             <svg v-if="!isOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -44,18 +44,18 @@
 
     <!-- Mobile Menu -->
     <Transition name="mobile-menu">
-      <div v-show="isOpen" class="md:hidden border-t border-graphite">
+      <div v-show="isOpen" id="mobile-menu" class="md:hidden border-t border-graphite">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a v-for="item in menuItems" :key="item.name"
              :href="item.route"
              @click="navigateTo(item, $event)"
-             class="text-mist hover:text-paper block px-3 py-2 rounded-md text-body-sm transition-colors duration-150"
+             class="text-mist hover:text-paper flex items-center min-h-11 px-3 py-2 rounded-md text-body-sm transition-colors duration-150"
              :class="{ 'text-acid-lime': item.ref === activeSection }"
           >
             {{ item.name }}
           </a>
           <a href="/#contact" @click="navigateTo({ route: '/#contact' }, $event)"
-             class="block bg-paper text-void rounded-full px-4 py-2 text-center text-caption font-[510] mt-2">
+             class="flex items-center justify-center min-h-11 bg-paper text-void rounded-full px-4 py-2 text-center text-caption font-[510] mt-2">
             Let's Talk
           </a>
         </div>
