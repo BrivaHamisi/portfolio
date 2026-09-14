@@ -42,7 +42,7 @@ const testimonials = ref([
   {
     name: 'Wachira Maina',
     title: 'Sales & Marketing Consultant',
-    avatar: '/images/testimonials/wachira_maina.jpg',
+    avatar: '/images/testimonials/wachira_maina.webp',
     comment: "I highly recommend Hamisi Briva for his exceptional skills as a graphic designer. Hamisi's work consistently demonstrates creativity, attention to detail, and a thorough understanding of design principles. He brings fresh, innovative ideas to every project and skillfully translates concepts into visually compelling designs. His professionalism, timely delivery, and adaptability make him a pleasure to work with, and his designs have had a positive impact on our brand. Hamisi’s expertise and dedication to quality make him a valuable asset to any team."
   }
 ])
