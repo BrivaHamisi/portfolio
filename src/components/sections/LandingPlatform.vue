@@ -31,9 +31,9 @@
           </button>
         </div>
       </div>
-      <div class="hero-in [transition-delay:80ms] hidden lg:flex w-1/2 justify-center relative" :class="{ 'is-visible': heroVisible }">
+      <div v-if="showHeroImage" class="hero-in [transition-delay:80ms] hidden lg:flex w-1/2 justify-center relative" :class="{ 'is-visible': heroVisible }">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(208,214,224,0.08),_transparent_65%)] pointer-events-none"></div>
-        <img src="/images/brand/Banner_Image.png" alt="Briva Hamisi" fetchpriority="high" class="relative w-full h-auto object-contain" />
+        <img src="/images/brand/Banner_Image.webp" alt="Briva Hamisi" width="400" height="500" fetchpriority="high" class="relative w-full h-auto object-contain" />
       </div>
     </div>
   </div>
@@ -48,6 +48,8 @@ export default {
   setup() {
     const typewriter = ref(null);
     const heroVisible = ref(false);
+    const showHeroImage = ref(false);
+    const prefersReducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     const heroHeadline = ref(null);
     const heroBeam = ref(null);
 
@@ -59,19 +61,20 @@ export default {
         const sectionPosition = sectionElement.getBoundingClientRect().top + window.pageYOffset - marginTop;
         window.scrollTo({
           top: sectionPosition,
-          behavior: 'smooth',
+          behavior: prefersReducedMotion() ? 'auto' : 'smooth',
         });
       }
     };
 
     onMounted(() => {
-      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      showHeroImage.value = window.matchMedia('(min-width: 1024px)').matches;
+      const reducedMotion = prefersReducedMotion();
 
       // Set the headline's hidden state synchronously, before the browser's
       // first paint, so there's no flash of fully-visible text before the
       // sweep begins (same reasoning as the double-rAF trick below).
       if (heroHeadline.value) {
-        if (prefersReducedMotion) {
+        if (reducedMotion) {
           heroHeadline.value.style.clipPath = 'inset(0 0% 0 0)';
           if (heroBeam.value) heroBeam.value.style.display = 'none';
         } else {
@@ -79,7 +82,7 @@ export default {
         }
       }
 
-      if (prefersReducedMotion) {
+      if (reducedMotion) {
         // An indefinitely looping typewriter is exactly what reduced-motion
         // is meant to suppress — show one representative role as static text.
         if (typewriter.value) {
@@ -100,7 +103,7 @@ export default {
         requestAnimationFrame(() => {
           heroVisible.value = true;
 
-          if (!prefersReducedMotion && heroHeadline.value && heroBeam.value) {
+          if (!reducedMotion && heroHeadline.value && heroBeam.value) {
             const easing = 'cubic-bezier(0.16, 1, 0.3, 1)';
             const duration = 750;
             heroHeadline.value.animate(
@@ -123,6 +126,7 @@ export default {
     return {
       typewriter,
       heroVisible,
+      showHeroImage,
       heroHeadline,
       heroBeam,
       scrollToSection,
