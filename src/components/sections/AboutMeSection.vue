@@ -45,7 +45,7 @@
           <button
             @click="toggleSkills"
             :aria-expanded="showAllSkills"
-            class="mt-6 px-3 py-2 border border-graphite text-mist text-caption rounded-md hover:border-smoke transition duration-300"
+            class="mt-6 min-h-11 px-3 py-2 border border-graphite text-mist text-caption rounded-md hover:border-smoke transition duration-300"
           >
             {{ showAllSkills ? 'Show Less' : 'Load More' }}
           </button>
