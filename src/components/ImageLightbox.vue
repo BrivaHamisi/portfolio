@@ -10,7 +10,6 @@
                role="dialog"
                aria-modal="true"
                aria-labelledby="lightbox-title"
-               @keydown.tab="trapFocus"
                @keydown.left="prev"
                @keydown.right="next">
             <h2 id="lightbox-title" class="sr-only">{{ title }} — image {{ currentIndex + 1 }} of {{ images.length }}</h2>
