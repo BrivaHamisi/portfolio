@@ -55,7 +55,7 @@ export const designProjects = [
 // work), sourced online at the user's request so this tab isn't empty while a
 // real photo set is prepared. The `demo: true` flag drives a visible "Demo
 // placeholder" badge in PhotographyView.vue. Replace this entry (and delete
-// public/images/photography/demo-*.jpg) with real photography when available.
+// public/images/photography/demo-*.webp) with real photography when available.
 export const photographyProjects = [
   {
     id: 'landscape-demo',
