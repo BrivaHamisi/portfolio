@@ -103,3 +103,19 @@ export const uiuxProject = {
   role: 'Sole UI/UX designer — research-informed layout, interaction design, and prototyping in Figma.',
   outcome: 'Delivered a cohesive design system and prototypes used to guide development across both products.',
 }
+
+export const workImageSizes = {
+  '/images/designs/mockup_1.webp': [1920, 1147],
+  '/images/designs/mockup_2.webp': [4000, 3000],
+  '/images/designs/mockup_3.webp': [1920, 1234],
+  '/images/designs/mockup_4.webp': [1920, 1280],
+  '/images/designs/mockup_5.webp': [1920, 1600],
+  '/images/designs/mockup_6.webp': [1920, 1280],
+  '/images/designs/mockup_7.webp': [1920, 1280],
+  '/images/photography/demo-1.webp': [1200, 1500],
+  '/images/photography/demo-2.webp': [1200, 1500],
+  '/images/photography/demo-3.webp': [1200, 1500],
+  '/images/photography/demo-4.webp': [1200, 1500],
+  '/images/photography/demo-5.jpg': [1200, 1500],
+  '/images/photography/demo-6.webp': [1200, 1500],
+}
