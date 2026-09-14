@@ -12,6 +12,8 @@
       <img
         :src="image"
         :alt="alt ? `${alt} ${index + 1}` : `Image ${index + 1}`"
+        :width="sizeOf(image)?.[0] || undefined"
+        :height="sizeOf(image)?.[1] || undefined"
         loading="lazy"
         class="w-full h-auto block pointer-events-none"
       />
@@ -20,9 +22,13 @@
 </template>
 
 <script setup>
+import { workImageSizes } from '@/data/work'
+
 defineProps({
   items: { type: Array, default: () => [] },
   alt: { type: String, default: '' },
 })
 defineEmits(['select'])
+
+const sizeOf = (item) => workImageSizes[item] || null
 </script>
