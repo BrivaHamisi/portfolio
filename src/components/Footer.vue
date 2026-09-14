@@ -17,12 +17,13 @@
             :key="index"
             :href="link.href"
             :aria-label="link.name"
-            class="text-fog hover:text-paper transition-colors duration-300"
+            class="inline-flex min-h-11 min-w-11 items-center justify-center text-fog hover:text-paper transition-colors duration-300"
           >
             <svg 
               class="w-6 h-6 fill-current" 
               viewBox="0 0 24 24" 
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path :d="link.path" />
             </svg>
