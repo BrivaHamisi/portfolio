@@ -132,8 +132,10 @@ const goBackToPortfolio = () => {
   router.push('/').then(() => {
     const el = document.getElementById('latestWork')
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
+      el.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
     }
   })
 }
+
+const prefersReducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 </script>
