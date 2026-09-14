@@ -71,6 +71,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const isOpen = ref(false)
 const activeSection = ref('home')
+const prefersReducedMotion = () => window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 // Menu items
 const menuItems = ref([
@@ -95,14 +96,14 @@ const navigateTo = (item, event) => {
     if (router.currentRoute.value.path === path || (path === '/' && router.currentRoute.value.path === '/')) {
       const element = document.getElementById(hash)
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
+        element.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
       }
     } else {
       // Navigate to the route and then scroll to the section
       router.push(item.route).then(() => {
         const element = document.getElementById(hash)
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
+          element.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
         }
       })
     }
