@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-void text-mist font-sans">
     <ScrollProgress />
     <navbar />
-    <main class="pt-32">
+    <main class="pt-16">
       <router-view></router-view>
     </main>
     <Analytics />
