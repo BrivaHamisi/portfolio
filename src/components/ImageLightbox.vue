@@ -159,21 +159,33 @@ const shareImage = async () => {
 const handleKeydown = (event) => {
   if (event.key === 'Escape') {
     emit('close')
+    return
+  }
+  if (event.key === 'Tab') {
+    trapFocus(event)
   }
 }
 
 const trapFocus = (event) => {
-  if (!panelEl.value) return
-  const focusable = panelEl.value.querySelectorAll(
-    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-  )
+  const panel = panelEl.value
+  if (!panel) return
+  const focusable = Array.from(panel.querySelectorAll(
+    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"]), video[controls]'
+  )).filter((el) => el.offsetParent !== null)
   if (focusable.length === 0) return
   const first = focusable[0]
   const last = focusable[focusable.length - 1]
-  if (event.shiftKey && document.activeElement === first) {
+  const active = document.activeElement
+
+  if (!panel.contains(active)) {
+    event.preventDefault()
+    ;(event.shiftKey ? last : first).focus()
+    return
+  }
+  if (event.shiftKey && active === first) {
     event.preventDefault()
     last.focus()
-  } else if (!event.shiftKey && document.activeElement === last) {
+  } else if (!event.shiftKey && active === last) {
     event.preventDefault()
     first.focus()
   }
