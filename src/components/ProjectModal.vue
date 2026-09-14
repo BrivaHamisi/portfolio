@@ -9,8 +9,7 @@
                class="bg-carbon border border-graphite w-full max-w-4xl lg:max-w-6xl xl:max-w-7xl rounded-xl overflow-hidden flex flex-col relative"
                role="dialog"
                aria-modal="true"
-               aria-labelledby="project-modal-title"
-               @keydown.tab="trapFocus">
+               aria-labelledby="project-modal-title">
             <!-- Close button -->
             <button
               ref="closeButton"
@@ -162,22 +161,33 @@ const shouldLoadImage = (index) => {
 const handleKeydown = (event) => {
   if (event.key === 'Escape') {
     emit('close')
+    return
+  }
+  if (event.key === 'Tab') {
+    trapFocus(event)
   }
 }
 
 const trapFocus = (event) => {
-  if (!modalPanel.value) return
-  const focusable = modalPanel.value.querySelectorAll(
-    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-  )
+  const panel = modalPanel.value
+  if (!panel) return
+  const focusable = Array.from(panel.querySelectorAll(
+    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"]), video[controls]'
+  )).filter((el) => el.offsetParent !== null)
   if (focusable.length === 0) return
   const first = focusable[0]
   const last = focusable[focusable.length - 1]
+  const active = document.activeElement
 
-  if (event.shiftKey && document.activeElement === first) {
+  if (!panel.contains(active)) {
+    event.preventDefault()
+    ;(event.shiftKey ? last : first).focus()
+    return
+  }
+  if (event.shiftKey && active === first) {
     event.preventDefault()
     last.focus()
-  } else if (!event.shiftKey && document.activeElement === last) {
+  } else if (!event.shiftKey && active === last) {
     event.preventDefault()
     first.focus()
   }
