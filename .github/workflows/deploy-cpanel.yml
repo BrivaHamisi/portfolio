@@ -1,0 +1,96 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cpanel-production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build and deploy portfolio
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Configure SSH
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_PORT: ${{ secrets.CPANEL_PORT }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_SSH_KEY: ${{ secrets.CPANEL_SSH_KEY }}
+          CPANEL_REMOTE_PATH: ${{ secrets.CPANEL_REMOTE_PATH }}
+        run: |
+          set -eu
+
+          : "${CPANEL_HOST:?Missing GitHub secret CPANEL_HOST}"
+          : "${CPANEL_PORT:?Missing GitHub secret CPANEL_PORT}"
+          : "${CPANEL_USER:?Missing GitHub secret CPANEL_USER}"
+          : "${CPANEL_SSH_KEY:?Missing GitHub secret CPANEL_SSH_KEY}"
+          : "${CPANEL_REMOTE_PATH:?Missing GitHub secret CPANEL_REMOTE_PATH}"
+
+          case "$CPANEL_PORT" in
+            *[!0-9]*|'') echo "CPANEL_PORT must be a numeric port" >&2; exit 1 ;;
+          esac
+          case "$CPANEL_REMOTE_PATH" in
+            /*) ;;
+            *) echo "CPANEL_REMOTE_PATH must be an absolute path" >&2; exit 1 ;;
+          esac
+
+          install -m 700 -d "$HOME/.ssh"
+          printf '%s\n' "$CPANEL_SSH_KEY" > "$HOME/.ssh/cpanel_deploy_key"
+          chmod 600 "$HOME/.ssh/cpanel_deploy_key"
+
+          # This ED25519 host key was checked against the fingerprint shown
+          # when the cPanel SSH connection was first opened.
+          printf '%s\n' '[briva.co.ke]:1980 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAPzqd63LQYEk9Oyz4o2SFGMG+F75tgSGnJrs24EZjDq' > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
+
+          cat > "$HOME/.ssh/config" <<EOF
+          Host cpanel-production
+            HostName ${CPANEL_HOST}
+            Port ${CPANEL_PORT}
+            User ${CPANEL_USER}
+            IdentityFile ~/.ssh/cpanel_deploy_key
+            IdentitiesOnly yes
+            BatchMode yes
+            StrictHostKeyChecking yes
+            UserKnownHostsFile ~/.ssh/known_hosts
+          EOF
+          chmod 600 "$HOME/.ssh/config"
+
+          ssh-keygen -y -f "$HOME/.ssh/cpanel_deploy_key" > /dev/null
+
+      - name: Upload production files
+        env:
+          CPANEL_REMOTE_PATH: ${{ secrets.CPANEL_REMOTE_PATH }}
+        run: |
+          set -eu
+          case "$CPANEL_REMOTE_PATH" in
+            /*) ;;
+            *) echo "CPANEL_REMOTE_PATH must be an absolute path" >&2; exit 1 ;;
+          esac
+          case "$CPANEL_REMOTE_PATH" in
+            *[!a-zA-Z0-9_./-]*) echo "CPANEL_REMOTE_PATH contains unsupported characters" >&2; exit 1 ;;
+          esac
+
+          tar -C dist -czf - . | ssh -F "$HOME/.ssh/config" cpanel-production "mkdir -p '$CPANEL_REMOTE_PATH' && tar -xzf - -C '$CPANEL_REMOTE_PATH'"
