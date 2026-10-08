@@ -76,7 +76,9 @@ jobs:
 
           # This ED25519 host key was checked against the fingerprint shown
           # when the cPanel SSH connection was first opened.
-          printf '%s\n' '[briva.co.ke]:1980 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAPzqd63LQYEk9Oyz4o2SFGMG+F75tgSGnJrs24EZjDq' > "$HOME/.ssh/known_hosts"
+          # It is keyed by the origin IP because briva.co.ke is behind the
+          # Cloudflare proxy, which does not forward SSH.
+          printf '%s\n' '[64.204.254.66]:1980 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAPzqd63LQYEk9Oyz4o2SFGMG+F75tgSGnJrs24EZjDq' > "$HOME/.ssh/known_hosts"
           chmod 600 "$HOME/.ssh/known_hosts"
 
           cat > "$HOME/.ssh/config" <<EOF
