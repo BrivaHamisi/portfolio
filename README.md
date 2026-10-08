@@ -1,6 +1,6 @@
 # Briva Hamisi — Portfolio
 
-Personal portfolio for Briva Hamisi — Software Engineer, Full-Stack Developer, and Creative Designer (graphic design, UI/UX, video editing, photography). Live at **[brivahamisi.tech](https://brivahamisi.tech/)**.
+Personal portfolio for Briva Hamisi — Software Engineer, Full-Stack Developer, and Creative Designer (graphic design, UI/UX, video editing, photography). Live at **[hamisi.briva.co.ke](https://hamisi.briva.co.ke/)**.
 
 A single-page marketing site (hero, about, skills, experience, work showcase, testimonials, contact) plus a few dedicated pages for browsing the full body of work in each discipline.
 
