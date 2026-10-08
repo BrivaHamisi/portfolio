@@ -14,27 +14,44 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    meta: {}
   },
   {
     path: '/work/development',
     name: 'development',
-    component: DevelopmentView
+    component: DevelopmentView,
+    meta: {
+      title: 'Development',
+      description: 'Software projects by Briva Hamisi: web, mobile and full-stack applications, with code on GitHub.'
+    }
   },
   {
     path: '/work/designs',
     name: 'designs',
-    component: DesignsView
+    component: DesignsView,
+    meta: {
+      title: 'Graphic Design',
+      description: 'Graphic design work by Briva Hamisi, including logo and brand identity projects.'
+    }
   },
   {
     path: '/work/photography',
     name: 'photography',
-    component: PhotographyView
+    component: PhotographyView,
+    meta: {
+      title: 'Photography',
+      description: 'Photography projects by Briva Hamisi.'
+    }
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: NotFoundView
+    component: NotFoundView,
+    meta: {
+      title: 'Page not found',
+      noindex: true
+    }
   },
 ]
 
@@ -52,6 +69,23 @@ const router = createRouter({
     }
     return { top: 0 }
   }
+})
+
+// Per-route <title>, description and canonical. Search engines render JS, so
+// this helps /work/* show up as their own results; social scrapers don't, so
+// shared links always use the static homepage card in public/index.html.
+const SITE_URL = 'https://hamisi.briva.co.ke'
+const DEFAULT_TITLE = 'Briva Hamisi | Software Engineer & Creative Designer'
+const DEFAULT_DESCRIPTION = document.querySelector('meta[name="description"]')?.content ?? ''
+
+router.afterEach((to) => {
+  document.title = to.meta.title ? `${to.meta.title} | Briva Hamisi` : DEFAULT_TITLE
+  document.querySelector('meta[name="description"]')
+    ?.setAttribute('content', to.meta.description ?? DEFAULT_DESCRIPTION)
+  document.querySelector('link[rel="canonical"]')
+    ?.setAttribute('href', SITE_URL + to.path)
+  document.querySelector('meta[name="robots"]')
+    ?.setAttribute('content', to.meta.noindex ? 'noindex' : 'index, follow, max-image-preview:large')
 })
 
 export default router
