@@ -5,38 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <!-- Favicon / app icons -->
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    
-    <!-- Primary Meta Tags -->
-    <title>Briva Hamisi's Portfolio - Web Developer & Designer</title>
-    <meta name="title" content="Briva Hamisi - Software Developer, Creative Designer & Communications Officer">
-    <meta name="description" content="Briva Hamisi's Portfolio - Showcasing innovative web development projects, creative designs, and software engineering expertise">
-    <meta name="keywords" content="Briva Hamisi, portfolio, web development, UI/UX design, software engineer, full-stack developer, creative developer">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Primary Meta Tags (title/description/canonical are updated per route in src/router/index.js) -->
+    <title>Briva Hamisi | Software Engineer &amp; Creative Designer</title>
+    <meta name="description" content="Portfolio of Briva Hamisi, a software engineer and full-stack developer who also works as a creative designer. Web and mobile projects, graphic design and photography.">
     <meta name="author" content="Briva Hamisi">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://hamisi.briva.co.ke/">
+
+    <!-- Open Graph Meta Tags (scrapers don't run JS, so every shared URL gets this homepage card) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://brivahamisi.tech/">
-    <meta property="og:title" content="Briva Hamisi - Software Developer, Creative Designer & Communications Officer">
-    <meta property="og:description" content="Welcome to my professional portfolio showcasing innovative web development projects and creative designs">
-    <meta property="og:image" content="https://brivahamisi.tech/images/brand/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Briva Hamisi">
+    <meta property="og:url" content="https://hamisi.briva.co.ke/">
+    <meta property="og:title" content="Briva Hamisi | Software Engineer &amp; Creative Designer">
+    <meta property="og:description" content="Portfolio of Briva Hamisi, a software engineer and full-stack developer who also works as a creative designer. Web and mobile projects, graphic design and photography.">
+    <meta property="og:image" content="https://hamisi.briva.co.ke/images/brand/og-image.jpg">
+    <meta property="og:image:secure_url" content="https://hamisi.briva.co.ke/images/brand/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Briva Hamisi Portfolio Banner">
-    <meta property="og:site_name" content="Briva Hamisi Portfolio">
+    <meta property="og:image:alt" content="Portrait of Briva Hamisi in a navy suit and glasses">
 
-    <!-- Twitter Card Meta Tags -->
+    <!-- Twitter / X Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Briva Hamisi - Software Developer, Creative Designer & Communications Officer">
-    <meta name="twitter:description" content="Welcome to my professional portfolio showcasing innovative web development projects and creative designs">
-    <meta name="twitter:image" content="https://brivahamisi.tech/images/brand/og-image.jpg">
-    <meta name="twitter:image:alt" content="Briva Hamisi Portfolio Banner">
-    
+    <meta name="twitter:site" content="@hamisi_briva">
+    <meta name="twitter:creator" content="@hamisi_briva">
+    <meta name="twitter:title" content="Briva Hamisi | Software Engineer &amp; Creative Designer">
+    <meta name="twitter:description" content="Portfolio of Briva Hamisi, a software engineer and full-stack developer who also works as a creative designer. Web and mobile projects, graphic design and photography.">
+    <meta name="twitter:image" content="https://hamisi.briva.co.ke/images/brand/og-image.jpg">
+    <meta name="twitter:image:alt" content="Portrait of Briva Hamisi in a navy suit and glasses">
+
+    <!-- Structured data: non-executable, so the script-src 'self' CSP doesn't block it -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://hamisi.briva.co.ke/#person",
+            "name": "Briva Hamisi",
+            "url": "https://hamisi.briva.co.ke/",
+            "image": "https://hamisi.briva.co.ke/images/brand/og-image.jpg",
+            "jobTitle": "Software Engineer",
+            "description": "Software engineer, full-stack developer and creative designer.",
+            "sameAs": [
+              "https://github.com/BrivaHamisi",
+              "https://www.linkedin.com/in/briva-hamisi/",
+              "https://x.com/hamisi_briva",
+              "https://www.instagram.com/brivahamisi/",
+              "https://www.behance.net/brivahamisi",
+              "https://dribbble.com/_HamisiBriva",
+              "https://www.pinterest.com/brivahamisi/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://hamisi.briva.co.ke/#website",
+            "name": "Briva Hamisi",
+            "url": "https://hamisi.briva.co.ke/",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://hamisi.briva.co.ke/#person" }
+          }
+        ]
+      }
+    </script>
+
     <!-- Theme Color -->
     <meta name="theme-color" content="#08090a">
     
@@ -47,7 +88,12 @@
   </head>
   <body>
     <noscript>
-      <strong>This portfolio site doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <h1>Briva Hamisi | Software Engineer &amp; Creative Designer</h1>
+      <p>Portfolio of Briva Hamisi, a software engineer and full-stack developer who also works as a creative designer. This site needs JavaScript to show its projects. You can also find my work on
+        <a href="https://github.com/BrivaHamisi">GitHub</a>,
+        <a href="https://www.linkedin.com/in/briva-hamisi/">LinkedIn</a>,
+        <a href="https://www.behance.net/brivahamisi">Behance</a> and
+        <a href="https://dribbble.com/_HamisiBriva">Dribbble</a>.</p>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
