@@ -75,7 +75,7 @@ const router = createRouter({
 // this helps /work/* show up as their own results; social scrapers don't, so
 // shared links always use the static homepage card in public/index.html.
 const SITE_URL = 'https://hamisi.briva.co.ke'
-const DEFAULT_TITLE = 'Briva Hamisi | Software Engineer & Creative Designer'
+const DEFAULT_TITLE = 'Briva Hamisi | Software Engineer, Creative Designer and Photographer'
 const DEFAULT_DESCRIPTION = document.querySelector('meta[name="description"]')?.content ?? ''
 
 router.afterEach((to) => {
